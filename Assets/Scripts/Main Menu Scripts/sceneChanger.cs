@@ -12,10 +12,11 @@ public class sceneChanger : MonoBehaviour
     //GAME OBJECT
     public GameObject fadeINTransition; //Reference the FADE IN Game Object
     public GameObject fadeOUTTransition; //Reference the FADE OUT Game Object
-    public GameObject fadeINandOUTTransition; //Reference the FADE IN AND OUT Game Object
+    public GameObject fadeINAndOUTTransition; //Reference the FADE IN AND OUT Game Object
 
     [Header("GAME OBJECT")]
     public GameObject HomeUI; //Reference the HOME UI SCREEN Game Object
+    public GameObject ScreenUI; //Reference the SCREEN UI SCREEN Game Object
 
 #endregion
 
@@ -35,16 +36,19 @@ public class sceneChanger : MonoBehaviour
     //SCENE START TO MAIN MENU
     public void startBtn()
     {
-        fadeOUTTransition.SetActive(false);
-        StartCoroutine(startScreen(1));
+        fadeINAndOUTTransition.SetActive(true);
+        StartCoroutine(startScreen(2));
 
     }
 
     IEnumerator startScreen(float duration)
     {
-        fadeOUTTransition.SetActive(true);
+
+        fadeOUTTransition.SetActive(false);
 
         yield return new WaitForSeconds(duration);
+
+        ScreenUI.SetActive(false);
 
         HomeUI.SetActive(true);
     }
