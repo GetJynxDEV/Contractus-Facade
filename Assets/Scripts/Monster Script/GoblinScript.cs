@@ -22,7 +22,7 @@ public class GoblinScript : MonoBehaviour
 
     public void goblinTurn()
     {
-
+        
     }
 
     #endregion
