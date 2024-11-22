@@ -33,20 +33,38 @@ public class sceneChanger : MonoBehaviour
         SceneManager.LoadSceneAsync("Main Menu");
     }
 
-    //SCENE START TO MAIN MENU
+    //SCENE QUIT APPLICATION
+    public void quitGame()
+    {
+        Application.Quit();
+    }
+
+    //SCENE START UI TO HOME UI
     public void startBtn()
     {
-        fadeINAndOUTTransition.SetActive(true);
+        
         StartCoroutine(startScreen(2));
 
     }
 
-    IEnumerator startScreen(float duration)
+    //SCENE HOME UI TO GAME
+    public void playBtn()
+    {
+        fadeINTransition.SetActive(true);
+        Invoke("gameScene", 2);
+    }
+
+#endregion
+
+#region Transition Anim
+    IEnumerator startScreen(float duration) //This is for SCREEN UI to HOME UI
     {
 
-        fadeOUTTransition.SetActive(false);
+        fadeINAndOUTTransition.SetActive(true);
 
         yield return new WaitForSeconds(duration);
+
+        fadeINAndOUTTransition.SetActive(false);
 
         ScreenUI.SetActive(false);
 
