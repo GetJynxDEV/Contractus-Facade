@@ -9,9 +9,9 @@ public class monsterTrigger : MonoBehaviour
 #region Fields and Properties
 
     //GAME OBJECT
-    [SerializeField] public GameObject GoblinFight;
+
     //SCRIPT
-    playerMovement plyMS;
+
 
 #endregion
 
@@ -29,11 +29,13 @@ public class monsterTrigger : MonoBehaviour
 
         if (collision.gameObject.name == "Goblin")
         {
-            Debug.Log("First Monster Hit");
+            Debug.Log("PLAYER COLLIDED WITH GOBLIN");
+
+            BattleScript.isGoblin = true;
 
             SceneManager.LoadSceneAsync("scn BATTLE");
             
-            
+
         }
     }
 
