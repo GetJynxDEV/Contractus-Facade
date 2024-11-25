@@ -31,7 +31,7 @@ public class playerCollision : MonoBehaviour
         {
             Debug.Log("PLAYER COLLIDED WITH GOBLIN");
 
-            BattleScript.isGoblin = true;
+            MonsterTrigger.isGoblin = true;
 
             SceneManager.LoadSceneAsync("scn BATTLE");
             

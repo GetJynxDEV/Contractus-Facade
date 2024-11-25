@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BattleScript : MonoBehaviour
+public class MonsterTrigger : MonoBehaviour
 {
 
 #region Fields and Properties

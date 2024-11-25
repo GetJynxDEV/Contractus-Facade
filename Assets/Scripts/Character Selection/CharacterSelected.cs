@@ -31,8 +31,6 @@ public class CharacterSelected : MonoBehaviour
     {
         Player = GameObject.Find("Player");
 
-        Debug.Log("PLAYER SELECTED " + charName);
-
         Animator PlayerAnim = Player.GetComponent<Animator>(); 
 
         switch(charName)
