@@ -5,18 +5,6 @@ using UnityEngine;
 public class playerStats : MonoBehaviour
 {
     #region Fields and Properties
-
-    //PLAYER SELECTED
-    public static bool charMage;
-    public static bool charPaladin;
-    public static bool charSwordsman;
-
-    //PLAYER OBJECT
-    public GameObject mage;
-    public GameObject paladin;
-    public GameObject swordsman;
-
-
     //PLAYER STATS
     
     float maxHP = playerHP;
@@ -29,7 +17,6 @@ public class playerStats : MonoBehaviour
     public static float playerHP;
     public static float playerMP;
     public static float playerMREG;
-    public static float playerMS;
     public static float playerHC;
     public static float playerDODGE;
     public static float playerPDEF;

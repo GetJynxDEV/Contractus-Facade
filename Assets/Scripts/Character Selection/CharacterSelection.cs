@@ -59,6 +59,7 @@ public class CharacterSelection : MonoBehaviour
     #region Character Selection
     public void selectMAGE()
     {
+        //PLAYER STATS
         playerStats.playerSTR = mageSTR;
         playerStats.playerAGI = mageAGI;
         playerStats.playerINT = mageINT;
@@ -66,17 +67,21 @@ public class CharacterSelection : MonoBehaviour
         playerStats.playerHP = mageHP;
         playerStats.playerMP = mageMP;
         playerStats.playerMREG = mageMREG;
-        playerStats.playerMREG = mageMS;
+        playerMovement.movementSpeed = mageMS;
         playerStats.playerHC = mageHC;
         playerStats.playerDODGE = mageDODGE;
         playerStats.playerPDEF = magePDEF;
         playerStats.playerMDEF = mageMDEF;
         playerStats.playerMBONUS = mageMBONUS;
         playerStats.playerPBONUS = magePBONUS;
+
+        CharacterSelected.charName = "Mage";
     }
 
     public void selectSWORDSMAN()
     {
+        //PLAYER STATS
+
         playerStats.playerSTR = swordSTR;
         playerStats.playerAGI = swordAGI;
         playerStats.playerINT = swordINT;
@@ -84,17 +89,21 @@ public class CharacterSelection : MonoBehaviour
         playerStats.playerHP = swordHP;
         playerStats.playerMP = swordMP;
         playerStats.playerMREG = swordMREG;
-        playerStats.playerMREG = swordMS;
+        playerMovement.movementSpeed = swordMS;
         playerStats.playerHC = swordHC;
         playerStats.playerDODGE = swordDODGE;
         playerStats.playerPDEF = swordPDEF;
         playerStats.playerMDEF = swordMDEF;
         playerStats.playerMBONUS = swordMBONUS;
         playerStats.playerPBONUS = swordPBONUS;
+
+        CharacterSelected.charName = "Swordsman";
     }
 
     public void selectPALADIN()
     {
+        //PLAYER STATS
+
         playerStats.playerSTR = paladinSTR;
         playerStats.playerAGI = paladinAGI;
         playerStats.playerINT = paladinINT;
@@ -102,13 +111,15 @@ public class CharacterSelection : MonoBehaviour
         playerStats.playerHP = paladinHP;
         playerStats.playerMP = paladinMP;
         playerStats.playerMREG = paladinMREG;
-        playerStats.playerMREG = paladinMS;
+        playerMovement.movementSpeed = paladinMS;
         playerStats.playerHC = paladinHC;
         playerStats.playerDODGE = paladinDODGE;
         playerStats.playerPDEF = paladinPDEF;
         playerStats.playerMDEF = paladinMDEF;
         playerStats.playerMBONUS = paladinMBONUS;
         playerStats.playerPBONUS = paladinPBONUS;
+
+        CharacterSelected.charName = "Paladin";
     }
 
     #endregion

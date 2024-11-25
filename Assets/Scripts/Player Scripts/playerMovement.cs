@@ -10,18 +10,25 @@ public class playerMovement : MonoBehaviour
 
     [Header("Player Movements")]
     //PLAYER MOVEMENT
-    [SerializeField] public float movementSpeed = 5f;
+    [SerializeField] public static float movementSpeed = 5;
 
-    //PLAYER RIGID BODY
-    [SerializeField] public Rigidbody2D rb;
+    
+    Rigidbody2D rb; //PLAYER RIGID BODY
 
-    //PLAYER ANIMATOR
-    [SerializeField] public Animator animator;
+    Animator animator; //PLAYER ANIMATOR
 
 
     #endregion
 
     #region Start Updated Method
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+
+        Debug.Log(movementSpeed);
+    }
 
     void Update()
     {
