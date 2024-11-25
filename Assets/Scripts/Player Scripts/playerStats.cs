@@ -17,7 +17,7 @@ public class playerStats : MonoBehaviour
     public void playerAttack()
     {
         //IF Statement for Goblin
-        //if (isGoblin == true)
+        
     }
 
     #endregion
