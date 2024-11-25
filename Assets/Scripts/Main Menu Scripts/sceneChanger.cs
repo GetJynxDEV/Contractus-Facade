@@ -18,6 +18,8 @@ public class sceneChanger : MonoBehaviour
     public GameObject HomeUI; //Reference the HOME UI SCREEN Game Object
     public GameObject ScreenUI; //Reference the SCREEN UI SCREEN Game Object
 
+    public GameObject charSelect; //Reference the CHARACTER SELECTION Game Object
+
 #endregion
 
 #region Methods
@@ -47,7 +49,13 @@ public class sceneChanger : MonoBehaviour
 
     }
 
-    //SCENE HOME UI TO GAME
+    //SCENE HOME TO CHARACTER SELECT
+    public void charSelBtn()
+    {
+        StartCoroutine(characterSelect(2));
+    }
+
+    //SCENE CHAR SELECT TO GAME
     public void playBtn()
     {
         fadeINTransition.SetActive(true);
@@ -57,6 +65,21 @@ public class sceneChanger : MonoBehaviour
 #endregion
 
 #region Transition Anim
+
+    IEnumerator characterSelect(float duration) //This is for SCREEN UI to HOME UI
+    {
+
+        fadeINAndOUTTransition.SetActive(true);
+
+        yield return new WaitForSeconds(duration);
+
+        fadeINAndOUTTransition.SetActive(false);
+
+        HomeUI.SetActive(false);
+
+        charSelect.SetActive(true);
+    }
+
     IEnumerator startScreen(float duration) //This is for SCREEN UI to HOME UI
     {
 

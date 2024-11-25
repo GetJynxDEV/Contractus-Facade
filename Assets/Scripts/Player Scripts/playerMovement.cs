@@ -11,21 +11,13 @@ public class playerMovement : MonoBehaviour
     [Header("Player Movements")]
     //PLAYER MOVEMENT
     [SerializeField] public float movementSpeed = 5f;
-    [SerializeField] private float playerSpeed;
 
     //PLAYER RIGID BODY
     [SerializeField] public Rigidbody2D rb;
-   
+
     //PLAYER ANIMATOR
-    //[SerializeField] public Animator anim;
+    [SerializeField] public Animator animator;
 
-   
-
-    [SerializeField] Vector2 movement;
-
-    [Header("MONSTER APPROACH")]
-
-    [SerializeField] GameObject firstMob;
 
     #endregion
 
@@ -33,35 +25,14 @@ public class playerMovement : MonoBehaviour
 
     void Update()
     {
-        playerSpeed = rb.velocity.magnitude;
+        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical") ,0.0f);
 
-        // Player Input
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        animator.SetFloat("Horizontal", movement.x);
+        animator.SetFloat("Vertical", movement.y);
+        animator.SetFloat("Magnitude", movement.magnitude);
 
-        // Player Animator
-
-        /*anim.SetBool("isWalk", true);
-
-        anim.SetFloat("InputX", movement.x);
-        anim.SetFloat("InputY", movement.y);    
-
-
-        if (movement.x == 0 || movement.y == 0)
-        {
-            anim.SetBool("isWalk", false);
-            anim.SetFloat("LastInputX", movement.x);
-            anim.SetFloat("LastInputY", movement.y);
-        } */
-
-
-    }
-
-    void FixedUpdate()
-    {
-        // Player Movements
-
-        rb.MovePosition(rb.position + movement * movementSpeed * Time.fixedDeltaTime);
+        
+        transform.position = transform.position + movement * movementSpeed * Time.deltaTime;
     }
 
     #endregion

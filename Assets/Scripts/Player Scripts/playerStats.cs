@@ -6,25 +6,37 @@ public class playerStats : MonoBehaviour
 {
     #region Fields and Properties
 
-    public static float playerHP;
-    int maxHP = 500;
-    int playerDMG;
+    //PLAYER SELECTED
+    public static bool charMage;
+    public static bool charPaladin;
+    public static bool charSwordsman;
 
-    #endregion
+    //PLAYER OBJECT
+    public GameObject mage;
+    public GameObject paladin;
+    public GameObject swordsman;
 
-    #region Player Moves 
+
+    //PLAYER STATS
     
-    public void playerAttack()
-    {
-        //IF Statement for Goblin
-        
-    }
-
-    #endregion
-
-    #region Bool
+    float maxHP = playerHP;
 
 
+    public static float playerSTR;
+    public static float playerAGI;
+    public static float playerINT;
+    public static float playerDEX;
+    public static float playerHP;
+    public static float playerMP;
+    public static float playerMREG;
+    public static float playerMS;
+    public static float playerHC;
+    public static float playerDODGE;
+    public static float playerPDEF;
+    public static float playerMDEF;
+    public static float playerPBONUS;
+    public static float playerMBONUS;
+    
 
     #endregion
 }

@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class monsterTrigger : MonoBehaviour
+public class playerCollision : MonoBehaviour
 {
 #region Fields and Properties
 

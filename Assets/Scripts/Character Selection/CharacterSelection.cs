@@ -59,7 +59,56 @@ public class CharacterSelection : MonoBehaviour
     #region Character Selection
     public void selectMAGE()
     {
-        
+        playerStats.playerSTR = mageSTR;
+        playerStats.playerAGI = mageAGI;
+        playerStats.playerINT = mageINT;
+        playerStats.playerDEX = mageDEX;
+        playerStats.playerHP = mageHP;
+        playerStats.playerMP = mageMP;
+        playerStats.playerMREG = mageMREG;
+        playerStats.playerMREG = mageMS;
+        playerStats.playerHC = mageHC;
+        playerStats.playerDODGE = mageDODGE;
+        playerStats.playerPDEF = magePDEF;
+        playerStats.playerMDEF = mageMDEF;
+        playerStats.playerMBONUS = mageMBONUS;
+        playerStats.playerPBONUS = magePBONUS;
+    }
+
+    public void selectSWORDSMAN()
+    {
+        playerStats.playerSTR = swordSTR;
+        playerStats.playerAGI = swordAGI;
+        playerStats.playerINT = swordINT;
+        playerStats.playerDEX = swordDEX;
+        playerStats.playerHP = swordHP;
+        playerStats.playerMP = swordMP;
+        playerStats.playerMREG = swordMREG;
+        playerStats.playerMREG = swordMS;
+        playerStats.playerHC = swordHC;
+        playerStats.playerDODGE = swordDODGE;
+        playerStats.playerPDEF = swordPDEF;
+        playerStats.playerMDEF = swordMDEF;
+        playerStats.playerMBONUS = swordMBONUS;
+        playerStats.playerPBONUS = swordPBONUS;
+    }
+
+    public void selectPALADIN()
+    {
+        playerStats.playerSTR = paladinSTR;
+        playerStats.playerAGI = paladinAGI;
+        playerStats.playerINT = paladinINT;
+        playerStats.playerDEX = paladinDEX;
+        playerStats.playerHP = paladinHP;
+        playerStats.playerMP = paladinMP;
+        playerStats.playerMREG = paladinMREG;
+        playerStats.playerMREG = paladinMS;
+        playerStats.playerHC = paladinHC;
+        playerStats.playerDODGE = paladinDODGE;
+        playerStats.playerPDEF = paladinPDEF;
+        playerStats.playerMDEF = paladinMDEF;
+        playerStats.playerMBONUS = paladinMBONUS;
+        playerStats.playerPBONUS = paladinPBONUS;
     }
 
     #endregion
