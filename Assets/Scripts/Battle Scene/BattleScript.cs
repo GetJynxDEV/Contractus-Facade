@@ -19,6 +19,9 @@ public class BattleScript : MonoBehaviour
     float currentHP; //Current HP
     float currentMP; //Current MP
 
+    float basicDMG; //Player Basic Damage
+    float specialAttack; //Player Special Attack
+
     string moveDesc; //Move Information
 
     bool isPlayerTurn = false;
