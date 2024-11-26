@@ -45,14 +45,14 @@ public class GoblinScript : MonoBehaviour
 
         //Basic Attack Computation
 
-        gobBasicAtk = goblinDEX + (goblinPDEF * 0.2);
-        gobRabidBite = goblinDEX + (goblinPDEF * 0.2);
+        gobBasicAtk = 25;
+        gobRabidBite = 25;
 
-        int goblinTurn = Random.Value(1, 2);
+        int goblinTurn = Random.Range(1, 2);
 
         if (goblinTurn == 1)
         {
-            BattleScript.currentHP -= gobbBasicAtk;
+            BattleScript.currentHP -= gobBasicAtk;
         }
 
         if (goblinTurn == 2)

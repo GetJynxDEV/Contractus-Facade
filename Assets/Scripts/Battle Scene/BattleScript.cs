@@ -16,11 +16,13 @@ public class BattleScript : MonoBehaviour
     string hpText; //Health Bar Text
     string mpText; //Mana Points Text
 
-    float currentHP; //Current HP
-    float currentMP; //Current MP
+    public static float currentHP; //Current HP
+    public static float currentMP; //Current MP
 
     float basicDMG; //Player Basic Damage
     float specialAttack; //Player Special Attack
+
+    public static float bleedDMG;
 
     string moveDesc; //Move Information
 
@@ -82,9 +84,9 @@ public class BattleScript : MonoBehaviour
 
     }
 
-    public void turn()
+    public void bleedEffect()
     {
-        
+
     }
 
     public void playerAttack()
