@@ -1,12 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class BattleScript : MonoBehaviour
 {
     #region Field and Properties
 
-    
+    [SerializeField] public TextMeshProUGUI hpTextValue; //Health Bar Text Value
+    [SerializeField] public TextMeshProUGUI mpTextValue; //Mana Points Text Value
+
+    [SerializeField] public string hpText; //Health Bar Text
+    [SerializeField] public string mpText; //Mana Points Text
 
     string characterName = CharacterSelected.charName;
     GameObject Player; //References the Player Game Object
@@ -41,6 +47,8 @@ public class BattleScript : MonoBehaviour
                 Player.GetComponent<SpriteRenderer>().sprite = PaladinSprite; 
                 break;
         }
+
+        hpText
     }
 
     public void playerAttack()
