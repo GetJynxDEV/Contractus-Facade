@@ -10,6 +10,8 @@ public class MonsterTrigger : MonoBehaviour
 
     //BOOL
     public static bool isGoblin = false;    
+    public static bool isCornea = false;
+    public static bool isFacade = false;
 
     //GAME OBJECT
     public GameObject GoblinFightScene;

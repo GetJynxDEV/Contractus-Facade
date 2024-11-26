@@ -11,8 +11,17 @@ public class BattleScript : MonoBehaviour
     [SerializeField] public TextMeshProUGUI hpTextValue; //Health Bar Text Value
     [SerializeField] public TextMeshProUGUI mpTextValue; //Mana Points Text Value
 
-    [SerializeField] public string hpText; //Health Bar Text
-    [SerializeField] public string mpText; //Mana Points Text
+    [SerializeField] public TextMeshProUGUI textDesc; //Reference the Player and Monster Move
+
+    string hpText; //Health Bar Text
+    string mpText; //Mana Points Text
+
+    float currentHP; //Current HP
+    float currentMP; //Current MP
+
+    string moveDesc; //Move Information
+
+    bool isPlayerTurn = false;
 
     string characterName = CharacterSelected.charName;
     GameObject Player; //References the Player Game Object
@@ -28,8 +37,15 @@ public class BattleScript : MonoBehaviour
 
     void Start()
     {
+        currentHP = playerStats.playerHP;
+        currentMP = playerStats.playerMP;
+
+        Debug.Log("Player's Current HP is " + currentHP);
+
         Player = GameObject.Find("Avatar");
 
+        //THE SWITCH CASE WILL FIND WHICH CHARACTER IS ACTIVATED
+        //THEN THE AVATAR GAME OBJECT WILL SHOW WHICH IS ACTIVATED
         switch (characterName)
         {
             case "Mage":
@@ -48,13 +64,34 @@ public class BattleScript : MonoBehaviour
                 break;
         }
 
-        hpText
+    }
+
+    void Update()
+    {
+        hpText = currentHP.ToString(); //current HP to Text
+
+        hpTextValue.text = hpText;
+
+        mpText = currentMP.ToString(); //current MP to Text
+
+        mpTextValue.text = mpText;
+
+
+    }
+
+    public void turn()
+    {
+        
     }
 
     public void playerAttack()
     {
-
+        if (MonsterTrigger.isGoblin == true)
+        {
+            
+        }
     }
+    
 
     #endregion
 }
