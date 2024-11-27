@@ -10,6 +10,7 @@ public class CharacterSelected : MonoBehaviour
     //PLAYER OBJECT
     GameObject Player;
     public static string charName;
+    public static string charClass;
 
     //PLAYER ANIM CONTROLLER
     [SerializeField] public RuntimeAnimatorController MageController;

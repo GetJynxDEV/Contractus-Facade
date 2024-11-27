@@ -12,6 +12,7 @@ public class BattleScript : MonoBehaviour
     [SerializeField] public TextMeshProUGUI hpTextValue; //Health Bar Text Value
     [SerializeField] public TextMeshProUGUI mpTextValue; //Mana Points Text Value
 
+    [SerializeField] public TextMeshProUGUI textMove; //Reference the Player and Monster Move Name
     [SerializeField] public TextMeshProUGUI textDesc; //Reference the Player and Monster Move
 
     [Header("AVATAR SPRITES")]
@@ -31,6 +32,9 @@ public class BattleScript : MonoBehaviour
     string hpText; //Health Bar Text
     string mpText; //Mana Points Text
 
+    string moveName;
+    string moveDesc;
+
     public static float currentHP; //Current HP
     public static float currentMP; //Current MP
 
@@ -38,8 +42,6 @@ public class BattleScript : MonoBehaviour
     float specialAttack; //Player Special Attack
 
     public static float bleedDMG;
-
-    string moveDesc; //Move Information
 
     bool isPlayerBleeding = false; //IF Player has Bleed Effect
     public static bool isPlayerBleedEffect = false;
@@ -60,12 +62,13 @@ public class BattleScript : MonoBehaviour
             GoblinEnemy.SetActive(true);
             CorneaEnemy.SetActive(false);
             FacadeEnemy.SetActive(false);
+
+            Debug.Log("------------------------------------\n");
         }
 
-        currentHP = playerStats.playerHP;
-        currentMP = playerStats.playerMP;
+        HealthUpdate();
 
-        Debug.Log("Player's Current HP is " + currentHP);
+        
 
         Player = GameObject.Find("Avatar");
 
@@ -108,11 +111,25 @@ public class BattleScript : MonoBehaviour
 
     public void HealthUpdate()
     {
+        currentHP = playerStats.playerHP;
+        currentMP = playerStats.playerMP;
+
+        //CHECK PLAYER HEALTH
+        Debug.Log("Player's Current HP is " + currentHP + "\n");
+
+        //CHECK ENEMY HEALTH
+        if (MonsterTrigger.isGoblin == true)
+        {
+            Debug.Log("Goblin's Current HP is " + GoblinScript.goblinHP + "\n");
+        }
+
         if (isPlayerBleeding == true)
         {
             playerStats.playerHP -= 5;
             bleedEffect();
         }
+
+
     }
 
     //------------------- MONSTER EFFECT -------------------------------
@@ -147,7 +164,9 @@ public class BattleScript : MonoBehaviour
         if (MonsterTrigger.isGoblin == true)
         {
             GoblinScript.goblinHP -= playerStats.playerBattack;
-        }
+
+            moveDesc = "You did " + playerStats.playerBattack + " To the Goblin";
+        }   
     }
 
     public void playerSpecialAttack1()

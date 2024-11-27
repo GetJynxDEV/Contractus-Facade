@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections;
 using UnityEngine;
 
 public class MonsterTrigger : MonoBehaviour
@@ -23,6 +24,7 @@ public class MonsterTrigger : MonoBehaviour
     {
         if (isGoblin == true)
         {
+            //SaveLoad.Save();
             GoblinFightPanel();
         }
     }
@@ -33,7 +35,6 @@ public class MonsterTrigger : MonoBehaviour
 #region Monster Fight Scene
     void GoblinFightPanel()
     {
-            Debug.Log("FIGHT SCENE ACTIVATED");
             GoblinFightScene.SetActive(true);
 
     }

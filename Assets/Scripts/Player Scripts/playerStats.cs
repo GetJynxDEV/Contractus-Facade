@@ -47,12 +47,13 @@ public class playerStats : MonoBehaviour
 
     public void Start ()
     {
-
+        playerClass = CharacterSelected.charName;
+        
         ComputationUpdate();
         
         
         //--------------------------- ANNOUNCEMENT ------------------------
-        playerClass = CharacterSelected.charName;
+        
 
         Debug.Log("PLAYER BASIC ATTACK: " + playerBattack + "\n");
         Debug.Log("PLAYER SPECIAL ATTACK " + playerSattackName1 + ": " + playerSattack1 + "\n");
