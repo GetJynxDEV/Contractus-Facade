@@ -29,6 +29,7 @@ public class CharacterSelected : MonoBehaviour
 
     void Start()
     {
+
         Player = GameObject.Find("Player");
 
         Animator PlayerAnim = Player.GetComponent<Animator>(); 

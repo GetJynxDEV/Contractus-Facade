@@ -26,7 +26,7 @@ public class BattleScript : MonoBehaviour
 
     string moveDesc; //Move Information
 
-    bool isPlayerTurn = false;
+    bool isPlayerBleed = false; //IF Player has Bleed Effect
 
     string characterName = CharacterSelected.charName;
     GameObject Player; //References the Player Game Object
@@ -86,14 +86,42 @@ public class BattleScript : MonoBehaviour
 
     public void bleedEffect()
     {
-
+        Debug.Log("Player Bleed Effect ended");
+        isPlayerBleed = false;
     }
 
-    public void playerAttack()
+    public void HealthUpdate()
+    {
+        if (isPlayerBleed == true)
+        {
+            playerStats.playerHP -= 5;
+            bleedEffect();
+        }
+    }
+
+    public void playerBasicAttack()
     {
         if (MonsterTrigger.isGoblin == true)
         {
-            
+            GoblinScript.goblinHP -= playerStats.playerBattack;
+        }
+    }
+
+    public void playerSpecialAttack1()
+    {
+        if (MonsterTrigger.isGoblin == true)
+        {
+            GoblinScript.goblinHP -= playerStats.playerSattack1;
+
+            if (playerStats.)
+        }
+    }
+
+    public void playerSpecialAttack2()
+    {
+        if (MonsterTrigger.isGoblin == true)
+        {
+            GoblinScript.goblinHP -= playerStats.playerSattack2;
         }
     }
     
