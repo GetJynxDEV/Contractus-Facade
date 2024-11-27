@@ -35,7 +35,7 @@ public class GoblinScript : MonoBehaviour
 
     public void goblinTurn()
     {
-        
+        GoblinAttackComputation();
     }
 
     void GoblinAttackComputation()
@@ -52,12 +52,12 @@ public class GoblinScript : MonoBehaviour
 
         if (goblinTurn == 1)
         {
-            BattleScript.currentHP -= gobBasicAtk;
+            playerStats.playerHP -= gobBasicAtk;
         }
 
         if (goblinTurn == 2)
         {
-            BattleScript.currentHP -= gobRabidBite;
+            playerStats.playerHP -= gobRabidBite;
             
         }
     }

@@ -14,7 +14,6 @@ public class CharacterSelection : MonoBehaviour
     float mageHP = 195;
     float mageMP = 200;
     float mageMREG = 70; //Mana Regen
-    float mageMS = 25.3f; //Movement Speed
     float mageHC = 67.5f; //Hit Chance
     float mageDODGE = 23.5f; //Dodge Chance
     float magePDEF = 3.2f; //Physical Defense
@@ -30,7 +29,6 @@ public class CharacterSelection : MonoBehaviour
     float swordHP = 220;
     float swordMP = 120;
     float swordMREG = 30; //Mana Regen
-    float swordMS = 19.3f; //Movement Speed
     float swordHC = 55; //Hit Chance
     float swordDODGE = 55; //Dodge Chance
     float swordPDEF = 10.2f; //Physical Defense
@@ -46,7 +44,6 @@ public class CharacterSelection : MonoBehaviour
     float paladinHP = 221.5f;
     float paladinMP = 150;
     float paladinMREG = 45; //Mana Regen
-    float paladinMS = 26.3f; //Movement Speed
     float paladinHC = 55; //Hit Chance
     float paladinDODGE = 24.3f; //Dodge Chance
     float paladinPDEF = 7.7f; //Physical Defense
@@ -67,7 +64,6 @@ public class CharacterSelection : MonoBehaviour
         playerStats.playerHP = mageHP;
         playerStats.playerMP = mageMP;
         playerStats.playerMREG = mageMREG;
-        playerMovement.movementSpeed = mageMS;
         playerStats.playerHC = mageHC;
         playerStats.playerDODGE = mageDODGE;
         playerStats.playerPDEF = magePDEF;
@@ -89,7 +85,6 @@ public class CharacterSelection : MonoBehaviour
         playerStats.playerHP = swordHP;
         playerStats.playerMP = swordMP;
         playerStats.playerMREG = swordMREG;
-        playerMovement.movementSpeed = swordMS;
         playerStats.playerHC = swordHC;
         playerStats.playerDODGE = swordDODGE;
         playerStats.playerPDEF = swordPDEF;
@@ -111,7 +106,6 @@ public class CharacterSelection : MonoBehaviour
         playerStats.playerHP = paladinHP;
         playerStats.playerMP = paladinMP;
         playerStats.playerMREG = paladinMREG;
-        playerMovement.movementSpeed = paladinMS;
         playerStats.playerHC = paladinHC;
         playerStats.playerDODGE = paladinDODGE;
         playerStats.playerPDEF = paladinPDEF;

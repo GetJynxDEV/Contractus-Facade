@@ -27,7 +27,6 @@ public class playerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 
-        Debug.Log(movementSpeed);
     }
 
     void Update()

@@ -8,10 +8,25 @@ public class BattleScript : MonoBehaviour
 {
     #region Field and Properties
 
+    [Header("TMPRO")]
     [SerializeField] public TextMeshProUGUI hpTextValue; //Health Bar Text Value
     [SerializeField] public TextMeshProUGUI mpTextValue; //Mana Points Text Value
 
     [SerializeField] public TextMeshProUGUI textDesc; //Reference the Player and Monster Move
+
+    [Header("AVATAR SPRITES")]
+    [SerializeField] public Sprite MageSprite;
+    [SerializeField] public Sprite PaladinSprite;
+    [SerializeField] public Sprite SwordsmanSprite;
+
+    [Header("ENEMY GAME OBJECT")]
+    [SerializeField] public GameObject GoblinEnemy;
+    [SerializeField] public GameObject CorneaEnemy;
+    [SerializeField] public GameObject FacadeEnemy;
+
+
+
+
 
     string hpText; //Health Bar Text
     string mpText; //Mana Points Text
@@ -26,15 +41,12 @@ public class BattleScript : MonoBehaviour
 
     string moveDesc; //Move Information
 
-    bool isPlayerBleed = false; //IF Player has Bleed Effect
+    bool isPlayerBleeding = false; //IF Player has Bleed Effect
+    public static bool isPlayerBleedEffect = false;
+    public static bool isPlayerBuffEffect = false;
 
     string characterName = CharacterSelected.charName;
     GameObject Player; //References the Player Game Object
-
-    //AVATAR SPRITE
-    [SerializeField] public Sprite MageSprite;
-    [SerializeField] public Sprite PaladinSprite;
-    [SerializeField] public Sprite SwordsmanSprite;
 
     #endregion
 
@@ -42,6 +54,14 @@ public class BattleScript : MonoBehaviour
 
     void Start()
     {
+        if (MonsterTrigger.isGoblin == true)
+        {
+            Debug.Log("YOUR ENEMY IS A GOBLIN!\n");
+            GoblinEnemy.SetActive(true);
+            CorneaEnemy.SetActive(false);
+            FacadeEnemy.SetActive(false);
+        }
+
         currentHP = playerStats.playerHP;
         currentMP = playerStats.playerMP;
 
@@ -84,21 +104,44 @@ public class BattleScript : MonoBehaviour
 
     }
 
-    public void bleedEffect()
-    {
-        Debug.Log("Player Bleed Effect ended");
-        isPlayerBleed = false;
-    }
+    
 
     public void HealthUpdate()
     {
-        if (isPlayerBleed == true)
+        if (isPlayerBleeding == true)
         {
             playerStats.playerHP -= 5;
             bleedEffect();
         }
     }
 
+    //------------------- MONSTER EFFECT -------------------------------
+
+    public void bleedEffect() //Monster gave Player Bleed Effect
+    {
+        Debug.Log("Player Bleed Effect ended");
+        isPlayerBleeding = false;
+    }
+
+    //------------------- PLAYER APPLIED EFFECT -------------------------------
+
+    public void appliedBleedEffect() //Player gives Monster Bleed Effect
+    {
+
+    }
+
+    public void appliedbuffEffect() //Player gives Monster Debuff Effect
+    {
+        Debug.Log("Player Debuff applied");
+
+        if (characterName == "Paladin" && playerStats.isPlayerDeBuffEffect == true)
+        {
+
+        }
+        
+    }
+
+    //------------------- PLAYER MOVE -------------------------------
     public void playerBasicAttack()
     {
         if (MonsterTrigger.isGoblin == true)
@@ -113,7 +156,10 @@ public class BattleScript : MonoBehaviour
         {
             GoblinScript.goblinHP -= playerStats.playerSattack1;
 
-            if (playerStats.)
+            if (characterName == "Paladin") //Applies DeBuff
+            {
+                playerStats.playerMP -= 65;
+            }
         }
     }
 

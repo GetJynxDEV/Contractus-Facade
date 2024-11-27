@@ -37,7 +37,7 @@ public class playerStats : MonoBehaviour
     public static float playerIncomingDMG; //This refers to ENEMY DAMAGE
 
     public static float playerDeBuff;
-    public static bool isPlayerDeBuff = false;
+    public static bool isPlayerDeBuffEffect = false;
     public static float playerBleedEffect;
     public static bool isPlayerBleedEffect = false;
 
@@ -45,41 +45,31 @@ public class playerStats : MonoBehaviour
 
     #region Computation
 
-    void Start ()
+    public void Start ()
     {
+
+        ComputationUpdate();
+        
+        
         //--------------------------- ANNOUNCEMENT ------------------------
         playerClass = CharacterSelected.charName;
 
-        Debug.Log("PLAYER BASIC ATTACK: " + playerBattack);
+        Debug.Log("PLAYER BASIC ATTACK: " + playerBattack + "\n");
+        Debug.Log("PLAYER SPECIAL ATTACK " + playerSattackName1 + ": " + playerSattack1 + "\n");
+        Debug.Log("PLAYER SPECIAL ATTACK " + playerSattackName2 + ": " + playerSattack2 + "\n");
+    }
 
-
+    void ComputationUpdate()
+    {
         //--------------------------- COMPUTATION ------------------------
 
-
-        //Calculation for Basic Attack
-
         if (playerClass == "Mage")
         {
+            //Basic Attack 
+
             double basicAttack = playerINT + ((playerMBONUS + playerDEX) * 0.1 );
             playerBattack = (float)basicAttack;
-        }
 
-        else if (playerClass == "Paladin")
-        {
-            double basicAttack = playerSTR + (playerPBONUS * 0.2);
-            playerBattack = (float)basicAttack;
-        }
-
-        else if (playerClass == "Swordsman")
-        {
-            double basicAttack = playerSTR + (playerPBONUS * 0.2);
-            playerBattack = (float)basicAttack;
-        }
-
-        //Calculation for Special Attack
-
-        if (playerClass == "Mage")
-        {
             //Special Attack 1
 
             playerSattackName1 = "Plasma Ball"; //Mana Cost 60
@@ -97,9 +87,13 @@ public class playerStats : MonoBehaviour
             playerSattack2 = (float)specialAttack2;
         }
 
-
         else if (playerClass == "Paladin")
         {
+            //Basic Attack
+
+            double basicAttack = playerSTR + (playerPBONUS * 0.2);
+            playerBattack = (float)basicAttack;
+
             //Special Attack 1
 
             playerSattackName1 = "Penance"; //Mana Cost 65
@@ -118,9 +112,13 @@ public class playerStats : MonoBehaviour
             playerSattack2 = (float)specialAttack2;
         }
 
-
         else if (playerClass == "Swordsman")
         {
+            //Basic Attack
+
+            double basicAttack = playerSTR + (playerPBONUS * 0.2);
+            playerBattack = (float)basicAttack;
+
             //Special Attack 1
 
             playerSattackName1 = "Berserk Slash"; //Mana Cost 50
