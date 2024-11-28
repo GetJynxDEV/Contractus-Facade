@@ -25,6 +25,10 @@ public class BattleScript : MonoBehaviour
     [SerializeField] public GameObject CorneaEnemy;
     [SerializeField] public GameObject FacadeEnemy;
 
+    [Header("Attack Button")]
+
+    [SerializeField] public GameObject specialAtkBtn1;
+    [SerializeField] public GameObject specialAtkBtn2;
 
 
 
@@ -44,7 +48,7 @@ public class BattleScript : MonoBehaviour
     public static float bleedDMG;
 
     bool isPlayerBleeding = false; //IF Player has Bleed Effect
-    public static bool isPlayerBleedEffect = false;
+    public static bool isPlayerApplyBleedEffect = false;
     public static bool isPlayerBuffEffect = false;
 
     string characterName = CharacterSelected.charName;
@@ -66,7 +70,7 @@ public class BattleScript : MonoBehaviour
             Debug.Log("------------------------------------\n");
         }
 
-        HealthUpdate();
+        StatsUpdate();
 
         
 
@@ -109,7 +113,7 @@ public class BattleScript : MonoBehaviour
 
     
 
-    public void HealthUpdate()
+    public void StatsUpdate()
     {
         currentHP = playerStats.playerHP;
         currentMP = playerStats.playerMP;
@@ -123,12 +127,14 @@ public class BattleScript : MonoBehaviour
             Debug.Log("Goblin's Current HP is " + GoblinScript.goblinHP + "\n");
         }
 
-        if (isPlayerBleeding == true)
+        if (isPlayerBleeding == true) //Goblin's Bleed Effect
         {
             playerStats.playerHP -= 5;
             bleedEffect();
         }
 
+        //RESET DEBUFF
+        playerStats.playerIncomingDMG = 0;
 
     }
 
@@ -140,23 +146,6 @@ public class BattleScript : MonoBehaviour
         isPlayerBleeding = false;
     }
 
-    //------------------- PLAYER APPLIED EFFECT -------------------------------
-
-    public void appliedBleedEffect() //Player gives Monster Bleed Effect
-    {
-
-    }
-
-    public void appliedbuffEffect() //Player gives Monster Debuff Effect
-    {
-        Debug.Log("Player Debuff applied");
-
-        if (characterName == "Paladin" && playerStats.isPlayerDeBuffEffect == true)
-        {
-
-        }
-        
-    }
 
     //------------------- PLAYER MOVE -------------------------------
     public void playerBasicAttack()
@@ -173,20 +162,128 @@ public class BattleScript : MonoBehaviour
     {
         if (MonsterTrigger.isGoblin == true)
         {
-            GoblinScript.goblinHP -= playerStats.playerSattack1;
+            //Paladin Special Attack 1
 
             if (characterName == "Paladin") //Applies DeBuff
             {
-                playerStats.playerMP -= 65;
+                if (playerStats.playerMP >= 65 )
+                {
+                    GoblinScript.goblinHP -= playerStats.playerSattack1; //MONSTER
+                    playerStats.playerMP -= 65;
+                    specialAtkBtn1.GetComponent<Button>().enabled = true;
+
+                    playerStats.isPlayerDeBuffEffect = true;
+
+                }
+                else if (playerStats.playerMP <= 64)
+                {
+                    Debug.Log("Player's MP is not enough");
+                    specialAtkBtn1.GetComponent<Button>().enabled = false;
+                }
+            }
+
+            //Mage Special Attack 1
+ 
+            if (characterName == "Mage")
+            {
+                if (playerStats.playerMP >= 60 )
+                {
+                    GoblinScript.goblinHP -= playerStats.playerSattack1; //MONSTER
+                    playerStats.playerMP -= 60;
+                    specialAtkBtn1.GetComponent<Button>().enabled = true;
+
+
+                }
+                else if (playerStats.playerMP <= 59)
+                {
+                    Debug.Log("Player's MP is not enough");
+                    specialAtkBtn1.GetComponent<Button>().enabled = false;
+                }
+            }
+
+            //Black Swordsman Special Attack 1
+
+            if (characterName == "Swordsman")
+            {
+                if (playerStats.playerMP >= 50 )
+                {
+                    GoblinScript.goblinHP -= playerStats.playerSattack1; //MONSTER
+                    playerStats.playerMP -= 50;
+                    specialAtkBtn1.GetComponent<Button>().enabled = true;
+
+
+                }
+                else if (playerStats.playerMP <= 49)
+                {
+                    Debug.Log("Player's MP is not enough");
+                    specialAtkBtn1.GetComponent<Button>().enabled = false;
+                }
             }
         }
     }
 
     public void playerSpecialAttack2()
-    {
+    {   
+        //THIS COMBAT IS CALCULATION IS FOR GOBLIN
         if (MonsterTrigger.isGoblin == true)
         {
-            GoblinScript.goblinHP -= playerStats.playerSattack2;
+            //Paladin Special Attack 2
+
+            if (characterName == "Paladin") //Applies DeBuff
+            {
+                if (playerStats.playerMP >= 110 )
+                {
+                    GoblinScript.goblinHP -= playerStats.playerSattack2; //MONSTER
+                    playerStats.playerMP -= 110;
+                    specialAtkBtn2.GetComponent<Button>().enabled = true;
+
+                    playerStats.isPlayerDeBuffEffect = true;
+
+                }
+                else if (playerStats.playerMP <= 109)
+                {
+                    Debug.Log("Player's MP is not enough");
+                    specialAtkBtn2.GetComponent<Button>().enabled = false;
+                }
+            }
+
+            //Mage Special Attack 2
+ 
+            if (characterName == "Mage")
+            {
+                if (playerStats.playerMP >= 150 )
+                {
+                    GoblinScript.goblinHP -= playerStats.playerSattack2; //MONSTER
+                    playerStats.playerMP -= 150;
+                    specialAtkBtn1.GetComponent<Button>().enabled = true;
+
+
+                }
+                else if (playerStats.playerMP <= 149)
+                {
+                    Debug.Log("Player's MP is not enough");
+                    specialAtkBtn2.GetComponent<Button>().enabled = false;
+                }
+            }
+
+            //Black Swordsman Special Attack 2
+
+            if (characterName == "Swordsman")
+            {
+                if (playerStats.playerMP >= 100 )
+                {
+                    GoblinScript.goblinHP -= playerStats.playerSattack2; //MONSTER
+                    playerStats.playerMP -= 100;
+                    specialAtkBtn2.GetComponent<Button>().enabled = true;
+
+                    isPlayerApplyBleedEffect = true;
+                }
+                else if (playerStats.playerMP <= 99)
+                {
+                    Debug.Log("Player's MP is not enough");
+                    specialAtkBtn2.GetComponent<Button>().enabled = false;
+                }
+            }
         }
     }
     

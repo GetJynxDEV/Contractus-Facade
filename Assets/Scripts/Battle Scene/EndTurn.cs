@@ -11,6 +11,8 @@ public class EndTurn : MonoBehaviour
         roundValue++;
 
         Round();
+
+        MonsterKilled();
     }
 
     public void Round()
@@ -22,9 +24,11 @@ public class EndTurn : MonoBehaviour
     {
         if (MonsterTrigger.isGoblin == true)
         {
-            if (GoblinScript.goblinHP == 0)
+            if (GoblinScript.goblinHP <= 0)
             {
                 Destroy(MonsterNPC.GoblinNPC);
+
+                Debug.Log("You Killed the Goblin!");
 
                 SceneManager.LoadSceneAsync("scn TOWN");
             }

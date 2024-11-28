@@ -25,7 +25,7 @@ public class playerStats : MonoBehaviour
     public static float playerMDEF;
     public static float playerPBONUS;
     public static float playerMBONUS;
-    
+
     public static float playerBattack;
 
     public static float playerSattack1; //Special Attack 1
@@ -49,6 +49,8 @@ public class playerStats : MonoBehaviour
     {
         playerClass = CharacterSelected.charName;
         
+
+
         ComputationUpdate();
         
         
@@ -68,76 +70,61 @@ public class playerStats : MonoBehaviour
         {
             //Basic Attack 
 
-            double basicAttack = playerINT + ((playerMBONUS + playerDEX) * 0.1 );
-            playerBattack = (float)basicAttack;
+            playerBattack = playerINT + ((playerMBONUS + playerDEX) * 0.1f );
 
             //Special Attack 1
 
             playerSattackName1 = "Plasma Ball"; //Mana Cost 60
 
-            double specialAttack1 = playerMBONUS + ((playerINT + playerDEX) * 0.1);
-
-            playerSattack1 = (float)specialAttack1;
+            playerSattack1 = playerMBONUS + ((playerINT + playerDEX) * 0.1f);
 
             //Special Attack2
 
             playerSattackName2 = "Lightning Strike"; //Mana Cost 150
 
-            double specialAttack2 = ((playerMBONUS + playerINT) * 0.8) + playerDEX;
-
-            playerSattack2 = (float)specialAttack2;
+            playerSattack2 = ((playerMBONUS + playerINT) * 0.8f) + playerDEX;
         }
 
         else if (playerClass == "Paladin")
         {
             //Basic Attack
 
-            double basicAttack = playerSTR + (playerPBONUS * 0.2);
-            playerBattack = (float)basicAttack;
+            playerBattack = playerSTR + (playerPBONUS * 0.2f);
 
             //Special Attack 1
 
             playerSattackName1 = "Penance"; //Mana Cost 65
 
-            double specialAttack1 = playerMBONUS + playerINT * (playerSTR * 0.5);
-            playerSattack1 = (float)specialAttack1;
+            playerSattack1 = playerMBONUS + (playerSTR * 0.5f);
 
-            double debuff = playerIncomingDMG - ( playerIncomingDMG * 0.3);
-            playerDeBuff = (float)debuff;
+            playerDeBuff = playerIncomingDMG - ( playerIncomingDMG * 0.3f);
             
             //Special Attack 2
 
             playerSattackName2 = "Holy Rain"; //Mana Cost 110
 
-            double specialAttack2 = ((playerMBONUS + playerSTR) * 0.25) * 5;
-            playerSattack2 = (float)specialAttack2;
+            playerSattack2 = ((playerMBONUS + playerSTR) * 0.25f) * 5;
         }
 
         else if (playerClass == "Swordsman")
         {
             //Basic Attack
 
-            double basicAttack = playerSTR + (playerPBONUS * 0.2);
-            playerBattack = (float)basicAttack;
+            playerBattack = playerSTR + (playerPBONUS * 0.2f);
 
             //Special Attack 1
 
             playerSattackName1 = "Berserk Slash"; //Mana Cost 50
 
-            double specialAttack1 = playerSTR + ( playerPBONUS * 0.2) * 2;
-            playerSattack1 = (float)specialAttack1;
+            playerSattack1 = playerSTR + ( playerPBONUS * 0.2f) * 2;
 
             //Special Attack 2
 
             playerSattackName2 = "Pierce Strike"; //Mana Cost 100
 
-            double specialAttack2 = playerSTR + ( playerPBONUS / 2);
+            playerSattack2 = playerSTR + ( playerPBONUS / 2);
 
-            playerSattack2 = (float)specialAttack2;
-
-            double bleedDMG = (playerPBONUS - 0.2) / 2;
-
-            playerBleedEffect = (float)bleedDMG;
+            playerBleedEffect = (playerPBONUS - 0.2f) / 2;
         }
 
     }

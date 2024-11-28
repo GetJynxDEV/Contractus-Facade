@@ -35,7 +35,22 @@ public class GoblinScript : MonoBehaviour
 
     public void goblinTurn()
     {
+        goblinHealthUpdate();
+
         GoblinAttackComputation();
+    }
+
+    void goblinHealthUpdate()
+    {
+        if (BattleScript.isPlayerApplyBleedEffect == true)
+        {
+            goblinHP -= playerStats.playerBleedEffect;
+
+            BattleScript.isPlayerApplyBleedEffect = false;
+
+            Debug.Log("Updated Goblin HP: " + goblinHP);
+        }
+
     }
 
     void GoblinAttackComputation()
@@ -52,11 +67,25 @@ public class GoblinScript : MonoBehaviour
 
         if (goblinTurn == 1)
         {
-            playerStats.playerHP -= gobBasicAtk;
+            if (playerStats.isPlayerDeBuffEffect == true)
+            {
+
+                playerStats.playerIncomingDMG = gobBasicAtk;
+
+                playerStats.playerHP -= playerStats.playerIncomingDMG;
+
+                playerStats.isPlayerDeBuffEffect = false;
+            }
+            else
+            {
+                playerStats.playerHP -= gobBasicAtk;
+            }
+            
         }
 
         if (goblinTurn == 2)
         {
+
             playerStats.playerHP -= gobRabidBite;
             
         }
