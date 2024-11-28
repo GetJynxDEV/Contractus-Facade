@@ -30,8 +30,9 @@ public class BattleScript : MonoBehaviour
     [SerializeField] public GameObject specialAtkBtn1;
     [SerializeField] public GameObject specialAtkBtn2;
 
+    
 
-
+    public HealthBarScript healthBar;
 
     string hpText; //Health Bar Text
     string mpText; //Mana Points Text
@@ -60,6 +61,8 @@ public class BattleScript : MonoBehaviour
 
     void Start()
     {
+        HealthBarScript.maxHealth = currentHP;
+
         if (MonsterTrigger.isGoblin == true)
         {
             Debug.Log("YOUR ENEMY IS A GOBLIN!\n");
@@ -115,6 +118,8 @@ public class BattleScript : MonoBehaviour
 
     public void StatsUpdate()
     {
+        HealthBarScript.health = currentHP;
+
         currentHP = playerStats.playerHP;
         currentMP = playerStats.playerMP;
 

@@ -1963,6 +1963,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1002636948}
   - component: {fileID: 1002636949}
+  - component: {fileID: 1002636950}
   m_Layer: 5
   m_Name: HP
   m_TagString: Untagged
@@ -2042,6 +2043,19 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1002636950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002636947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20790b8afb09a094aa53f562ab456395, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpSlider: {fileID: 1002636949}
 --- !u!1 &1009125060
 GameObject:
   m_ObjectHideFlags: 0
@@ -2452,6 +2466,7 @@ MonoBehaviour:
   FacadeEnemy: {fileID: 1371055937}
   specialAtkBtn1: {fileID: 0}
   specialAtkBtn2: {fileID: 0}
+  healthBar: {fileID: 1002636950}
 --- !u!114 &1289107076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4732,6 +4747,7 @@ MonoBehaviour:
   FacadeEnemy: {fileID: 0}
   specialAtkBtn1: {fileID: 0}
   specialAtkBtn2: {fileID: 0}
+  healthBar: {fileID: 0}
 --- !u!4 &2106823396
 Transform:
   m_ObjectHideFlags: 0

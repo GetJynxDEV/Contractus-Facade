@@ -9,7 +9,8 @@ public class playerStats : MonoBehaviour
     
     public static string playerClass;
 
-    float maxHP = playerHP;
+    public static float maxHP = playerHP;
+    public static float currentHP;
 
 
     public static float playerSTR;
@@ -49,7 +50,7 @@ public class playerStats : MonoBehaviour
     {
         playerClass = CharacterSelected.charName;
         
-
+        currentHP = maxHP;
 
         ComputationUpdate();
         
