@@ -48,7 +48,7 @@ public class BattleScript : MonoBehaviour
 
     public static float bleedDMG;
 
-    bool isPlayerBleeding = false; //IF Player has Bleed Effect
+    public static bool isPlayerBleeding = false; //IF Player has Bleed Effect
     public static bool isPlayerApplyBleedEffect = false;
     public static bool isPlayerBuffEffect = false;
 
@@ -155,6 +155,9 @@ public class BattleScript : MonoBehaviour
     //------------------- PLAYER MOVE -------------------------------
     public void playerBasicAttack()
     {
+        //HIT CHANCE
+        
+
         if (MonsterTrigger.isGoblin == true)
         {
             GoblinScript.goblinHP -= playerStats.playerBattack;

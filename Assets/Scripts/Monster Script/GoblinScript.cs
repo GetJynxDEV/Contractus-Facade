@@ -87,7 +87,7 @@ public class GoblinScript : MonoBehaviour
         {
 
             playerStats.playerHP -= gobRabidBite;
-            
+            BattleScript.isPlayerBleeding = true;
         }
     }
 
