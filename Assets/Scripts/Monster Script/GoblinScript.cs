@@ -10,12 +10,14 @@ public class GoblinScript : MonoBehaviour
     public static float goblinHP = 195;
     public static float goblinMP = 110;
 
+    public static float maxMP;
+
     float goblinSTR = 10;
     float goblinAGI = 9;
     float goblinINT = 2;
     float goblinDEX = 10;
 
-    float goblinMGEN = 25;
+    public static float goblinMGEN = 25;
     float goblinMS = 19.3f;
     float goblinHC = 55;
     float goblinDODGE = 18;
@@ -60,35 +62,88 @@ public class GoblinScript : MonoBehaviour
 
         //Basic Attack Computation
 
-        gobBasicAtk = 25;
+        gobBasicAtk = 16;
         gobRabidBite = 25;
 
         int goblinTurn = Random.Range(1, 2);
 
+        int gobHitChance = Random.Range(1, 3);
+
+        gobAttack:
+
         if (goblinTurn == 1)
         {
-            if (playerStats.isPlayerDeBuffEffect == true)
+            if (gobHitChance >= 2)
+            {
+                if (playerStats.isPlayerDeBuffEffect == true)
+                {
+
+                    playerStats.playerIncomingDMG = gobBasicAtk;
+
+                    playerStats.playerHP -= playerStats.playerIncomingDMG;
+
+                    playerStats.isPlayerDeBuffEffect = false;
+                }
+                else
+                {
+                    playerStats.playerHP -= gobBasicAtk;
+                }
+            }
+
+            else if (gobHitChance == 1)
             {
 
-                playerStats.playerIncomingDMG = gobBasicAtk;
 
-                playerStats.playerHP -= playerStats.playerIncomingDMG;
-
-                playerStats.isPlayerDeBuffEffect = false;
+                Debug.Log("GOBLIN MISSED!");
             }
-            else
-            {
-                playerStats.playerHP -= gobBasicAtk;
-            }
+            
             
         }
 
         if (goblinTurn == 2)
         {
+            if (goblinMP >= 60)
+            {
+                if (gobHitChance >= 2)
+                {
+                    playerStats.playerHP -= gobRabidBite;
+                    BattleScript.isPlayerBleeding = true;
+                }
 
-            playerStats.playerHP -= gobRabidBite;
-            BattleScript.isPlayerBleeding = true;
+                else if (gobHitChance == 1)
+                {
+                    Debug.Log("GOBLIN MISSED");
+                }
+            }
+
+            else if (goblinMP <= 59)
+            {
+                goto gobAttack;
+            }
+
+            
+
+            
         }
+    }
+
+    public void ManaRegen()
+    {
+        Debug.Log("Goblin regained " + goblinMGEN);
+
+        goblinMP += goblinMGEN;
+
+        if (maxMP >= goblinMP)
+        {
+            goblinMP = maxMP;
+        }
+        
+        else
+        {
+            
+        }
+
+
     }
 
     #endregion

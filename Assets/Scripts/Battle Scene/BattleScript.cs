@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.AI;
 
 public class BattleScript : MonoBehaviour
 {
@@ -43,6 +44,9 @@ public class BattleScript : MonoBehaviour
     public static float currentHP; //Current HP
     public static float currentMP; //Current MP
 
+    public static float maxHP;
+    public static float maxMP;
+
     float basicDMG; //Player Basic Damage
     float specialAttack; //Player Special Attack
 
@@ -61,6 +65,8 @@ public class BattleScript : MonoBehaviour
 
     void Start()
     {
+        maxMP = playerStats.playerMP;
+
         HealthBarScript.maxHealth = currentHP;
 
         if (MonsterTrigger.isGoblin == true)
@@ -118,10 +124,17 @@ public class BattleScript : MonoBehaviour
 
     public void StatsUpdate()
     {
-        HealthBarScript.health = currentHP;
+        
+
+        //CHECKS CURRENT HEALTH AND MP
 
         currentHP = playerStats.playerHP;
         currentMP = playerStats.playerMP;
+
+        HealthBarScript.health = currentHP;
+
+        moveDesc = "What will you do?"; //Default Move Description Name
+        moveName = ""; //Default Move Name 
 
         //CHECK PLAYER HEALTH
         Debug.Log("Player's Current HP is " + currentHP + "\n");
@@ -156,37 +169,125 @@ public class BattleScript : MonoBehaviour
     public void playerBasicAttack()
     {
         //HIT CHANCE
-        
+        int hitChance = Random.Range(1,10);
 
-        if (MonsterTrigger.isGoblin == true)
+        //PALADIN
+        if (characterName == "Paladin")
         {
-            GoblinScript.goblinHP -= playerStats.playerBattack;
+            if (hitChance >= 4)
+            {
+                //MONSTER DAMAGE
 
-            moveDesc = "You did " + playerStats.playerBattack + " To the Goblin";
-        }   
+                if (MonsterTrigger.isGoblin == true)
+                {
+                    GoblinScript.goblinHP -= playerStats.playerBattack;
+
+                    moveDesc = "You did " + playerStats.playerBattack + " To the Goblin";
+                    textDesc.text = moveDesc;
+
+                    Debug.Log("YOU HIT THE MONSTER!");   
+                }   
+            }
+
+            else if (hitChance <= 3)
+            {
+                Debug.Log("YOU MISSED!");   
+
+                moveDesc = "You Missed!";
+                textDesc.text = moveDesc;
+            }
+        }
+
+        //MAGE
+        if (characterName == "Mage")
+        {
+            if (hitChance >= 5)
+            {
+                //MONSTER DAMAGE
+
+                if (MonsterTrigger.isGoblin == true)
+                {
+                    GoblinScript.goblinHP -= playerStats.playerBattack;
+
+                    moveDesc = "You did " + playerStats.playerBattack + " To the Goblin";
+                    textDesc.text = moveDesc;
+
+                    Debug.Log("YOU HIT THE MONSTER!");   
+                }   
+            }
+
+            else if (hitChance <= 4)
+            {
+                Debug.Log("YOU MISSED!");   
+
+                moveDesc = "You Missed!";
+                textDesc.text = moveDesc;
+            }
+        }
+
+        //BLACK SWORDSMAN
+        if (characterName == "Swordsman")
+        {
+            if (hitChance >= 5)
+            {
+                //MONSTER DAMAGE
+
+                if (MonsterTrigger.isGoblin == true)
+                {
+                    GoblinScript.goblinHP -= playerStats.playerBattack;
+
+                    moveDesc = "You did " + playerStats.playerBattack + " To the Goblin";
+                    textDesc.text = moveDesc;
+
+                    Debug.Log("YOU HIT THE MONSTER!\n");   
+                }   
+            }
+
+            else if (hitChance <= 4)
+            {
+                Debug.Log("YOU MISSED!");   
+
+                moveDesc = "You Missed!";
+                textDesc.text = moveDesc;
+            }
+        }
     }
+
+
 
     public void playerSpecialAttack1()
     {
+        int hitChance = Random.Range(1,10);
+
+        
         if (MonsterTrigger.isGoblin == true)
         {
             //Paladin Special Attack 1
 
             if (characterName == "Paladin") //Applies DeBuff
             {
-                if (playerStats.playerMP >= 65 )
+                if (hitChance >= 4)
                 {
-                    GoblinScript.goblinHP -= playerStats.playerSattack1; //MONSTER
-                    playerStats.playerMP -= 65;
-                    specialAtkBtn1.GetComponent<Button>().enabled = true;
+                    if (playerStats.playerMP >= 65 )
+                    {
+                        GoblinScript.goblinHP -= playerStats.playerSattack1; //MONSTER
+                        playerStats.playerMP -= 65;
+                        specialAtkBtn1.GetComponent<Button>().enabled = true;
 
-                    playerStats.isPlayerDeBuffEffect = true;
+                        playerStats.isPlayerDeBuffEffect = true;
 
+                    }
+                    else if (playerStats.playerMP <= 64)
+                    {
+                        Debug.Log("Player's MP is not enough");
+                        specialAtkBtn1.GetComponent<Button>().enabled = false;
+                    }
                 }
-                else if (playerStats.playerMP <= 64)
+
+                else if (hitChance <= 3)
                 {
-                    Debug.Log("Player's MP is not enough");
-                    specialAtkBtn1.GetComponent<Button>().enabled = false;
+                    moveDesc = "You Missed!";
+                    textDesc.text = moveDesc;
                 }
             }
 
@@ -194,18 +295,27 @@ public class BattleScript : MonoBehaviour
  
             if (characterName == "Mage")
             {
-                if (playerStats.playerMP >= 60 )
+                if(hitChance >= 5)
                 {
-                    GoblinScript.goblinHP -= playerStats.playerSattack1; //MONSTER
-                    playerStats.playerMP -= 60;
-                    specialAtkBtn1.GetComponent<Button>().enabled = true;
+                    if (playerStats.playerMP >= 60 )
+                    {
+                        GoblinScript.goblinHP -= playerStats.playerSattack1; //MONSTER
+                        playerStats.playerMP -= 60;
+                        specialAtkBtn1.GetComponent<Button>().enabled = true;
 
 
-                }
+                    }
                 else if (playerStats.playerMP <= 59)
+                    {
+                        Debug.Log("Player's MP is not enough");
+                        specialAtkBtn1.GetComponent<Button>().enabled = false;
+                    }
+                }
+
+                else if (hitChance <= 4)
                 {
-                    Debug.Log("Player's MP is not enough");
-                    specialAtkBtn1.GetComponent<Button>().enabled = false;
+                    moveDesc = "You Missed!";
+                    textDesc.text = moveDesc;
                 }
             }
 
@@ -213,25 +323,37 @@ public class BattleScript : MonoBehaviour
 
             if (characterName == "Swordsman")
             {
-                if (playerStats.playerMP >= 50 )
+                if (hitChance >= 5)
                 {
-                    GoblinScript.goblinHP -= playerStats.playerSattack1; //MONSTER
-                    playerStats.playerMP -= 50;
-                    specialAtkBtn1.GetComponent<Button>().enabled = true;
+                    if (playerStats.playerMP >= 50 )
+                    {
+                        GoblinScript.goblinHP -= playerStats.playerSattack1; //MONSTER
+                        playerStats.playerMP -= 50;
+                        specialAtkBtn1.GetComponent<Button>().enabled = true;
 
 
+                    }
+                    else if (playerStats.playerMP <= 49)
+                    {
+                        Debug.Log("Player's MP is not enough");
+                        specialAtkBtn1.GetComponent<Button>().enabled = false;
+                    }
                 }
-                else if (playerStats.playerMP <= 49)
+
+                else if (hitChance <= 4)
                 {
-                    Debug.Log("Player's MP is not enough");
-                    specialAtkBtn1.GetComponent<Button>().enabled = false;
+                    moveDesc = "You Missed!";
+                    textDesc.text = moveDesc;
                 }
+                
             }
         }
     }
 
     public void playerSpecialAttack2()
     {   
+        int hitChance = Random.Range(1,10);
+
         //THIS COMBAT IS CALCULATION IS FOR GOBLIN
         if (MonsterTrigger.isGoblin == true)
         {
@@ -239,19 +361,28 @@ public class BattleScript : MonoBehaviour
 
             if (characterName == "Paladin") //Applies DeBuff
             {
-                if (playerStats.playerMP >= 110 )
+                if (hitChance >= 4)
                 {
-                    GoblinScript.goblinHP -= playerStats.playerSattack2; //MONSTER
-                    playerStats.playerMP -= 110;
-                    specialAtkBtn2.GetComponent<Button>().enabled = true;
+                    if (playerStats.playerMP >= 110 )
+                    {
+                        GoblinScript.goblinHP -= playerStats.playerSattack2; //MONSTER
+                        playerStats.playerMP -= 110;
+                        specialAtkBtn2.GetComponent<Button>().enabled = true;
 
-                    playerStats.isPlayerDeBuffEffect = true;
+                        playerStats.isPlayerDeBuffEffect = true;
 
+                    }
+                    else if (playerStats.playerMP <= 109)
+                    {
+                        Debug.Log("Player's MP is not enough");
+                        specialAtkBtn2.GetComponent<Button>().enabled = false;
+                    }
                 }
-                else if (playerStats.playerMP <= 109)
+
+                else if (hitChance <= 3)
                 {
-                    Debug.Log("Player's MP is not enough");
-                    specialAtkBtn2.GetComponent<Button>().enabled = false;
+                    moveDesc = "You Missed!";
+                    textDesc.text = moveDesc;
                 }
             }
 
@@ -259,42 +390,60 @@ public class BattleScript : MonoBehaviour
  
             if (characterName == "Mage")
             {
-                if (playerStats.playerMP >= 150 )
+                if (hitChance >= 5)
                 {
-                    GoblinScript.goblinHP -= playerStats.playerSattack2; //MONSTER
-                    playerStats.playerMP -= 150;
-                    specialAtkBtn1.GetComponent<Button>().enabled = true;
+                    if (playerStats.playerMP >= 150 )
+                    {
+                        GoblinScript.goblinHP -= playerStats.playerSattack2; //MONSTER
+                        playerStats.playerMP -= 150;
+                        specialAtkBtn1.GetComponent<Button>().enabled = true;
 
 
+                    }
+
+                    else if (playerStats.playerMP <= 149)
+                    {
+                        Debug.Log("Player's MP is not enough");
+                        specialAtkBtn2.GetComponent<Button>().enabled = false;
+                    }
                 }
-                else if (playerStats.playerMP <= 149)
+
+                else if (hitChance <= 4)
                 {
-                    Debug.Log("Player's MP is not enough");
-                    specialAtkBtn2.GetComponent<Button>().enabled = false;
-                }
+                    moveDesc = "You Missed!";
+                    textDesc.text = moveDesc;
+                } 
             }
 
             //Black Swordsman Special Attack 2
 
             if (characterName == "Swordsman")
             {
-                if (playerStats.playerMP >= 100 )
+                if (hitChance >= 5)
                 {
-                    GoblinScript.goblinHP -= playerStats.playerSattack2; //MONSTER
-                    playerStats.playerMP -= 100;
-                    specialAtkBtn2.GetComponent<Button>().enabled = true;
+                    if (playerStats.playerMP >= 100 )
+                    {
+                        GoblinScript.goblinHP -= playerStats.playerSattack2; //MONSTER
+                        playerStats.playerMP -= 100;
+                        specialAtkBtn2.GetComponent<Button>().enabled = true;
 
-                    isPlayerApplyBleedEffect = true;
+                        isPlayerApplyBleedEffect = true;
+                    }
+                    else if (playerStats.playerMP <= 99)
+                    {
+                        Debug.Log("Player's MP is not enough");
+                        specialAtkBtn2.GetComponent<Button>().enabled = false;
+                    }
                 }
-                else if (playerStats.playerMP <= 99)
+
+                else if (hitChance <= 4)
                 {
-                    Debug.Log("Player's MP is not enough");
-                    specialAtkBtn2.GetComponent<Button>().enabled = false;
-                }
+                    moveDesc = "You Missed!";
+                    textDesc.text = moveDesc;
+                } 
             }
         }
     }
-    
 
     #endregion
 }
