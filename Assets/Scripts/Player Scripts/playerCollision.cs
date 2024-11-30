@@ -29,13 +29,29 @@ public class playerCollision : MonoBehaviour
 
         if (collision.gameObject.name == "Goblin")
         {
-            Debug.Log("PLAYER COLLIDED WITH GOBLIN");
+            Debug.Log("PLAYER COLLIDED WITH GOBLIN\n");
 
             MonsterTrigger.isGoblin = true;
 
             SceneManager.LoadSceneAsync("scn BATTLE");
-            
+        }
 
+        if (collision.gameObject.name == "Cornea")
+        {
+            Debug.Log("PLAYER COLLIDED WITH CORNEA\n");
+
+            MonsterTrigger.isCornea = true;
+
+            SceneManager.LoadSceneAsync("scn BATTLE");
+        }
+
+        if (collision.gameObject.name == "Facade")
+        {
+            Debug.Log("PLAYER COLLIDED WITH FACADE\n");
+
+            MonsterTrigger.isFacade = true;
+
+            SceneManager.LoadSceneAsync("scn BATTLE");
         }
     }
 

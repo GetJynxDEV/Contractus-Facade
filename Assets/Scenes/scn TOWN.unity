@@ -224,7 +224,6 @@ GameObject:
   m_Component:
   - component: {fileID: 590264981}
   - component: {fileID: 590264982}
-  - component: {fileID: 590264983}
   m_Layer: 0
   m_Name: ------------ Player and Monster ------------
   m_TagString: Untagged
@@ -265,18 +264,6 @@ MonoBehaviour:
   MageSprite: {fileID: 1661627291, guid: ef6fdbba3660eb0408e5445bab36d950, type: 3}
   PaladinSprite: {fileID: -226145095, guid: b0522f453eef64a47b24f860ca4e450e, type: 3}
   SwordsmanSprite: {fileID: 1970699300, guid: 8b780246c1dd0d24e80bd211beff301f, type: 3}
---- !u!114 &590264983
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 590264980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c5aefb389d081a41abdbba4eb172bab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &990876527
 GameObject:
   m_ObjectHideFlags: 0
@@ -290,7 +277,7 @@ GameObject:
   - component: {fileID: 990876528}
   m_Layer: 0
   m_Name: Corena
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -451,7 +438,7 @@ GameObject:
   - component: {fileID: 1317965274}
   m_Layer: 0
   m_Name: Facade
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -800,9 +787,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd0bb576af0cf6a4488b8ae49da0e36c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: 0
-  y: 0
-  z: 0
 --- !u!1 &1536931549
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,6 +849,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1821891467
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1821891469}
+  - component: {fileID: 1821891468}
+  m_Layer: 0
+  m_Name: Monster Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1821891468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1821891467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c5aefb389d081a41abdbba4eb172bab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1821891469
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1821891467}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2054919636
 GameObject:
   m_ObjectHideFlags: 0
@@ -878,7 +906,7 @@ GameObject:
   - component: {fileID: 2054919637}
   m_Layer: 0
   m_Name: Goblin
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1008,3 +1036,4 @@ SceneRoots:
   - {fileID: 1815400586}
   - {fileID: 1536931550}
   - {fileID: 1270211729}
+  - {fileID: 1821891469}

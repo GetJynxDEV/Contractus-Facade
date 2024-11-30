@@ -1,24 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class SaveLoad : MonoBehaviour
 {
+    GameObject playerOBJ;
+
    float x,y,z;
 
-    public static SaveLoad Saved;
-
-    public SaveLoad()
+    public void Start()
     {
-        Saved = this;
+        playerOBJ = GameObject.Find("Player");
+        Load();
     }
 
     public void Save() //CONTINUE HERE
    {
-    x = transform.position.x;
-    y = transform.position.y;
-    z = transform.position.z;
+    x = playerOBJ.transform.position.x;
+    y = playerOBJ.transform.position.y;
+    z = playerOBJ.transform.position.z;
 
     PlayerPrefs.SetFloat("x", x);
     PlayerPrefs.SetFloat("y", y);
@@ -34,4 +36,16 @@ public class SaveLoad : MonoBehaviour
     Vector3 LoadPosition = new Vector3(x, y, z);
     transform.position = LoadPosition;
    }
+
+   void OnTriggerEnter2D(Collider2D collision)
+   {
+    if (collision.gameObject.tag == "Enemy")
+    {
+        Debug.Log("POSITION SAVED!\n");
+
+        Save();
+    }
+   }
+
+
 }

@@ -16,6 +16,8 @@ public class MonsterTrigger : MonoBehaviour
 
     //GAME OBJECT
     public GameObject GoblinFightScene;
+    public GameObject CorneaFightScene;
+    public GameObject FacadeFightScene;
 
 #endregion
 
@@ -24,8 +26,17 @@ public class MonsterTrigger : MonoBehaviour
     {
         if (isGoblin == true)
         {
-            //SaveLoad.Save();
             GoblinFightPanel();
+        }
+
+        if (isCornea == true)
+        {
+            CorneaFightPanel();
+        }
+
+        if (isFacade == true)
+        {
+            FacadeFightPanel();
         }
     }
 
@@ -39,6 +50,17 @@ public class MonsterTrigger : MonoBehaviour
 
     }
 
+    void CorneaFightPanel()
+    {
+            GoblinFightScene.SetActive(true);
+
+    }
+
+    void FacadeFightPanel()
+    {
+            GoblinFightScene.SetActive(true);
+
+    }
 #endregion
 
 

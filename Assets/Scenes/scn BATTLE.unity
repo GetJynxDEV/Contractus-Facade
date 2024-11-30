@@ -293,7 +293,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &79301260
 RectTransform:
   m_ObjectHideFlags: 0
@@ -608,6 +608,79 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &155431229
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 155431233}
+  - component: {fileID: 155431232}
+  - component: {fileID: 155431231}
+  - component: {fileID: 155431230}
+  m_Layer: 0
+  m_Name: Monster Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &155431230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155431229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c72733d5d14425e4e86a4cda6efde2b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GoblinFightScene: {fileID: 79301259}
+  CorneaFightScene: {fileID: 1507561734}
+  FacadeFightScene: {fileID: 1371055937}
+--- !u!114 &155431231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155431229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93e7434125150774c9a8b8be82fd26d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &155431232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155431229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85d75204f725b6845bdd39f87fe67db6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &155431233
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155431229}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.49465686, y: -0.272051, z: 0.031371318}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &191532759
 GameObject:
   m_ObjectHideFlags: 0
@@ -2435,6 +2508,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1215066006}
   - component: {fileID: 1215066004}
+  - component: {fileID: 1215066007}
   m_Layer: 0
   m_Name: PlayerStats
   m_TagString: Untagged
@@ -2469,6 +2543,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1215066007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215066003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93e7434125150774c9a8b8be82fd26d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1289107073
 GameObject:
   m_ObjectHideFlags: 0
@@ -2529,9 +2615,11 @@ MonoBehaviour:
   hpBar: {fileID: 1002636950}
   hpValue: 0
   maximumHP: 0
+  currentHealthValue: 0
   mpBar: {fileID: 817606205}
   mpValue: 0
   maximumMP: 0
+  currentManaValue: 0
 --- !u!114 &1289107076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2544,6 +2632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 786f202e31a0467449f9d606ef1dc93d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPos: {fileID: 0}
 --- !u!1 &1293983893
 GameObject:
   m_ObjectHideFlags: 0
@@ -2622,6 +2711,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1326485019}
   - component: {fileID: 1326485020}
+  - component: {fileID: 1326485021}
   m_Layer: 0
   m_Name: Facade
   m_TagString: Untagged
@@ -2696,6 +2786,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1326485021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1326485018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1578e2f61e75fb44ea51870879c6a329, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1357619014
 GameObject:
   m_ObjectHideFlags: 0
@@ -2786,7 +2888,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1371055938
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3379,7 +3481,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1507561735
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3557,6 +3659,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GoblinFightScene: {fileID: 79301259}
+  CorneaFightScene: {fileID: 0}
+  FacadeFightScene: {fileID: 0}
 --- !u!1 &1649724370
 GameObject:
   m_ObjectHideFlags: 0
@@ -4405,6 +4509,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1883541382}
   - component: {fileID: 1883541383}
+  - component: {fileID: 1883541384}
   m_Layer: 0
   m_Name: Cornea
   m_TagString: Untagged
@@ -4479,6 +4584,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1883541384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883541381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef28a22aec3ad594bb1bef2c74200ae9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1939053896
 GameObject:
   m_ObjectHideFlags: 0
@@ -4935,3 +5052,4 @@ SceneRoots:
   - {fileID: 1293983896}
   - {fileID: 2106823396}
   - {fileID: 1215066006}
+  - {fileID: 155431233}

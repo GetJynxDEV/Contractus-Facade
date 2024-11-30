@@ -37,6 +37,11 @@ public class GoblinScript : MonoBehaviour
 
     public void goblinTurn()
     {
+        if (goblinMP > maxMP)
+        {
+            goblinMP = maxMP;
+        }
+
         goblinHealthUpdate();
 
         GoblinAttackComputation();
@@ -67,47 +72,49 @@ public class GoblinScript : MonoBehaviour
 
         int goblinTurn = Random.Range(1, 2);
 
-        int gobHitChance = Random.Range(1, 3);
+        int gobHitChance = Random.Range(1, 5);
 
         gobAttack:
 
         if (goblinTurn == 1)
         {
-            if (gobHitChance >= 2)
+            if (gobHitChance <= 3)
             {
                 if (playerStats.isPlayerDeBuffEffect == true)
                 {
 
                     playerStats.playerIncomingDMG = gobBasicAtk;
 
-                    playerStats.playerHP -= playerStats.playerIncomingDMG;
+                    playerStats.playerHP -= playerStats.playerDeBuff;
 
                     playerStats.isPlayerDeBuffEffect = false;
                 }
                 else
                 {
                     playerStats.playerHP -= gobBasicAtk;
+
+                    Debug.Log("Goblin used Club Smash!\n");
                 }
             }
 
-            else if (gobHitChance == 1)
+            else if (gobHitChance >= 4)
             {
-
-
-                Debug.Log("GOBLIN MISSED!");
+                Debug.Log("GOBLIN MISSED!\n");
             }
-            
-            
         }
 
         if (goblinTurn == 2)
         {
             if (goblinMP >= 60)
             {
+                goblinMP -= 60;
+
                 if (gobHitChance >= 2)
                 {
                     playerStats.playerHP -= gobRabidBite;
                     BattleScript.isPlayerBleeding = true;
+
+                    Debug.Log("Goblin used Rabid Bite!\n");
                 }
 
                 else if (gobHitChance == 1)
@@ -120,10 +127,6 @@ public class GoblinScript : MonoBehaviour
             {
                 goto gobAttack;
             }
-
-            
-
-            
         }
     }
 
@@ -137,13 +140,6 @@ public class GoblinScript : MonoBehaviour
         {
             goblinMP = maxMP;
         }
-        
-        else
-        {
-            
-        }
-
-
     }
 
     #endregion

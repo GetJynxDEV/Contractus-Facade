@@ -17,8 +17,8 @@ public class playerStats : MonoBehaviour
     public static float playerAGI;
     public static float playerINT;
     public static float playerDEX;
-    public static float playerHP;
-    public static float playerMP;
+    public static float playerHP = 200;
+    public static float playerMP = 200;
     public static float playerMREG;
     public static float playerHC;
     public static float playerDODGE;
@@ -26,6 +26,8 @@ public class playerStats : MonoBehaviour
     public static float playerMDEF;
     public static float playerPBONUS;
     public static float playerMBONUS;
+
+    public static float adminHP;
 
     public static float playerBattack;
 
@@ -52,12 +54,14 @@ public class playerStats : MonoBehaviour
         
         currentHP = maxHP;
 
+        adminHP = playerHP;
+
         ComputationUpdate();
         
         
         //--------------------------- ANNOUNCEMENT ------------------------
         
-
+        Debug.Log("PLAYER HELTH: " + playerHP);
         Debug.Log("PLAYER BASIC ATTACK: " + playerBattack + "\n");
         Debug.Log("PLAYER SPECIAL ATTACK " + playerSattackName1 + ": " + playerSattack1 + "\n");
         Debug.Log("PLAYER SPECIAL ATTACK " + playerSattackName2 + ": " + playerSattack2 + "\n");

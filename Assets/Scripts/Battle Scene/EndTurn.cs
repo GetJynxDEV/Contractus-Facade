@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class EndTurn : MonoBehaviour
 {
     int roundValue = 0;
+
+    public SaveLoad loadPos;
     public void Start ()
     {
         roundValue++;
@@ -34,12 +36,19 @@ public class EndTurn : MonoBehaviour
         {
             if (GoblinScript.goblinHP <= 0)
             {
-                Destroy(MonsterNPC.GoblinNPC);
+                PlayerWins();
 
-                Debug.Log("You Killed the Goblin!");
+                MonsterNPC.isGoblinDead = true;
 
-                SceneManager.LoadSceneAsync("scn TOWN");
+                Debug.Log("Goblin Killed\n");
+
+                SceneManager.LoadSceneAsync("scn TOWN");  
             }
         }
+    }
+
+    public void PlayerWins()
+    {
+        playerStats.playerHP = playerStats.adminHP;
     }
 }
