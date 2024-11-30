@@ -20,42 +20,6 @@ public class EndTurn : MonoBehaviour
         Debug.Log("------------------------ROUND " + roundValue + "------------------------\n");
     }
 
-    public void ManaRegen()
-    {
-        Debug.Log("You regained " + playerStats.playerMREG + "MP\n");
-
-        playerStats.playerMP += playerStats.playerMREG;
-
-        if (BattleScript.maxMP >= playerStats.playerMP)
-        {
-            playerStats.playerMP = BattleScript.maxMP;
-        }
-        
-        else
-        {
-            
-        }
-
-        if (MonsterTrigger.isGoblin == true)
-        {
-            Debug.Log("Goblin regained " + GoblinScript.goblinMGEN + "MP\n");
-
-            GoblinScript.goblinMP += GoblinScript.goblinMGEN;
-
-            if (GoblinScript.maxMP >= GoblinScript.goblinMP)
-            {
-                GoblinScript.goblinMP = GoblinScript.maxMP;
-            }
-            
-            else
-            {
-                
-            }
-        }
-        
-
-
-    }
 
     public void MonsterKilled() //IF MONSTER IS KILLED DESTROY GAME OBJECT
     {
