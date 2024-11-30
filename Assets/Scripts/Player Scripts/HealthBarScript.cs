@@ -11,13 +11,15 @@ public class HealthBarScript : MonoBehaviour
     public static float maxHealth;
     public static float health;
 
-    public void SetMaxHealth()
+
+
+    public void SetMaxHealth(int health)
     {
         hpSlider.maxValue = health;
         hpSlider.value = health;
     }
 
-    public void SetHealth()
+    public void SetHealth(int health)
     {
         hpSlider.value = health;
     }

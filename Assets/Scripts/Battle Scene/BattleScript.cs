@@ -44,6 +44,8 @@ public class BattleScript : MonoBehaviour
     public static float currentHP; //Current HP
     public static float currentMP; //Current MP
 
+    int hpValue;
+
     public static float maxHP;
     public static float maxMP;
 
@@ -59,15 +61,19 @@ public class BattleScript : MonoBehaviour
     string characterName = CharacterSelected.charName;
     GameObject Player; //References the Player Game Object
 
+    HealthBarScript hpBar;
+
     #endregion
 
     #region Methods
 
     void Start()
     {
+        hpValue = (int)currentHP;
+
         maxMP = playerStats.playerMP;
 
-        HealthBarScript.maxHealth = currentHP;
+        hpBar.SetMaxHealth(hpValue);
 
         if (MonsterTrigger.isGoblin == true)
         {
@@ -109,6 +115,8 @@ public class BattleScript : MonoBehaviour
 
     void Update()
     {
+        hpValue = (int)currentHP;
+
         hpText = currentHP.ToString(); //current HP to Text
 
         hpTextValue.text = hpText;
@@ -124,14 +132,13 @@ public class BattleScript : MonoBehaviour
 
     public void StatsUpdate()
     {
-        
 
         //CHECKS CURRENT HEALTH AND MP
 
         currentHP = playerStats.playerHP;
         currentMP = playerStats.playerMP;
 
-        HealthBarScript.health = currentHP;
+        hpBar.SetHealth(hpValue);
 
         moveDesc = "What will you do?"; //Default Move Description Name
         moveName = ""; //Default Move Name 
