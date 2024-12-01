@@ -62,6 +62,13 @@ public class sceneChanger : MonoBehaviour
         Invoke("gameScene", 2);
     }
 
+    //WIN CONDITION TO MAIN MENU
+    public void playAgainBtn()
+    {
+        fadeINTransition.SetActive(true);
+        Invoke("menuScene", 2);
+    }
+
 #endregion
 
 #region Transition Anim

@@ -27,7 +27,9 @@ public class EndTurn : MonoBehaviour
     {
         if (playerStats.playerHP <= 0)
         {
-            SceneManager.LoadSceneAsync("scn TOWN");
+            WinnerCondition.isLoser = true;
+
+            SceneManager.LoadSceneAsync("scn EndGame");
 
             Debug.LogWarning("YOU LOST!\n");
         }
