@@ -15,9 +15,6 @@ public class playerMovement : MonoBehaviour
 
     Animator animator; //PLAYER ANIMATOR
 
-    public GameObject InventoryPanel;
-
-
     #endregion
 
     #region Start Updated Method
@@ -32,18 +29,6 @@ public class playerMovement : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Tab))
-        {
-            InventoryPanel.SetActive(true);
-
-            movementSpeed = 0;
-        }
-
-        else
-        {
-            movementSpeed = 5;
-        }
-
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical") ,0.0f);
 
         animator.SetFloat("Horizontal", movement.x);

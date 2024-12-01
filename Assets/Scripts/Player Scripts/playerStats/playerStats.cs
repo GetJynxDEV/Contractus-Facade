@@ -44,17 +44,9 @@ public class playerStats : MonoBehaviour
     public static float playerBleedEffect;
     public static bool isPlayerBleedEffect = false;
 
-    private Inventory inventory;
-    [SerializeField] private InventoryUI inventoryUI;
-
     #endregion
 
     #region Computation
-    void Awake()
-    {
-        inventory = new Inventory();
-        inventoryUI.SetInventory(inventory);
-    }
     public void Start ()
     {
         playerClass = CharacterSelected.charName;

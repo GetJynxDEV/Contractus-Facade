@@ -75,16 +75,9 @@ public class BattleScript : MonoBehaviour
     string characterName = CharacterSelected.charName;
     GameObject Player; //References the Player Game Object
 
-    private Inventory inventory;
-
     #endregion
 
     #region Methods
-
-    void Awake()
-    {
-        inventory = new Inventory();
-    }
 
     void Start()
     {
