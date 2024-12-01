@@ -8,14 +8,14 @@ public class playerMovement : MonoBehaviour
 {
     #region Field and Properties
 
-    [Header("Player Movements")]
     //PLAYER MOVEMENT
-    [SerializeField] public static float movementSpeed = 5;
+    public static float movementSpeed = 5;
 
-    
     Rigidbody2D rb; //PLAYER RIGID BODY
 
     Animator animator; //PLAYER ANIMATOR
+
+    public GameObject InventoryPanel;
 
 
     #endregion
@@ -24,6 +24,7 @@ public class playerMovement : MonoBehaviour
 
     void Start()
     {
+
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 
@@ -31,6 +32,18 @@ public class playerMovement : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKey(KeyCode.Tab))
+        {
+            InventoryPanel.SetActive(true);
+
+            movementSpeed = 0;
+        }
+
+        else
+        {
+            movementSpeed = 5;
+        }
+
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical") ,0.0f);
 
         animator.SetFloat("Horizontal", movement.x);

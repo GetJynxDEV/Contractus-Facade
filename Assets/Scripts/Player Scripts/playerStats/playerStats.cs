@@ -44,10 +44,17 @@ public class playerStats : MonoBehaviour
     public static float playerBleedEffect;
     public static bool isPlayerBleedEffect = false;
 
+    private Inventory inventory;
+    [SerializeField] private InventoryUI inventoryUI;
+
     #endregion
 
     #region Computation
-
+    void Awake()
+    {
+        inventory = new Inventory();
+        inventoryUI.SetInventory(inventory);
+    }
     public void Start ()
     {
         playerClass = CharacterSelected.charName;
@@ -61,7 +68,7 @@ public class playerStats : MonoBehaviour
         
         //--------------------------- ANNOUNCEMENT ------------------------
         
-        Debug.Log("PLAYER HELTH: " + playerHP);
+        Debug.Log("PLAYER HELATH: " + playerHP + "\n");
         Debug.Log("PLAYER BASIC ATTACK: " + playerBattack + "\n");
         Debug.Log("PLAYER SPECIAL ATTACK " + playerSattackName1 + ": " + playerSattack1 + "\n");
         Debug.Log("PLAYER SPECIAL ATTACK " + playerSattackName2 + ": " + playerSattack2 + "\n");

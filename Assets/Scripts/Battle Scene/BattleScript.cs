@@ -75,11 +75,16 @@ public class BattleScript : MonoBehaviour
     string characterName = CharacterSelected.charName;
     GameObject Player; //References the Player Game Object
 
-    
+    private Inventory inventory;
 
     #endregion
 
     #region Methods
+
+    void Awake()
+    {
+        inventory = new Inventory();
+    }
 
     void Start()
     {
@@ -111,8 +116,28 @@ public class BattleScript : MonoBehaviour
             Debug.Log("------------------------------------\n");
         }
 
+        else if (MonsterTrigger.isCornea == true)
+        {
+            Debug.Log("YOUR ENEMY IS A CORNEA!\n");
+            GoblinEnemy.SetActive(false);
+            CorneaEnemy.SetActive(true);
+            FacadeEnemy.SetActive(false);
+
+            Debug.Log("------------------------------------\n");
+        }
+
+        if (MonsterTrigger.isFacade == true)
+        {
+            Debug.Log("YOUR ENEMY IS A FACADE!\n");
+            GoblinEnemy.SetActive(false);
+            CorneaEnemy.SetActive(false);
+            FacadeEnemy.SetActive(true);
+
+            Debug.Log("------------------------------------\n");
+        }
+
         StatsUpdate();
-        MoveStatsUpdate();
+        
 
         
 
@@ -143,7 +168,8 @@ public class BattleScript : MonoBehaviour
 
     void Update()
     {
-        
+        MoveStatsUpdate();
+
         if (playerStats.playerMP <= 0)
         {
             playerStats.playerMP = 0;
@@ -200,6 +226,18 @@ public class BattleScript : MonoBehaviour
             playerStats.playerMP = 0;
         }
 
+        MonsterStatsUpdate();
+
+        //RESET DEBUFF
+        playerStats.playerIncomingDMG = 0;
+        playerStats.playerDeBuff = 0;
+
+    }
+
+    public void MonsterStatsUpdate()
+    {
+        //CHECK MONSTER STATS
+
         if (MonsterTrigger.isGoblin == true)
         {
             Debug.Log("Goblin regained " + GoblinScript.goblinMGEN + "MP\n");
@@ -212,6 +250,30 @@ public class BattleScript : MonoBehaviour
             }
         }
 
+        else if (MonsterTrigger.isCornea == true)
+        {
+            Debug.Log("Cornea regained " + CorneaScript.corneaMGEN + "MP\n");
+
+            CorneaScript.corneaMP += CorneaScript.corneaMGEN;
+
+            if (CorneaScript.maxMP >= CorneaScript.corneaMP)
+            {
+                CorneaScript.corneaMP = CorneaScript.maxMP;
+            }
+        }
+
+        else if (MonsterTrigger.isFacade == true)
+        {
+            Debug.Log("Facade regained " + FacadeScript.facadeMGEN + "MP\n");
+
+            FacadeScript.facadeMP += FacadeScript.facadeMGEN;
+
+            if (FacadeScript.maxMP >= FacadeScript.facadeMP)
+            {
+                FacadeScript.facadeMP = FacadeScript.maxMP;
+            }
+        }
+
 
         //CHECK ENEMY HEALTH
         if (MonsterTrigger.isGoblin == true)
@@ -220,130 +282,121 @@ public class BattleScript : MonoBehaviour
             Debug.Log("Goblin's Current Mana is " + GoblinScript.goblinMP + "\n");
         }
 
-        //RESET DEBUFF
-        playerStats.playerIncomingDMG = 0;
-        playerStats.playerDeBuff = 0;
+        else if (MonsterTrigger.isCornea == true)
+        {
+            Debug.Log("Cornea's Current Health is " + CorneaScript.corneaHP + "\n");
+            Debug.Log("Cornea's Current Mana is " + CorneaScript.corneaMP + "\n");
+        }
 
+        else if (MonsterTrigger.isFacade == true)
+        {
+            Debug.Log("Facade's Current Health is " + FacadeScript.facadeHP + "\n");
+            Debug.Log("Facade's Current Mana is " + FacadeScript.facadeMP + "\n");
+        }
     }
-
     public void MoveStatsUpdate()
-    {
-        //IF MP is Down
-
-        if (characterName == "Paladin")
-        {
-            if (playerStats.playerMP <= 64)
-            {
-                Debug.Log("Player's MP is not enough");
-                specialAtkBtn1.GetComponent<Button>().interactable = false;
-            }
-        }
-
-        if (characterName == "Swordsman")
-        {
-            if (playerStats.playerMP <= 49)
-            {
-                Debug.Log("Player's MP is not enough");
-                specialAtkBtn1.GetComponent<Button>().interactable = false;
-            }
-        }
-
-        if (characterName == "Mage")
-        {
-            if (playerStats.playerMP <= 59)
-            {
-                Debug.Log("Player's MP is not enough");
-                specialAtkBtn1.GetComponent<Button>().interactable = false;
-            }
-        }
-
-        //Move Update Special Attack 2
-        
-        if (characterName == "Paladin")
-        {
-            if (playerStats.playerMP <= 109)
-            {
-                Debug.Log("Player's MP is not enough");
-                specialAtkBtn2.GetComponent<Button>().interactable = false;
-            }
-        }
-
-        if (characterName == "Swordsman")
-        {
-            if (playerStats.playerMP <= 99)
-            {
-                Debug.Log("Player's MP is not enough");
-                specialAtkBtn2.GetComponent<Button>().interactable = false;
-            }
-        }
-
-        if (characterName == "Mage")
-        {
-            if (playerStats.playerMP <= 149)
-            {
-                Debug.Log("Player's MP is not enough");
-                specialAtkBtn2.GetComponent<Button>().interactable = false;
-            }
-        }
-
-        //If MP is up
-
-        if (characterName == "Paladin")
-        {
-            if (playerStats.playerMP >= 65)
-            {
-                specialAtkBtn1.GetComponent<Button>().interactable = true;
-            }
-        }
-
-        if (characterName == "Swordsman")
-        {
-            if (playerStats.playerMP >= 50)
-            {
-                specialAtkBtn1.GetComponent<Button>().interactable = true;
-            }
-        }
-
-        if (characterName == "Mage")
-        {
-            if (playerStats.playerMP >= 60)
-            {
-                specialAtkBtn1.GetComponent<Button>().interactable = true;
-            }
-        }
-
-        //Move Update Special Attack 2
-        
-        if (characterName == "Paladin")
-        {
-            if (playerStats.playerMP >= 110)
-            {
-                specialAtkBtn2.GetComponent<Button>().interactable = true;
-            }
-        }
-
-        if (characterName == "Swordsman")
-        {
-            if (playerStats.playerMP >= 100)
-            {
-                specialAtkBtn2.GetComponent<Button>().interactable = true;
-            }
-        }
-
-        if (characterName == "Mage")
-        {
-            if (playerStats.playerMP >= 150)
-            {
-                specialAtkBtn2.GetComponent<Button>().interactable = true;
-            }
-        }
+    {   
+        //CHECK IF SPECIAL ATTACK 1 AND 2 MP Cost is Up
+        sAttack1Update();
+        sAttack2Update();
     }
-    //------------------- MONSTER EFFECT -------------------------------
-
     public void bleedEffect() //Monster gave Player Bleed Effect
     {
         Debug.Log("Player Bleed Effect ended\n");
         isPlayerBleeding = false;
+    }
+
+    public void sAttack1Update()
+    {
+        if (characterName == "Paladin")
+        {
+            //SPECIAL ATTACK 1
+            if (currentMP <= 64f)
+            {
+                specialAtkBtn1.GetComponent<Button>().interactable = false; 
+            }
+            else if (playerStats.playerMP >= 65f)
+            {
+                specialAtkBtn1.GetComponent<Button>().interactable = true;
+            }
+        }
+
+        else if (characterName == "Swordsman")
+        {
+            //SPECIAL ATTACK 1
+            if (currentMP <= 49f)
+            {
+                specialAtkBtn1.GetComponent<Button>().interactable = false;
+            }
+
+            else if (playerStats.playerMP >= 50f)
+            {
+                specialAtkBtn1.GetComponent<Button>().interactable = true;
+            }
+        }
+
+        if (characterName == "Mage")
+        {
+            //SPECIAL ATTACK 1
+            if (currentMP <= 59f)
+            {
+                specialAtkBtn1.GetComponent<Button>().interactable = false;
+            }
+
+            else if (currentMP >= 60f)
+            {
+                specialAtkBtn1.GetComponent<Button>().interactable = true;
+            }
+        }
+        
+    }
+
+    public void sAttack2Update()
+    {
+        //PALADIN 
+        if (characterName == "Paladin")
+        {
+            //SPECIAL ATTACK 2
+            if (currentMP <= 109f)
+            {
+                specialAtkBtn2.GetComponent<Button>().interactable = false;
+            }
+
+            else if (currentMP >= 110f)
+            {
+                specialAtkBtn2.GetComponent<Button>().interactable = true;
+            }
+        }
+
+        //SWORDSMAN
+        else if (characterName == "Swordsman")
+        {
+            //SPECIAL ATTACK 2
+            if (currentMP < 99f)
+            {
+                specialAtkBtn2.GetComponent<Button>().interactable = false;
+            }
+
+            else if (currentMP >= 100f)
+            {
+                specialAtkBtn2.GetComponent<Button>().interactable = true;
+            }
+        }
+
+        //MAGE
+        else if (characterName == "Mage")
+        {
+            //SPECIAL ATTACK 2
+            if (currentMP <= 149f)
+            {
+                specialAtkBtn2.GetComponent<Button>().interactable = false;
+            }
+
+            else if (currentMP >= 150f)
+            {
+                specialAtkBtn2.GetComponent<Button>().interactable = true;
+            }
+        }
     }
 
 #endregion
@@ -454,7 +507,6 @@ public class BattleScript : MonoBehaviour
     {
         int hitChance = Random.Range(1,10);
 
-        
         if (MonsterTrigger.isGoblin == true)
         {
             //Paladin Special Attack 1
@@ -538,8 +590,183 @@ public class BattleScript : MonoBehaviour
                 }
                 
             }
-        }
+        } //GOBLIN
+        
+        //----------------- CORNEA ----------------------
+
+        if (MonsterTrigger.isCornea == true)
+        {
+            //Paladin Special Attack 1
+
+            if (characterName == "Paladin") //Applies DeBuff
+            {
+                playerStats.playerMP -= 65;
+
+                if (hitChance >= 4)
+                {
+                    if (playerStats.playerMP >= 65 )
+                    {
+                        CorneaScript.corneaHP -= playerStats.playerSattack1; //MONSTER
+                        playerStats.isPlayerDeBuffEffect = true;
+
+                        moveName = "You used " + sAttack1Name;
+                        moveDesc = "You did " + playerStats.playerSattack1 + " To the Cornea";
+                        textDesc.text = moveDesc;
+                        textMove.text = moveName;
+
+                    }
+                }
+
+                else if (hitChance <= 3)
+                {
+                    moveDesc = "You Missed!";
+                    textDesc.text = moveDesc;
+                }
+            }
+
+            //Mage Special Attack 1
+ 
+            if (characterName == "Mage")
+            {
+                playerStats.playerMP -= 60;
+
+                if(hitChance >= 5)
+                {
+                    if (playerStats.playerMP > 60 )
+                    {
+                        CorneaScript.corneaHP -= playerStats.playerSattack1; //MONSTER
+
+                        moveName = "You used " + sAttack1Name;
+                        moveDesc = "You did " + playerStats.playerSattack1 + " To the Cornea";
+                        textDesc.text = moveDesc;
+                        textMove.text = moveName;
+                    }
+                }
+
+                else if (hitChance <= 4)
+                {
+
+                    moveDesc = "You Missed!\n";
+                    textDesc.text = moveDesc;
+                }
+            }
+
+            //Black Swordsman Special Attack 1
+
+            if (characterName == "Swordsman")
+            {
+                playerStats.playerMP -= 50;
+
+                if (hitChance >= 5)
+                {
+                    if (playerStats.playerMP >= 50 )
+                    {
+                        CorneaScript.corneaHP -= playerStats.playerSattack1; //MONSTER
+
+                        moveName = "You used " + sAttack1Name;
+                        moveDesc = "You did " + playerStats.playerSattack1 + " To the Cornea";
+                        textDesc.text = moveDesc;
+                        textMove.text = moveName;
+
+                    }
+                }
+                else if (hitChance <= 4)
+                {
+                    moveDesc = "You Missed!\n";
+                    textDesc.text = moveDesc;
+                }
+                
+            }
+        } //CORNEA
+        
+        //----------------- FACADE ----------------------
+
+        if (MonsterTrigger.isFacade == true)
+        {
+            //Paladin Special Attack 1
+
+            if (characterName == "Paladin") //Applies DeBuff
+            {
+                playerStats.playerMP -= 65;
+
+                if (hitChance >= 4)
+                {
+                    if (playerStats.playerMP >= 65 )
+                    {
+                        FacadeScript.facadeHP -= playerStats.playerSattack1; //MONSTER
+                        playerStats.isPlayerDeBuffEffect = true;
+
+                        moveName = "You used " + sAttack1Name;
+                        moveDesc = "You did " + playerStats.playerSattack1 + " To the Facade";
+                        textDesc.text = moveDesc;
+                        textMove.text = moveName;
+
+                    }
+                }
+
+                else if (hitChance <= 3)
+                {
+                    moveDesc = "You Missed!";
+                    textDesc.text = moveDesc;
+                }
+            }
+
+            //Mage Special Attack 1
+ 
+            if (characterName == "Mage")
+            {
+                playerStats.playerMP -= 60;
+
+                if(hitChance >= 5)
+                {
+                    if (playerStats.playerMP > 60 )
+                    {
+                        FacadeScript.facadeHP -= playerStats.playerSattack1; //MONSTER
+
+                        moveName = "You used " + sAttack1Name;
+                        moveDesc = "You did " + playerStats.playerSattack1 + " To the Facade";
+                        textDesc.text = moveDesc;
+                        textMove.text = moveName;
+                    }
+                }
+
+                else if (hitChance <= 4)
+                {
+
+                    moveDesc = "You Missed!\n";
+                    textDesc.text = moveDesc;
+                }
+            }
+
+            //Black Swordsman Special Attack 1
+
+            if (characterName == "Swordsman")
+            {
+                playerStats.playerMP -= 50;
+
+                if (hitChance >= 5)
+                {
+                    if (playerStats.playerMP >= 50 )
+                    {
+                        FacadeScript.facadeHP -= playerStats.playerSattack1; //MONSTER
+
+                        moveName = "You used " + sAttack1Name;
+                        moveDesc = "You did " + playerStats.playerSattack1 + " To the Facade";
+                        textDesc.text = moveDesc;
+                        textMove.text = moveName;
+
+                    }
+                }
+                else if (hitChance <= 4)
+                {
+                    moveDesc = "You Missed!\n";
+                    textDesc.text = moveDesc;
+                }
+                
+            }
+        } //FACADE
     }
+
 
     public void playerSpecialAttack2()
     {   
@@ -617,6 +844,174 @@ public class BattleScript : MonoBehaviour
 
                         moveName = "You used " + sAttack2Name;
                         moveDesc = "You did " + playerStats.playerSattack2 + " To the Goblin";
+                        textDesc.text = moveDesc;
+                        textMove.text = moveName;
+                    }
+                }
+                else if (hitChance <= 4)
+                {
+                    moveDesc = "You Missed!\n";
+                    textDesc.text = moveDesc;
+                } 
+            }
+        }
+
+        //THIS COMBAT IS CALCULATION IS FOR CORNEA
+        if (MonsterTrigger.isCornea == true)
+        {
+            //Paladin Special Attack 2
+
+            if (characterName == "Paladin") //Applies DeBuff
+            {
+                playerStats.playerMP -= 110;
+
+                if (hitChance >= 4)
+                {
+                    if (playerStats.playerMP >= 110 )
+                    {
+                        CorneaScript.corneaHP -= playerStats.playerSattack2; //MONSTER
+
+                        moveName = "You used " + sAttack2Name;
+                        moveDesc = "You did " + playerStats.playerSattack2 + " To the Cornea";
+                        textDesc.text = moveDesc;
+                        textMove.text = moveName;
+
+                    }
+                }
+                else if (hitChance <= 3)
+                {
+
+                    moveDesc = "You Missed!\n";
+                    textDesc.text = moveDesc;
+                }
+            }
+
+            //Mage Special Attack 2
+ 
+            if (characterName == "Mage")
+            {
+                playerStats.playerMP -= 150;
+
+                if (hitChance >= 5)
+                {
+                    if (playerStats.playerMP >= 150 )
+                    {
+                        CorneaScript.corneaHP -= playerStats.playerSattack2; //MONSTER
+
+                        moveName = "You used " + sAttack2Name + "\n";
+                        moveDesc = "You did " + playerStats.playerSattack2 + " To the Cornea";
+                        textDesc.text = moveDesc;
+                        textMove.text = moveName;
+
+                    }
+                }
+                else if (hitChance <= 4)
+                {
+                    moveDesc = "You Missed!\n";
+                    textDesc.text = moveDesc;
+                } 
+            }
+
+            //Black Swordsman Special Attack 2
+
+            if (characterName == "Swordsman")
+            {
+                playerStats.playerMP -= 100;
+
+                if (hitChance >= 5)
+                {
+                    if (playerStats.playerMP >= 100 )
+                    {
+                        CorneaScript.corneaHP -= playerStats.playerSattack2; //MONSTER
+
+                        isPlayerApplyBleedEffect = true;
+
+                        moveName = "You used " + sAttack2Name;
+                        moveDesc = "You did " + playerStats.playerSattack2 + " To the Cornea";
+                        textDesc.text = moveDesc;
+                        textMove.text = moveName;
+                    }
+                }
+                else if (hitChance <= 4)
+                {
+                    moveDesc = "You Missed!\n";
+                    textDesc.text = moveDesc;
+                } 
+            }
+        }
+
+        //THIS COMBAT IS CALCULATION IS FOR FACADE
+        if (MonsterTrigger.isFacade == true)
+        {
+            //Paladin Special Attack 2
+
+            if (characterName == "Paladin") //Applies DeBuff
+            {
+                playerStats.playerMP -= 110;
+
+                if (hitChance >= 4)
+                {
+                    if (playerStats.playerMP >= 110 )
+                    {
+                        FacadeScript.facadeHP -= playerStats.playerSattack2; //MONSTER
+
+                        moveName = "You used " + sAttack2Name;
+                        moveDesc = "You did " + playerStats.playerSattack2 + " To the Facade";
+                        textDesc.text = moveDesc;
+                        textMove.text = moveName;
+
+                    }
+                }
+                else if (hitChance <= 3)
+                {
+
+                    moveDesc = "You Missed!\n";
+                    textDesc.text = moveDesc;
+                }
+            }
+
+            //Mage Special Attack 2
+ 
+            if (characterName == "Mage")
+            {
+                playerStats.playerMP -= 150;
+
+                if (hitChance >= 5)
+                {
+                    if (playerStats.playerMP >= 150 )
+                    {
+                        FacadeScript.facadeHP -= playerStats.playerSattack2; //MONSTER
+
+                        moveName = "You used " + sAttack2Name + "\n";
+                        moveDesc = "You did " + playerStats.playerSattack2 + " To the Facade";
+                        textDesc.text = moveDesc;
+                        textMove.text = moveName;
+
+                    }
+                }
+                else if (hitChance <= 4)
+                {
+                    moveDesc = "You Missed!\n";
+                    textDesc.text = moveDesc;
+                } 
+            }
+
+            //Black Swordsman Special Attack 2
+
+            if (characterName == "Swordsman")
+            {
+                playerStats.playerMP -= 100;
+
+                if (hitChance >= 5)
+                {
+                    if (playerStats.playerMP >= 100 )
+                    {
+                        FacadeScript.facadeHP -= playerStats.playerSattack2; //MONSTER
+
+                        isPlayerApplyBleedEffect = true;
+
+                        moveName = "You used " + sAttack2Name;
+                        moveDesc = "You did " + playerStats.playerSattack2 + " To the Facade";
                         textDesc.text = moveDesc;
                         textMove.text = moveName;
                     }
