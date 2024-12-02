@@ -203,6 +203,8 @@ public class BattleScript : MonoBehaviour
         //CHECK IF PLAYER IS BLEEDING
         if (isPlayerBleeding == true)
         {
+            BattleEffect.isPlayerBleeding = true;
+
             playerStats.playerHP -= 5;
             bleedEffect();
         }
@@ -422,22 +424,37 @@ public class BattleScript : MonoBehaviour
                     Debug.Log("YOU HIT THE MONSTER!\n");   
                 }
 
-                //MONSTER DAMAGE
+                //CORNEA
 
                 if (MonsterTrigger.isCornea == true)
                 {
-                    GoblinScript.goblinHP -= playerStats.playerBattack;
+                    CorneaScript.corneaHP -= playerStats.playerBattack;
 
-                    moveDesc = "You did " + playerStats.playerBattack + " To the Goblin";
+                    moveDesc = "You did " + playerStats.playerBattack + " To the Cornea";
                     textDesc.text = moveDesc;
 
                     Debug.Log("YOU HIT THE MONSTER!\n");   
-                }   
+                }
+
+                //FACADE
+
+                if (MonsterTrigger.isFacade == true)
+                {
+                    FacadeScript.facadeHP -= playerStats.playerBattack;
+
+                    moveDesc = "You did " + playerStats.playerBattack + " To the Cornea";
+                    textDesc.text = moveDesc;
+
+                    Debug.Log("YOU HIT THE MONSTER!\n");   
+                }  
+
             }
 
             else if (hitChance <= 3)
             {
-                Debug.Log("YOU MISSED!\nb");   
+                Debug.Log("YOU MISSED!\n");   
+
+                BattleEffect.isPlayerMiss = true;
 
                 moveDesc = "You Missed!";
                 textDesc.text = moveDesc;
@@ -465,6 +482,8 @@ public class BattleScript : MonoBehaviour
             else if (hitChance <= 4)
             {
                 Debug.Log("YOU MISSED!\n");   
+                
+                BattleEffect.isPlayerMiss = true;
 
                 moveDesc = "You Missed!";
                 textDesc.text = moveDesc;
@@ -492,6 +511,8 @@ public class BattleScript : MonoBehaviour
             else if (hitChance <= 4)
             {
                 Debug.Log("YOU MISSED!\n");   
+                
+                BattleEffect.isPlayerMiss = true;
 
                 moveDesc = "You Missed!";
                 textDesc.text = moveDesc;
@@ -528,6 +549,8 @@ public class BattleScript : MonoBehaviour
 
                 else if (hitChance <= 3)
                 {
+                    BattleEffect.isPlayerMiss = true;
+
                     moveDesc = "You Missed!";
                     textDesc.text = moveDesc;
                 }
@@ -554,6 +577,7 @@ public class BattleScript : MonoBehaviour
 
                 else if (hitChance <= 4)
                 {
+                    BattleEffect.isPlayerMiss = true;
 
                     moveDesc = "You Missed!\n";
                     textDesc.text = moveDesc;
@@ -581,6 +605,8 @@ public class BattleScript : MonoBehaviour
                 }
                 else if (hitChance <= 4)
                 {
+                    BattleEffect.isPlayerMiss = true;
+
                     moveDesc = "You Missed!\n";
                     textDesc.text = moveDesc;
                 }
@@ -615,6 +641,8 @@ public class BattleScript : MonoBehaviour
 
                 else if (hitChance <= 3)
                 {
+                    BattleEffect.isPlayerMiss = true;
+
                     moveDesc = "You Missed!";
                     textDesc.text = moveDesc;
                 }
@@ -641,6 +669,7 @@ public class BattleScript : MonoBehaviour
 
                 else if (hitChance <= 4)
                 {
+                    BattleEffect.isPlayerMiss = true;
 
                     moveDesc = "You Missed!\n";
                     textDesc.text = moveDesc;
@@ -668,6 +697,8 @@ public class BattleScript : MonoBehaviour
                 }
                 else if (hitChance <= 4)
                 {
+                    BattleEffect.isPlayerMiss = true;
+
                     moveDesc = "You Missed!\n";
                     textDesc.text = moveDesc;
                 }
@@ -702,6 +733,8 @@ public class BattleScript : MonoBehaviour
 
                 else if (hitChance <= 3)
                 {
+                    BattleEffect.isPlayerMiss = true;
+
                     moveDesc = "You Missed!";
                     textDesc.text = moveDesc;
                 }
@@ -728,6 +761,7 @@ public class BattleScript : MonoBehaviour
 
                 else if (hitChance <= 4)
                 {
+                    BattleEffect.isPlayerMiss = true;
 
                     moveDesc = "You Missed!\n";
                     textDesc.text = moveDesc;
@@ -755,6 +789,8 @@ public class BattleScript : MonoBehaviour
                 }
                 else if (hitChance <= 4)
                 {
+                    BattleEffect.isPlayerMiss = true;
+
                     moveDesc = "You Missed!\n";
                     textDesc.text = moveDesc;
                 }
@@ -792,6 +828,7 @@ public class BattleScript : MonoBehaviour
                 }
                 else if (hitChance <= 3)
                 {
+                    BattleEffect.isPlayerMiss = true;
 
                     moveDesc = "You Missed!\n";
                     textDesc.text = moveDesc;
@@ -819,6 +856,8 @@ public class BattleScript : MonoBehaviour
                 }
                 else if (hitChance <= 4)
                 {
+                    BattleEffect.isPlayerMiss = true;
+
                     moveDesc = "You Missed!\n";
                     textDesc.text = moveDesc;
                 } 
@@ -846,6 +885,8 @@ public class BattleScript : MonoBehaviour
                 }
                 else if (hitChance <= 4)
                 {
+                    BattleEffect.isPlayerMiss = true;
+
                     moveDesc = "You Missed!\n";
                     textDesc.text = moveDesc;
                 } 
@@ -876,6 +917,7 @@ public class BattleScript : MonoBehaviour
                 }
                 else if (hitChance <= 3)
                 {
+                    BattleEffect.isPlayerMiss = true;
 
                     moveDesc = "You Missed!\n";
                     textDesc.text = moveDesc;
@@ -903,6 +945,8 @@ public class BattleScript : MonoBehaviour
                 }
                 else if (hitChance <= 4)
                 {
+                    BattleEffect.isPlayerMiss = true;
+
                     moveDesc = "You Missed!\n";
                     textDesc.text = moveDesc;
                 } 
@@ -930,6 +974,8 @@ public class BattleScript : MonoBehaviour
                 }
                 else if (hitChance <= 4)
                 {
+                    BattleEffect.isPlayerMiss = true;
+
                     moveDesc = "You Missed!\n";
                     textDesc.text = moveDesc;
                 } 
@@ -960,6 +1006,7 @@ public class BattleScript : MonoBehaviour
                 }
                 else if (hitChance <= 3)
                 {
+                    BattleEffect.isPlayerMiss = true;
 
                     moveDesc = "You Missed!\n";
                     textDesc.text = moveDesc;
@@ -987,6 +1034,8 @@ public class BattleScript : MonoBehaviour
                 }
                 else if (hitChance <= 4)
                 {
+                    BattleEffect.isPlayerMiss = true;
+                    
                     moveDesc = "You Missed!\n";
                     textDesc.text = moveDesc;
                 } 
@@ -1014,6 +1063,8 @@ public class BattleScript : MonoBehaviour
                 }
                 else if (hitChance <= 4)
                 {
+                    BattleEffect.isPlayerMiss = true;
+                    
                     moveDesc = "You Missed!\n";
                     textDesc.text = moveDesc;
                 } 
