@@ -5,11 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class EndTurn : MonoBehaviour
 {
+    [SerializeField] public GameObject EndTurnButton;
+    [SerializeField] public GameObject FadeIn;
     playerStats PlayerStats;
+    
 
     int roundValue = 0;
 
-    public SaveLoad loadPos;
     public void Start ()
     {
         roundValue++;
@@ -29,7 +31,17 @@ public class EndTurn : MonoBehaviour
         Debug.Log("------------------------ROUND " + roundValue + "------------------------\n");
     }
 
+    public void EndTurnAnim()
+    {
+        Invoke("EndTurnBtn", 3);
+    }
 
+    void EndTurnBtn()
+    {
+        EndTurnButton.SetActive(true);
+    }
+
+#region Win Condition
     public void MonsterKilled() //IF MONSTER IS KILLED DESTROY GAME OBJECT
     {
         if (playerStats.playerHP <= 0)
@@ -51,13 +63,20 @@ public class EndTurn : MonoBehaviour
 
                 Debug.Log("Goblin Killed\n");
 
-                SceneManager.LoadSceneAsync("scn TOWN");  
+                FadeIn.SetActive(true);
+
+                Invoke("PlayerWins", 3);
             }
         }
     }
 
     public void PlayerWins()
     {
+        
         playerStats.playerHP = playerStats.adminHP;
+
+        SceneManager.LoadSceneAsync("scn TOWN"); 
     }
+
+    #endregion
 }
