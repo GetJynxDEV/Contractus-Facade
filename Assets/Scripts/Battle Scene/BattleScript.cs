@@ -409,6 +409,8 @@ public class BattleScript : MonoBehaviour
         //PALADIN
         if (characterName == "Paladin")
         {
+            BattleEffect.isPaladinBasic = true;
+
             if (hitChance >= 4)
             {
                 //MONSTER DAMAGE
@@ -464,6 +466,8 @@ public class BattleScript : MonoBehaviour
         //MAGE
         if (characterName == "Mage")
         {
+            BattleEffect.isMageBasic = true;
+
             if (hitChance >= 5)
             {
                 //MONSTER DAMAGE
@@ -493,6 +497,8 @@ public class BattleScript : MonoBehaviour
         //BLACK SWORDSMAN
         if (characterName == "Swordsman")
         {
+            BattleEffect.isSwordsmanBasic = true;
+
             if (hitChance >= 5)
             {
                 //MONSTER DAMAGE
@@ -522,6 +528,7 @@ public class BattleScript : MonoBehaviour
 
     public void playerSpecialAttack1()
     {
+
         int hitChance = Random.Range(1,10);
 
         if (MonsterTrigger.isGoblin == true)
@@ -530,6 +537,8 @@ public class BattleScript : MonoBehaviour
 
             if (characterName == "Paladin") //Applies DeBuff
             {
+                BattleEffect.isPaladinSAttack1 = true;
+
                 playerStats.playerMP -= 65;
 
                 if (hitChance >= 4)
@@ -560,6 +569,8 @@ public class BattleScript : MonoBehaviour
  
             if (characterName == "Mage")
             {
+                BattleEffect.isMageSAttack1 = true;
+
                 playerStats.playerMP -= 60;
 
                 if(hitChance >= 5)
@@ -588,6 +599,8 @@ public class BattleScript : MonoBehaviour
 
             if (characterName == "Swordsman")
             {
+                BattleEffect.isSwordsmanSAttack1 = true;
+
                 playerStats.playerMP -= 50;
 
                 if (hitChance >= 5)
@@ -622,6 +635,8 @@ public class BattleScript : MonoBehaviour
 
             if (characterName == "Paladin") //Applies DeBuff
             {
+                BattleEffect.isPaladinSAttack1 = true;
+
                 playerStats.playerMP -= 65;
 
                 if (hitChance >= 4)
@@ -652,6 +667,8 @@ public class BattleScript : MonoBehaviour
  
             if (characterName == "Mage")
             {
+                BattleEffect.isMageSAttack1 = true;
+
                 playerStats.playerMP -= 60;
 
                 if(hitChance >= 5)
@@ -680,6 +697,8 @@ public class BattleScript : MonoBehaviour
 
             if (characterName == "Swordsman")
             {
+                BattleEffect.isSwordsmanSAttack1 = true;
+
                 playerStats.playerMP -= 50;
 
                 if (hitChance >= 5)
@@ -714,6 +733,8 @@ public class BattleScript : MonoBehaviour
 
             if (characterName == "Paladin") //Applies DeBuff
             {
+                BattleEffect.isPaladinSAttack1 = true;
+
                 playerStats.playerMP -= 65;
 
                 if (hitChance >= 4)
@@ -744,6 +765,8 @@ public class BattleScript : MonoBehaviour
  
             if (characterName == "Mage")
             {
+                BattleEffect.isMageSAttack1 = true;             
+
                 playerStats.playerMP -= 60;
 
                 if(hitChance >= 5)
@@ -772,6 +795,8 @@ public class BattleScript : MonoBehaviour
 
             if (characterName == "Swordsman")
             {
+                BattleEffect.isSwordsmanSAttack1 = true;
+
                 playerStats.playerMP -= 50;
 
                 if (hitChance >= 5)
@@ -811,6 +836,8 @@ public class BattleScript : MonoBehaviour
 
             if (characterName == "Paladin") //Applies DeBuff
             {
+                BattleEffect.isPaladinSAttack2 = true;
+
                 playerStats.playerMP -= 110;
 
                 if (hitChance >= 4)
@@ -839,6 +866,8 @@ public class BattleScript : MonoBehaviour
  
             if (characterName == "Mage")
             {
+                BattleEffect.isMageSAttack2 = true;
+
                 playerStats.playerMP -= 150;
 
                 if (hitChance >= 5)
@@ -867,6 +896,8 @@ public class BattleScript : MonoBehaviour
 
             if (characterName == "Swordsman")
             {
+                BattleEffect.isSwordsmanSAttack2 = true;
+
                 playerStats.playerMP -= 100;
 
                 if (hitChance >= 5)
@@ -900,6 +931,8 @@ public class BattleScript : MonoBehaviour
 
             if (characterName == "Paladin") //Applies DeBuff
             {
+                BattleEffect.isPaladinSAttack2 = true;
+
                 playerStats.playerMP -= 110;
 
                 if (hitChance >= 4)
@@ -928,6 +961,8 @@ public class BattleScript : MonoBehaviour
  
             if (characterName == "Mage")
             {
+                BattleEffect.isMageSAttack2 = true;
+
                 playerStats.playerMP -= 150;
 
                 if (hitChance >= 5)
@@ -956,6 +991,8 @@ public class BattleScript : MonoBehaviour
 
             if (characterName == "Swordsman")
             {
+                BattleEffect.isSwordsmanSAttack2 = true;
+
                 playerStats.playerMP -= 100;
 
                 if (hitChance >= 5)
@@ -989,6 +1026,8 @@ public class BattleScript : MonoBehaviour
 
             if (characterName == "Paladin") //Applies DeBuff
             {
+                BattleEffect.isPaladinSAttack2 = true;
+
                 playerStats.playerMP -= 110;
 
                 if (hitChance >= 4)
@@ -1017,6 +1056,8 @@ public class BattleScript : MonoBehaviour
  
             if (characterName == "Mage")
             {
+                BattleEffect.isMageSAttack2 = true;
+
                 playerStats.playerMP -= 150;
 
                 if (hitChance >= 5)
@@ -1045,6 +1086,8 @@ public class BattleScript : MonoBehaviour
 
             if (characterName == "Swordsman")
             {
+                BattleEffect.isSwordsmanSAttack2 = true;
+
                 playerStats.playerMP -= 100;
 
                 if (hitChance >= 5)
@@ -1064,7 +1107,7 @@ public class BattleScript : MonoBehaviour
                 else if (hitChance <= 4)
                 {
                     BattleEffect.isPlayerMiss = true;
-                    
+
                     moveDesc = "You Missed!\n";
                     textDesc.text = moveDesc;
                 } 

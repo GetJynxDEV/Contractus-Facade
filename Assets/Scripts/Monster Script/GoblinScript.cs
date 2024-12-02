@@ -51,6 +51,8 @@ public class GoblinScript : MonoBehaviour
     {
         if (BattleScript.isPlayerApplyBleedEffect == true)
         {
+            BattleEffect.isMonsterBleeding = true;
+
             goblinHP -= playerStats.playerBleedEffect;
 
             BattleScript.isPlayerApplyBleedEffect = false;
@@ -99,6 +101,8 @@ public class GoblinScript : MonoBehaviour
 
             else if (gobHitChance >= 4)
             {
+                BattleEffect.isMonsterMiss = true;
+
                 Debug.Log("GOBLIN MISSED!\n");
             }
         }
@@ -119,6 +123,8 @@ public class GoblinScript : MonoBehaviour
 
                 else if (gobHitChance == 1)
                 {
+                    BattleEffect.isMonsterMiss = true;
+                    
                     Debug.Log("GOBLIN MISSED");
                 }
             }

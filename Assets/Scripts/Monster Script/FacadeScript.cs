@@ -48,6 +48,8 @@ public class FacadeScript : MonoBehaviour
     {
         if (BattleScript.isPlayerApplyBleedEffect == true)
         {
+            BattleEffect.isMonsterBleeding = true;
+
             facadeHP -= playerStats.playerBleedEffect;
 
             BattleScript.isPlayerApplyBleedEffect = false;
@@ -98,6 +100,8 @@ public class FacadeScript : MonoBehaviour
 
             else if (facadeHitChance == 1)
             {
+                BattleEffect.isMonsterMiss = true;
+
                 Debug.Log("FACADE MISSED!\n");
             }
         }
@@ -118,6 +122,8 @@ public class FacadeScript : MonoBehaviour
 
                 else if (facadeHitChance == 1)
                 {
+                    BattleEffect.isMonsterMiss = true;
+                    
                     Debug.Log("FACADE MISSED!\n");
                 }
             }

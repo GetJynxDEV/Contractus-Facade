@@ -9,13 +9,11 @@ public class WinnerCondition : MonoBehaviour
     public static bool isWinner = false;
     public static bool isLoser = false;
 
-    GameObject WinPanel;
-    GameObject LosePanel;
+    public GameObject WinPanel;
+    public GameObject LosePanel;
 
     void Start()
     {
-        WinPanel = GameObject.Find("Win");
-        LosePanel = GameObject.Find("Lose");
 
         if (isWinner == true)
         {

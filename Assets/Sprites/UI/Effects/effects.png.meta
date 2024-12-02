@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: effects_0
+      name: MageBA1
       rect:
         serializedVersion: 2
         x: 293
@@ -131,7 +131,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effects_1
+      name: PaladinBA1
       rect:
         serializedVersion: 2
         x: 339
@@ -152,7 +152,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effects_2
+      name: SwordsmanSA1_1
       rect:
         serializedVersion: 2
         x: 53
@@ -173,7 +173,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effects_3
+      name: SwordsmanBA1
       rect:
         serializedVersion: 2
         x: 247
@@ -194,7 +194,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effects_4
+      name: SwordsmanSA1_2
       rect:
         serializedVersion: 2
         x: 52
@@ -215,7 +215,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effects_5
+      name: SwordsmanSA2_6
       rect:
         serializedVersion: 2
         x: 100
@@ -236,7 +236,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effects_6
+      name: MageSA1_6
       rect:
         serializedVersion: 2
         x: 134
@@ -257,34 +257,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effects_7
+      name: MageSA2
       rect:
         serializedVersion: 2
         x: 174
         y: 453
         width: 28
         height: 97
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2ecee22349d12d4489d46852905c8c87
-      internalID: 1456532543
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: effects_8
-      rect:
-        serializedVersion: 2
-        x: 202
-        y: 457
-        width: 34
-        height: 91
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -299,7 +278,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effects_9
+      name: SwordsmanBA2
       rect:
         serializedVersion: 2
         x: 246
@@ -320,7 +299,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effects_10
+      name: MageBA2
       rect:
         serializedVersion: 2
         x: 290
@@ -341,7 +320,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effects_11
+      name: PaladinBA2
       rect:
         serializedVersion: 2
         x: 326
@@ -362,7 +341,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effects_12
+      name: SwordsmanSA1_3
       rect:
         serializedVersion: 2
         x: 54
@@ -383,7 +362,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effects_13
+      name: SwordsmanSA2_5
       rect:
         serializedVersion: 2
         x: 101
@@ -404,7 +383,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effects_14
+      name: MageSA1_5
       rect:
         serializedVersion: 2
         x: 136
@@ -425,7 +404,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effects_15
+      name: MageBA3
       rect:
         serializedVersion: 2
         x: 285
@@ -446,7 +425,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effects_16
+      name: PaladinBA3
       rect:
         serializedVersion: 2
         x: 316
@@ -467,7 +446,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effects_17
+      name: SwordsmanSA1_4
       rect:
         serializedVersion: 2
         x: 61
@@ -488,7 +467,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effects_18
+      name: SwordsmanSA2_4
       rect:
         serializedVersion: 2
         x: 100
@@ -509,7 +488,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effects_19
+      name: MageSA1_4
       rect:
         serializedVersion: 2
         x: 140
@@ -530,7 +509,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effects_20
+      name: SwordsmanBA3
       rect:
         serializedVersion: 2
         x: 249
@@ -551,7 +530,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effects_22
+      name: MageBA4
       rect:
         serializedVersion: 2
         x: 285
@@ -572,7 +551,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effects_23
+      name: SwordsmanSA1_5
       rect:
         serializedVersion: 2
         x: 70
@@ -593,7 +572,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effects_24
+      name: SwordsmanSA2_3
       rect:
         serializedVersion: 2
         x: 104
@@ -614,7 +593,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effects_25
+      name: MageSA1_3
       rect:
         serializedVersion: 2
         x: 143
@@ -635,7 +614,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effects_27
+      name: SwordsmanBA4
       rect:
         serializedVersion: 2
         x: 256
@@ -656,7 +635,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effects_29
+      name: MageBA5
       rect:
         serializedVersion: 2
         x: 289
@@ -677,7 +656,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effects_31
+      name: PaladinBA4
       rect:
         serializedVersion: 2
         x: 316
@@ -698,7 +677,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effects_32
+      name: SwordsmanSA1_6
       rect:
         serializedVersion: 2
         x: 57
@@ -719,7 +698,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effects_33
+      name: SwordsmanSA2_2
       rect:
         serializedVersion: 2
         x: 107
@@ -740,7 +719,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effects_34
+      name: MageSA1_2
       rect:
         serializedVersion: 2
         x: 145
@@ -782,7 +761,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effects_38
+      name: PaladinSA2
       rect:
         serializedVersion: 2
         x: 242
@@ -803,7 +782,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effects_41
+      name: PaladinSA1_1
       rect:
         serializedVersion: 2
         x: 320
@@ -824,7 +803,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effects_42
+      name: SwordsmanSA1_7
       rect:
         serializedVersion: 2
         x: 48
@@ -845,7 +824,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effects_43
+      name: SwordsmanSA2_
       rect:
         serializedVersion: 2
         x: 108
@@ -866,7 +845,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effects_44
+      name: MageSA1_1
       rect:
         serializedVersion: 2
         x: 147
@@ -887,7 +866,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effects_49
+      name: PaladinSA1_2
       rect:
         serializedVersion: 2
         x: 320
@@ -908,7 +887,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effects_50
+      name: SwordsmanSA1_8
       rect:
         serializedVersion: 2
         x: 50
@@ -929,7 +908,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effects_51
+      name: PaladinSA1_enem
       rect:
         serializedVersion: 2
         x: 231
@@ -1076,7 +1055,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effects_58
+      name: effectStun
       rect:
         serializedVersion: 2
         x: 328
@@ -1139,7 +1118,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effects_61
+      name: effectBleed
       rect:
         serializedVersion: 2
         x: 328
@@ -1160,7 +1139,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: effects_63
+      name: effectDeBuff
       rect:
         serializedVersion: 2
         x: 328
@@ -1273,7 +1252,7 @@ TextureImporter:
         width: 98
         height: 91
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1294,7 +1273,7 @@ TextureImporter:
         width: 117
         height: 113
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1302,6 +1281,27 @@ TextureImporter:
       bones: []
       spriteID: 9881c7b2a618afc48a326be7c25c2e0f
       internalID: -956082180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MageSA2_2
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 453
+        width: 34
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 104a271c5f3b25a43a22932378df9627
+      internalID: 1983913592
       vertices: []
       indices: 
       edges: []
@@ -1317,67 +1317,70 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      effects_0: 1165054114
-      effects_1: -1473820958
-      effects_10: -1869516938
-      effects_11: -676663930
-      effects_12: 403650177
-      effects_13: 824999241
-      effects_14: -1981435779
-      effects_15: -1136333125
-      effects_16: -464989785
-      effects_17: -1416603650
-      effects_18: -605130933
-      effects_19: -842106294
-      effects_2: 432111169
-      effects_20: -1188487264
+      MageBA1: 1165054114
+      MageBA2: -1869516938
+      MageBA3: -1136333125
+      MageBA4: -90591336
+      MageBA5: 624977482
+      MageSA1_1: 1710783500
+      MageSA1_2: -117635058
+      MageSA1_3: 420731443
+      MageSA1_4: -842106294
+      MageSA1_5: -1981435779
+      MageSA1_6: -1951566267
+      MageSA2: -1422689766
+      MageSA2_2: 1983913592
+      PaladinBA1: -1473820958
+      PaladinBA2: -676663930
+      PaladinBA3: -464989785
+      PaladinBA4: -2068295448
+      PaladinSA1_1: -1391312710
+      PaladinSA1_2: 874804127
+      PaladinSA1_enem: -220713877
+      PaladinSA2: -1282005467
+      SwordsmanBA1: -917532535
+      SwordsmanBA2: -128003996
+      SwordsmanBA3: -1188487264
+      SwordsmanBA4: 1208214698
+      SwordsmanSA1_1: 432111169
+      SwordsmanSA1_2: -651332237
+      SwordsmanSA1_3: 403650177
+      SwordsmanSA1_4: -1416603650
+      SwordsmanSA1_5: 1147072289
+      SwordsmanSA1_6: 1967055929
+      SwordsmanSA1_7: -1703294190
+      SwordsmanSA1_8: 2024862634
+      SwordsmanSA2_: -1932857225
+      SwordsmanSA2_2: 1376828665
+      SwordsmanSA2_3: -38152695
+      SwordsmanSA2_4: -605130933
+      SwordsmanSA2_5: 824999241
+      SwordsmanSA2_6: 589907652
+      effectBleed: 1345695546
+      effectDeBuff: 1941436674
+      effectStun: -408396175
       effects_21: 1391980449
-      effects_22: -90591336
-      effects_23: 1147072289
-      effects_24: -38152695
-      effects_25: 420731443
       effects_26: 827955128
-      effects_27: 1208214698
       effects_28: 2068371451
-      effects_29: 624977482
-      effects_3: -917532535
       effects_30: -1450689677
-      effects_31: -2068295448
-      effects_32: 1967055929
-      effects_33: 1376828665
-      effects_34: -117635058
       effects_35: -1903943156
       effects_36: 792503548
       effects_37: -956082180
-      effects_38: -1282005467
       effects_39: 1956741645
-      effects_4: -651332237
       effects_40: -1874640904
-      effects_41: -1391312710
-      effects_42: -1703294190
-      effects_43: -1932857225
-      effects_44: 1710783500
       effects_45: -1334690870
       effects_46: 2113975460
       effects_47: -986708018
       effects_48: -549484122
-      effects_49: 874804127
-      effects_5: 589907652
-      effects_50: 2024862634
-      effects_51: -220713877
       effects_52: 1149661361
       effects_53: -850465820
       effects_54: -172562130
       effects_55: -72885567
       effects_56: 2034903300
       effects_57: -530994896
-      effects_58: -408396175
       effects_59: 2093053497
-      effects_6: -1951566267
       effects_60: -1338871322
-      effects_61: 1345695546
       effects_62: -1556356064
-      effects_63: 1941436674
       effects_64: -290198935
       effects_65: 1160652892
       effects_66: -841705210
@@ -1391,8 +1394,6 @@ TextureImporter:
       effects_73: -2073333133
       effects_74: 1395032758
       effects_75: -1712419927
-      effects_8: -1422689766
-      effects_9: -128003996
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

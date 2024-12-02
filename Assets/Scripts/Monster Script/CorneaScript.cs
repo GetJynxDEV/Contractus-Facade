@@ -48,6 +48,8 @@ public class CorneaScript : MonoBehaviour
     {
         if (BattleScript.isPlayerApplyBleedEffect == true)
         {
+            BattleEffect.isMonsterBleeding = true;
+
             corneaHP -= playerStats.playerBleedEffect;
 
             BattleScript.isPlayerApplyBleedEffect = false;
@@ -96,6 +98,8 @@ public class CorneaScript : MonoBehaviour
 
             else if (corneaHitChance >= 4)
             {
+                BattleEffect.isMonsterMiss = true;
+
                 Debug.Log("CORNEA MISSED!\n");
             }
         }
@@ -116,6 +120,8 @@ public class CorneaScript : MonoBehaviour
 
                 else if (corneaHitChance == 1)
                 {
+                    BattleEffect.isMonsterMiss = true;
+                    
                     Debug.Log("CORNEA MISSED");
                 }
             }
