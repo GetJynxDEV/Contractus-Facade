@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class EndTurn : MonoBehaviour
 {
+    playerStats PlayerStats;
+
     int roundValue = 0;
 
     public SaveLoad loadPos;
@@ -15,6 +17,11 @@ public class EndTurn : MonoBehaviour
         Round();
 
         MonsterKilled();
+
+        if (playerStats.isSTRPotion == true)
+        {
+            PlayerStats.StrenghtPotion();
+        }
     }
 
     public void Round()

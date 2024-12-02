@@ -81,6 +81,9 @@ public class BattleScript : MonoBehaviour
 
     void Start()
     {
+        InventorySystem.isBattle = true;
+        InventorySystem.isTown = false;
+
         //HP AND MP
         maxHP = playerStats.playerHP;
 

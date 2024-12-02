@@ -8,8 +8,7 @@ public class CurrentPos : MonoBehaviour
 
     public void currentPos()
     {
-        x = PlayerPrefs.GetFloat("x");
-        y = PlayerPrefs.GetFloat("y");
-        z = PlayerPrefs.GetFloat("z");
+        InventorySystem.isBattle = false;
+        InventorySystem.isTown = true;
     }
 }

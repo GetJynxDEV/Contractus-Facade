@@ -44,6 +44,9 @@ public class playerStats : MonoBehaviour
     public static float playerBleedEffect;
     public static bool isPlayerBleedEffect = false;
 
+    public static bool isSTRPotion = false;
+    public static bool isMGUPPotion = false;
+
     #endregion
 
     #region Computation
@@ -69,6 +72,11 @@ public class playerStats : MonoBehaviour
     void ComputationUpdate()
     {
         //--------------------------- COMPUTATION ------------------------
+
+        if (isSTRPotion == true)
+        {
+            playerSTR += 30;
+        }
 
         if (playerClass == "Mage")
         {
@@ -133,5 +141,14 @@ public class playerStats : MonoBehaviour
 
     }
 
+    public void StrenghtPotion()
+    {
+        if (isSTRPotion == true)
+        {
+            isSTRPotion = false;
+
+            playerSTR -= 30;
+        }
+    }
     #endregion
 }
