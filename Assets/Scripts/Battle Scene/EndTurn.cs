@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class EndTurn : MonoBehaviour
 {
     [SerializeField] public GameObject EndTurnButton;
+    [SerializeField] public GameObject EndTurnButtonCornea;
+    [SerializeField] public GameObject EndTurnButtonFacade;
     [SerializeField] public GameObject FadeIn;
     playerStats PlayerStats;
     
@@ -38,7 +40,36 @@ public class EndTurn : MonoBehaviour
 
     void EndTurnBtn()
     {
-        EndTurnButton.SetActive(true);
+        if (MonsterTrigger.isGoblin == true)
+        {
+            EndTurnButton.SetActive(true);
+        }
+
+        else if (MonsterTrigger.isGoblin == false)
+        {
+            EndTurnButton.SetActive(false);
+        }
+
+        if (MonsterTrigger.isCornea == true)
+        {
+            EndTurnButtonCornea.SetActive(true);
+        }
+
+        else if (MonsterTrigger.isCornea == false)
+        {
+            EndTurnButtonCornea.SetActive(false);
+        }
+
+        if (MonsterTrigger.isFacade == true)
+        {
+            EndTurnButtonFacade.SetActive(true);
+        }
+
+        else if (MonsterTrigger.isFacade == false)
+        {
+            EndTurnButtonFacade.SetActive(false);
+        }
+        
     }
 
 #region Win Condition
@@ -68,6 +99,39 @@ public class EndTurn : MonoBehaviour
                 Invoke("PlayerWins", 3);
             }
         }
+
+        if (MonsterTrigger.isCornea == true)
+        {
+            if (CorneaScript.corneaHP <= 0)
+            {
+                PlayerWins();
+
+                MonsterNPC.isCorneaDead = true;
+
+                Debug.Log("Cornea Killed\n");
+
+                FadeIn.SetActive(true);
+
+                Invoke("PlayerWins", 3);
+            }
+        }
+
+        if (MonsterTrigger.isFacade == true)
+        {
+            if (FacadeScript.facadeHP <= 0)
+            {
+                PlayerWins();
+
+                MonsterNPC.isFacadeDead = true;
+
+                Debug.Log("Cornea Killed\n");
+
+                FadeIn.SetActive(true);
+
+                Invoke("PlayerWins", 3);
+            }
+        }
+        
     }
 
     public void PlayerWins()

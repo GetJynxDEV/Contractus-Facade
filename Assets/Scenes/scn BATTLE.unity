@@ -1440,6 +1440,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EndTurnButton: {fileID: 1689166910}
+  EndTurnButtonCornea: {fileID: 0}
+  EndTurnButtonFacade: {fileID: 0}
   FadeIn: {fileID: 735293401}
 --- !u!1 &155431229
 GameObject:
@@ -8251,6 +8253,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EndTurnButton: {fileID: 1689166910}
+  EndTurnButtonCornea: {fileID: 693240023}
+  EndTurnButtonFacade: {fileID: 1505104817}
   FadeIn: {fileID: 735293401}
 --- !u!1 &1293983893
 GameObject:
