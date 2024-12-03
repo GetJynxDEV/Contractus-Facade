@@ -151,10 +151,10 @@ public class BattleEffect : MonoBehaviour
             Invoke("MageSAttack2Anim", 2);
 
             Animator ForestAnim = Forest.GetComponent<Animator>();
-            ForestAnim.SetTrigger("Shake");
+            ForestAnim.SetTrigger("shake");
 
             Animator CaveAnim = Cave.GetComponent<Animator>();
-            CaveAnim.SetTrigger("Shake");
+            CaveAnim.SetTrigger("shake");
 
         }
 

@@ -575,11 +575,11 @@ public class BattleScript : MonoBehaviour
             {
                 BattleEffect.isMageSAttack1 = true;
 
-                playerStats.playerMP -= 60;
+                playerStats.playerMP -= 80;
 
                 if(hitChance >= 5)
                 {
-                    if (playerStats.playerMP > 60 )
+                    if (playerStats.playerMP > 80 )
                     {
                         GoblinScript.goblinHP -= playerStats.playerSattack1; //MONSTER
 
@@ -673,11 +673,11 @@ public class BattleScript : MonoBehaviour
             {
                 BattleEffect.isMageSAttack1 = true;
 
-                playerStats.playerMP -= 60;
+                playerStats.playerMP -= 80;
 
                 if(hitChance >= 5)
                 {
-                    if (playerStats.playerMP > 60 )
+                    if (playerStats.playerMP > 80 )
                     {
                         CorneaScript.corneaHP -= playerStats.playerSattack1; //MONSTER
 
@@ -771,11 +771,11 @@ public class BattleScript : MonoBehaviour
             {
                 BattleEffect.isMageSAttack1 = true;             
 
-                playerStats.playerMP -= 60;
+                playerStats.playerMP -= 80;
 
                 if(hitChance >= 5)
                 {
-                    if (playerStats.playerMP > 60 )
+                    if (playerStats.playerMP > 80 )
                     {
                         FacadeScript.facadeHP -= playerStats.playerSattack1; //MONSTER
 

@@ -3622,10 +3622,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSource: {fileID: 1869185422}
   SFXSource: {fileID: 1910930489}
-  forestBG: {fileID: 0}
-  darkForestBG: {fileID: 0}
-  caveBG: {fileID: 0}
-  mageSpecialAttack2: {fileID: 0}
+  forestBG: {fileID: 8300000, guid: c409fbb47654eaa4192eb1d22f0a9be2, type: 3}
+  darkForestBG: {fileID: 8300000, guid: 76896b92cc9175a41b296b9a9b6031fa, type: 3}
+  caveBG: {fileID: 8300000, guid: 4d960154bc1cad34c8dc4530bba2281b, type: 3}
+  mageSpecialAttack2: {fileID: 8300000, guid: d650bcec3fdf6e14a81caf1df3feaf38, type: 3}
 --- !u!114 &881034888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7670,6 +7670,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 881034887}
+        m_TargetAssemblyTypeName: audioBattleManager, Assembly-CSharp
+        m_MethodName: SAttack2
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

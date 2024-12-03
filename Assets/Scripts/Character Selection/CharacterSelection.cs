@@ -13,7 +13,7 @@ public class CharacterSelection : MonoBehaviour
     float mageDEX = 15;
     float mageHP = 195;
     float mageMP = 200;
-    float mageMREG = 70; //Mana Regen
+    float mageMREG = 50; //Mana Regen
     float mageHC = 67.5f; //Hit Chance
     float mageDODGE = 23.5f; //Dodge Chance
     float magePDEF = 3.2f; //Physical Defense
@@ -43,7 +43,7 @@ public class CharacterSelection : MonoBehaviour
     float paladinDEX = 17;
     float paladinHP = 221.5f;
     float paladinMP = 150;
-    float paladinMREG = 45; //Mana Regen
+    float paladinMREG = 35; //Mana Regen
     float paladinHC = 55; //Hit Chance
     float paladinDODGE = 24.3f; //Dodge Chance
     float paladinPDEF = 7.7f; //Physical Defense
