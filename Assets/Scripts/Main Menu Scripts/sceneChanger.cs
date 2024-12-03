@@ -101,5 +101,12 @@ public class sceneChanger : MonoBehaviour
         HomeUI.SetActive(true);
     }
 
+    void Update()
+    {
+        if(Input.GetKeyDown("`"))
+        {
+            PlayerPrefs.DeleteAll();
+        }
+    }
 #endregion
 }

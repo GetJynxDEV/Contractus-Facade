@@ -74,7 +74,7 @@ public class GoblinScript : MonoBehaviour
 
         //Basic Attack Computation
 
-        gobBasicAtk = 16;
+        gobBasicAtk = 10;
         gobRabidBite = 25;
 
         int goblinTurn = Random.Range(1, 2);
