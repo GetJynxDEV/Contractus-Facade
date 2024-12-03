@@ -572,7 +572,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 1754051268, guid: f74f765c618dfa643be47ecfd76562c7, type: 3}
     m_PressedSprite: {fileID: 1754051268, guid: f74f765c618dfa643be47ecfd76562c7, type: 3}
     m_SelectedSprite: {fileID: 1754051268, guid: f74f765c618dfa643be47ecfd76562c7, type: 3}
-    m_DisabledSprite: {fileID: 1754051268, guid: f74f765c618dfa643be47ecfd76562c7, type: 3}
+    m_DisabledSprite: {fileID: -1431700745, guid: f74f765c618dfa643be47ecfd76562c7, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -584,6 +584,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1497228419}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 140125655}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -607,18 +619,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1497228419}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &77519508
 MonoBehaviour:
@@ -777,7 +777,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: -1604214029, guid: f74f765c618dfa643be47ecfd76562c7, type: 3}
     m_PressedSprite: {fileID: 78189828, guid: f74f765c618dfa643be47ecfd76562c7, type: 3}
     m_SelectedSprite: {fileID: -1604214029, guid: f74f765c618dfa643be47ecfd76562c7, type: 3}
-    m_DisabledSprite: {fileID: -1604214029, guid: f74f765c618dfa643be47ecfd76562c7, type: 3}
+    m_DisabledSprite: {fileID: 78189828, guid: f74f765c618dfa643be47ecfd76562c7, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -836,6 +836,30 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1289107076}
+        m_TargetAssemblyTypeName: EndTurn, Assembly-CSharp
+        m_MethodName: BtnOff
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 77519505}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 77519505}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
@@ -1352,8 +1376,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1025695207}
-  - {fileID: 1710408375}
   - {fileID: 140125656}
+  - {fileID: 1710408375}
   - {fileID: 1239716103}
   m_Father: {fileID: 1380835419}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1371,8 +1395,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 152681474}
-  - component: {fileID: 152681476}
-  - component: {fileID: 152681475}
   m_Layer: 0
   m_Name: ----------- UI ------------
   m_TagString: Untagged
@@ -1395,54 +1417,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1539952155}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &152681475
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 152681473}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e0ad18dedb7b5b4fa5fb0dc45ac0278, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hpTextValue: {fileID: 1971863172}
-  mpTextValue: {fileID: 947470285}
-  textMove: {fileID: 945053759}
-  textDesc: {fileID: 853010640}
-  MageSprite: {fileID: 1661627291, guid: ef6fdbba3660eb0408e5445bab36d950, type: 3}
-  PaladinSprite: {fileID: -226145095, guid: b0522f453eef64a47b24f860ca4e450e, type: 3}
-  SwordsmanSprite: {fileID: 1970699300, guid: 8b780246c1dd0d24e80bd211beff301f, type: 3}
-  GoblinEnemy: {fileID: 79301259}
-  CorneaEnemy: {fileID: 1507561734}
-  FacadeEnemy: {fileID: 1371055937}
-  specialAtkBtn1: {fileID: 1162917815}
-  specialAtkBtn2: {fileID: 1674467506}
-  hpBar: {fileID: 1002636950}
-  hpValue: 0
-  maximumHP: 0
-  currentHealthValue: 0
-  mpBar: {fileID: 817606205}
-  mpValue: 0
-  maximumMP: 0
-  currentManaValue: 0
---- !u!114 &152681476
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 152681473}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 786f202e31a0467449f9d606ef1dc93d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EndTurnButton: {fileID: 1689166910}
-  EndTurnButtonCornea: {fileID: 0}
-  EndTurnButtonFacade: {fileID: 0}
-  FadeIn: {fileID: 735293401}
 --- !u!1 &155431229
 GameObject:
   m_ObjectHideFlags: 0
@@ -1815,7 +1789,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 804675765, guid: f74f765c618dfa643be47ecfd76562c7, type: 3}
     m_PressedSprite: {fileID: 804675765, guid: f74f765c618dfa643be47ecfd76562c7, type: 3}
     m_SelectedSprite: {fileID: 804675765, guid: f74f765c618dfa643be47ecfd76562c7, type: 3}
-    m_DisabledSprite: {fileID: 804675765, guid: f74f765c618dfa643be47ecfd76562c7, type: 3}
+    m_DisabledSprite: {fileID: 61006456, guid: f74f765c618dfa643be47ecfd76562c7, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -2837,7 +2811,7 @@ GameObject:
   - component: {fileID: 346458105}
   - component: {fileID: 346458104}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Buttons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3244,6 +3218,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 445136864}
   m_CullTransparentMesh: 1
+--- !u!1 &479419981
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 479419984}
+  - component: {fileID: 479419983}
+  - component: {fileID: 479419982}
+  m_Layer: 5
+  m_Name: Swordsman Avatar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &479419982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479419981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: b5a92ad97c8e3ce488b07a3f1eeab298, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &479419983
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479419981}
+  m_CullTransparentMesh: 1
+--- !u!224 &479419984
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479419981}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 882449520}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -463, y: 687.97974}
+  m_SizeDelta: {x: 1920, y: 1080}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &481611694
 GameObject:
   m_ObjectHideFlags: 0
@@ -3844,12 +3893,12 @@ GameObject:
   - component: {fileID: 626794245}
   - component: {fileID: 626794244}
   m_Layer: 5
-  m_Name: Avatar
+  m_Name: Mage Avatar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &626794243
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5543,8 +5592,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: c3b3eea64aa7fab4882ccf8fea8276cd, type: 2}
-  musicSlider: {fileID: 0}
-  sfxSlider: {fileID: 0}
+  musicSlider: {fileID: 1844930850}
+  sfxSlider: {fileID: 740489025}
 --- !u!4 &881034889
 Transform:
   m_ObjectHideFlags: 0
@@ -5593,6 +5642,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 626794243}
+  - {fileID: 1180866315}
+  - {fileID: 479419984}
   - {fileID: 79301260}
   - {fileID: 1507561735}
   - {fileID: 1371055938}
@@ -7460,6 +7511,42 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1497228419}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 77519505}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1289107076}
+        m_TargetAssemblyTypeName: EndTurn, Assembly-CSharp
+        m_MethodName: BtnOff
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1162917818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7654,6 +7741,81 @@ MonoBehaviour:
   HomeUI: {fileID: 0}
   ScreenUI: {fileID: 0}
   charSelect: {fileID: 0}
+--- !u!1 &1180866312
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1180866315}
+  - component: {fileID: 1180866314}
+  - component: {fileID: 1180866313}
+  m_Layer: 5
+  m_Name: Paladin Avatar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1180866313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180866312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 842f32ad9c257c3498729357de413ef2, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1180866314
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180866312}
+  m_CullTransparentMesh: 1
+--- !u!224 &1180866315
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180866312}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 882449520}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -493, y: 687.97974}
+  m_SizeDelta: {x: 1920, y: 1080}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1199466571
 GameObject:
   m_ObjectHideFlags: 0
@@ -8227,6 +8389,9 @@ MonoBehaviour:
   MageSprite: {fileID: 1661627291, guid: ef6fdbba3660eb0408e5445bab36d950, type: 3}
   PaladinSprite: {fileID: -226145095, guid: b0522f453eef64a47b24f860ca4e450e, type: 3}
   SwordsmanSprite: {fileID: 1970699300, guid: 8b780246c1dd0d24e80bd211beff301f, type: 3}
+  MageAvatar: {fileID: 626794242}
+  PaladinAvatar: {fileID: 1180866312}
+  SwordsmanAvatar: {fileID: 479419981}
   GoblinEnemy: {fileID: 79301259}
   CorneaEnemy: {fileID: 1507561734}
   FacadeEnemy: {fileID: 1371055937}
@@ -8255,6 +8420,12 @@ MonoBehaviour:
   EndTurnButton: {fileID: 1689166910}
   EndTurnButtonCornea: {fileID: 693240023}
   EndTurnButtonFacade: {fileID: 1505104817}
+  basicAtkBtn: {fileID: 88224123}
+  SAttackIdleBtn: {fileID: 77519505}
+  SAttackHoverBtn: {fileID: 77519505}
+  SAttack1Btn: {fileID: 1162917815}
+  SAttack2Btn: {fileID: 1674467506}
+  InventoryBtn: {fileID: 191532759}
   FadeIn: {fileID: 735293401}
 --- !u!1 &1293983893
 GameObject:
@@ -9583,7 +9754,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 140125655}
+      - m_Target: {fileID: 1497228419}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -9595,7 +9766,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1497228419}
+      - m_Target: {fileID: 140125655}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -10572,6 +10743,42 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1497228419}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 77519505}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1289107076}
+        m_TargetAssemblyTypeName: EndTurn, Assembly-CSharp
+        m_MethodName: BtnOff
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

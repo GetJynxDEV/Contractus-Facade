@@ -174,7 +174,7 @@ public class BattleEffect : MonoBehaviour
             isSwordsmanSAttack1 = false;
             SwordsmanSAttack1.SetActive(true);
 
-            Invoke("isSwordsmanSAttack1Anim,", 2);
+            Invoke("SwordsmanSAttack1Anim,", 2);
 
         }
 
@@ -183,7 +183,7 @@ public class BattleEffect : MonoBehaviour
             isSwordsmanSAttack2 = false;
             SwordsmanSAttack2.SetActive(true);
 
-            Invoke("isSwordsmanSAttack2Anim", 2);
+            Invoke("SwordsmanSAttack2Anim", 2);
 
         }
 

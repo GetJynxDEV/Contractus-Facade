@@ -21,6 +21,10 @@ public class BattleScript : MonoBehaviour
     [SerializeField] public Sprite PaladinSprite;
     [SerializeField] public Sprite SwordsmanSprite;
 
+    [SerializeField] public GameObject MageAvatar;
+    [SerializeField] public GameObject PaladinAvatar;
+    [SerializeField] public GameObject SwordsmanAvatar;
+
     [Header("ENEMY GAME OBJECT")]
     [SerializeField] public GameObject GoblinEnemy;
     [SerializeField] public GameObject CorneaEnemy;
@@ -116,7 +120,7 @@ public class BattleScript : MonoBehaviour
             Debug.Log("------------------------------------\n");
         }
 
-        else if (MonsterTrigger.isCornea == true)
+        if (MonsterTrigger.isCornea == true)
         {
             Debug.Log("YOUR ENEMY IS A CORNEA!\n");
             GoblinEnemy.SetActive(false);
@@ -149,18 +153,21 @@ public class BattleScript : MonoBehaviour
         {
             case "Mage":
 
-                Player.GetComponent<SpriteRenderer>().sprite = MageSprite;
+                //Player.GetComponent<SpriteRenderer>().sprite = MageSprite;
+                MageAvatar.SetActive(true);
 
                 break;
             
             case "Swordsman":
 
-                Player.GetComponent<SpriteRenderer>().sprite = SwordsmanSprite;
+                //Player.GetComponent<SpriteRenderer>().sprite = SwordsmanSprite;
+                SwordsmanAvatar.SetActive(true);
                 break;
 
             case "Paladin":
 
-                Player.GetComponent<SpriteRenderer>().sprite = PaladinSprite; 
+                //Player.GetComponent<SpriteRenderer>().sprite = PaladinSprite; 
+                PaladinAvatar.SetActive(true);
                 break;
         }
 
@@ -874,24 +881,24 @@ public class BattleScript : MonoBehaviour
 
                 playerStats.playerMP -= 150;
 
-                if (hitChance >= 5)
+                if (hitChance >= 4)
                 {
                     if (playerStats.playerMP >= 150 )
                     {
                         GoblinScript.goblinHP -= playerStats.playerSattack2; //MONSTER
 
-                        moveName = "You used " + sAttack2Name + "\n";
+                        moveName = "You used " + sAttack2Name;
                         moveDesc = "You did " + playerStats.playerSattack2 + " To the Goblin";
                         textDesc.text = moveDesc;
                         textMove.text = moveName;
 
                     }
                 }
-                else if (hitChance <= 4)
+                else if (hitChance <= 3)
                 {
                     BattleEffect.isPlayerMiss = true;
 
-                    moveDesc = "You Missed!\n";
+                    moveDesc = "You Missed!";
                     textDesc.text = moveDesc;
                 } 
             }

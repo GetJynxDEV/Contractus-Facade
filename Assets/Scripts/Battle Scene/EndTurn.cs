@@ -2,12 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class EndTurn : MonoBehaviour
-{
+{   
+    [Header("End Turn Button")]
+
     [SerializeField] public GameObject EndTurnButton;
     [SerializeField] public GameObject EndTurnButtonCornea;
     [SerializeField] public GameObject EndTurnButtonFacade;
+
+    [Header("Buttons")]
+
+    [SerializeField] public GameObject basicAtkBtn;
+    [SerializeField] public GameObject SAttackIdleBtn;
+    [SerializeField] public GameObject SAttackHoverBtn;
+    [SerializeField] public GameObject SAttack1Btn;
+    [SerializeField] public GameObject SAttack2Btn;
+    [SerializeField] public GameObject InventoryBtn;
+
+    [Header("Transition")]
+
     [SerializeField] public GameObject FadeIn;
     playerStats PlayerStats;
     
@@ -16,6 +31,13 @@ public class EndTurn : MonoBehaviour
 
     public void Start ()
     {
+        basicAtkBtn.GetComponent<Button>().interactable = true;
+        SAttackIdleBtn.GetComponent<Button>().interactable = true;
+        SAttackHoverBtn.GetComponent<Button>().interactable = true;
+        SAttack1Btn.GetComponent<Button>().interactable = true;
+        SAttack2Btn.GetComponent<Button>().interactable = true;
+        InventoryBtn.GetComponent<Button>().interactable = true;
+
         roundValue++;
 
         Round();
@@ -33,6 +55,16 @@ public class EndTurn : MonoBehaviour
         Debug.Log("------------------------ROUND " + roundValue + "------------------------\n");
     }
 
+    public void BtnOff()
+    {
+        basicAtkBtn.GetComponent<Button>().interactable = false;
+        SAttackIdleBtn.GetComponent<Button>().interactable = false;
+        SAttackHoverBtn.GetComponent<Button>().interactable = false;
+        SAttack1Btn.GetComponent<Button>().interactable = false;
+        SAttack2Btn.GetComponent<Button>().interactable = false;
+        InventoryBtn.GetComponent<Button>().interactable = false;
+    }
+
     public void EndTurnAnim()
     {
         Invoke("EndTurnBtn", 3);
@@ -42,6 +74,8 @@ public class EndTurn : MonoBehaviour
     {
         if (MonsterTrigger.isGoblin == true)
         {
+            
+
             EndTurnButton.SetActive(true);
         }
 
@@ -91,6 +125,10 @@ public class EndTurn : MonoBehaviour
                 PlayerWins();
 
                 MonsterNPC.isGoblinDead = true;
+
+                MonsterTrigger.isGoblin = false;
+
+
 
                 Debug.Log("Goblin Killed\n");
 
