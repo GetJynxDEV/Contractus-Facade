@@ -72,8 +72,12 @@ public class BattleScript : MonoBehaviour
     public static bool isPlayerApplyBleedEffect = false;
     public static bool isPlayerBuffEffect = false;
 
-    string characterName = CharacterSelected.charName;
+    public static string characterName = CharacterSelected.charName;
     GameObject Player; //References the Player Game Object
+
+    public static bool isForest = false;
+    public static bool isDarkForest = false;
+    public static bool isCave = false;
 
     #endregion
 

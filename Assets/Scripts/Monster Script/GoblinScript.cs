@@ -35,6 +35,11 @@ public class GoblinScript : MonoBehaviour
 
     #region Turn Base Fight
 
+    void Start()
+    {
+        BattleScript.isForest = true;
+    }
+
     public void goblinTurn()
     {
         if (goblinMP > maxMP)

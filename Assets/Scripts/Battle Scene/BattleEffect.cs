@@ -34,6 +34,10 @@ public class BattleEffect : MonoBehaviour
     [SerializeField] public GameObject MonsterBleedEffect;
     [SerializeField] public GameObject MonsterMiss;
 
+    [Header("Area Object")]
+    [SerializeField] public GameObject Forest;
+    [SerializeField] public GameObject Cave;
+
     //BOOLEAN
 
     //PLAYER EFFECTS
@@ -144,7 +148,13 @@ public class BattleEffect : MonoBehaviour
             MageSAttack2.SetActive(true);
             MageSAttack2strike.SetActive(true);
 
-            Invoke("MageSAttack2Anim", 2);  
+            Invoke("MageSAttack2Anim", 2);
+
+            Animator ForestAnim = Forest.GetComponent<Animator>();
+            ForestAnim.SetTrigger("Shake");
+
+            Animator CaveAnim = Cave.GetComponent<Animator>();
+            CaveAnim.SetTrigger("Shake");
 
         }
 
