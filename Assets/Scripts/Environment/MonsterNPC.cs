@@ -29,13 +29,13 @@ public class MonsterNPC : MonoBehaviour
         if (isCorneaDead == true)
         {
             Debug.Log("CORNEA IS DEAD");
-            Destroy(GoblinNPC);
+            Destroy(CorneaNPC);
         }
 
         if (isFacadeDead == true)
         {
             Debug.Log("FACADE IS DEAD");
-            Destroy(GoblinNPC);
+            Destroy(FacadeNPC);
         }
     }
 }

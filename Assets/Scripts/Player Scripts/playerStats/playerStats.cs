@@ -28,6 +28,7 @@ public class playerStats : MonoBehaviour
     public static float playerMBONUS;
 
     public static float adminHP;
+    public static float adminMP;
 
     public static float playerBattack;
 
@@ -57,6 +58,8 @@ public class playerStats : MonoBehaviour
         currentHP = maxHP;
 
         adminHP = playerHP;
+
+        adminMP = playerMP;
 
         ComputationUpdate();
         

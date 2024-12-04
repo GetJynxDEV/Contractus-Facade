@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.AI;
+using UnityEditor.ShaderGraph.Internal;
 
 public class BattleScript : MonoBehaviour
 {
@@ -37,6 +38,12 @@ public class BattleScript : MonoBehaviour
 
     [Header("Health and Mana Bar")]
 
+    public static float currentHP; //Current HP
+    public static float currentMP; //Current MP
+
+    public static float maxHP;
+    public static float maxMP;
+
     public HealthBarScript hpBar;
     public float hpValue;
     public float maximumHP;
@@ -46,6 +53,15 @@ public class BattleScript : MonoBehaviour
     public float mpValue;
     public float maximumMP;
     public float currentManaValue;
+
+    [Header("Monster Health Bar")]
+    public static float monsterCurrentHP;
+    public static float monsterMaxHP;
+
+    public MonsterHP monsterHP;
+
+    public float monsterHpValue;
+    public float monsterCurrentHealthValue;
 
 
     //MISC
@@ -58,14 +74,6 @@ public class BattleScript : MonoBehaviour
 
     string moveName;
     string moveDesc;
-
-    public static float currentHP; //Current HP
-    public static float currentMP; //Current MP
-
-  
-
-    public static float maxHP;
-    public static float maxMP;
 
     float basicDMG; //Player Basic Damage
     float specialAttack; //Player Special Attack
@@ -105,6 +113,34 @@ public class BattleScript : MonoBehaviour
 
         hpBar.SetMaxHealth(hpValue);
         mpBar.SetMaxMP(mpValue);
+
+        //MONSTER HP
+        if (MonsterTrigger.isGoblin == true)
+        {
+            monsterMaxHP = GoblinScript.goblinHP;
+
+            monsterHpValue = monsterMaxHP;
+
+            monsterHP.SetMaxHealth(monsterHpValue);
+        }
+
+        else if (MonsterTrigger.isCornea == true)
+        {
+            monsterMaxHP = CorneaScript.corneaHP;
+
+            monsterHpValue = monsterMaxHP;
+
+            monsterHP.SetMaxHealth(monsterHpValue);
+        }
+
+        else if (MonsterTrigger.isFacade == true)
+        {
+            monsterMaxHP = FacadeScript.facadeHP;
+
+            monsterHpValue = monsterMaxHP;
+
+            monsterHP.SetMaxHealth(monsterHpValue);
+        }
 
         //MOVE NAMES
         sAttack1Name = playerStats.playerSattackName1;
@@ -204,8 +240,40 @@ public class BattleScript : MonoBehaviour
         hpBar.SetHealth(currentHealthValue);
         mpBar.SetMana(currentManaValue);
 
+        //CHECKS MONSTER CURRENT HP
+
+        if (MonsterTrigger.isGoblin == true)
+        {
+            monsterCurrentHP = GoblinScript.goblinHP;
+
+            monsterCurrentHealthValue = monsterCurrentHP;
+
+            monsterHP.SetHealth(monsterCurrentHealthValue);
+        }
+
+        else if (MonsterTrigger.isCornea == true)
+        {
+            monsterCurrentHP = CorneaScript.corneaHP;
+
+            monsterCurrentHealthValue = monsterCurrentHP;
+
+            monsterHP.SetHealth(monsterCurrentHealthValue);
+        }
+
+        else if (MonsterTrigger.isFacade == true)
+        {
+            monsterCurrentHP = FacadeScript.facadeHP;
+
+            monsterCurrentHealthValue = monsterCurrentHP;
+
+            monsterHP.SetHealth(monsterCurrentHealthValue);
+        }
+
         moveDesc = "What will you do?"; //Default Move Description Name
         moveName = ""; //Default Move Name 
+
+        textDesc.text = moveDesc;
+        textMove.text = moveName;
 
         //CHECK PLAYER HEALTH
         Debug.Log("Player's Current Health is " + currentHP + "\n");
@@ -424,17 +492,15 @@ public class BattleScript : MonoBehaviour
 
             if (hitChance >= 4)
             {
+                Debug.Log("YOU HIT THE MONSTER!");
+
                 //MONSTER DAMAGE
                 
                 //GOBLIN 
                 if (MonsterTrigger.isGoblin == true)
                 {
                     GoblinScript.goblinHP -= playerStats.playerBattack;
-
-                    moveDesc = "You did " + playerStats.playerBattack + " To the Goblin";
-                    textDesc.text = moveDesc;
-
-                    Debug.Log("YOU HIT THE MONSTER!\n");   
+                    moveDesc = "You did " + playerStats.playerBattack + " To the Goblin";  
                 }
 
                 //CORNEA
@@ -442,11 +508,7 @@ public class BattleScript : MonoBehaviour
                 if (MonsterTrigger.isCornea == true)
                 {
                     CorneaScript.corneaHP -= playerStats.playerBattack;
-
-                    moveDesc = "You did " + playerStats.playerBattack + " To the Cornea";
-                    textDesc.text = moveDesc;
-
-                    Debug.Log("YOU HIT THE MONSTER!\n");   
+                    moveDesc = "You did " + playerStats.playerBattack + " To the Cornea";  
                 }
 
                 //FACADE
@@ -454,24 +516,20 @@ public class BattleScript : MonoBehaviour
                 if (MonsterTrigger.isFacade == true)
                 {
                     FacadeScript.facadeHP -= playerStats.playerBattack;
-
                     moveDesc = "You did " + playerStats.playerBattack + " To the Cornea";
-                    textDesc.text = moveDesc;
-
-                    Debug.Log("YOU HIT THE MONSTER!\n");   
                 }  
 
             }
 
             else if (hitChance <= 3)
             {
-                Debug.Log("YOU MISSED!\n");   
+                Debug.Log("PLAYER MISSED");
 
                 BattleEffect.isPlayerMiss = true;
-
                 moveDesc = "You Missed!";
-                textDesc.text = moveDesc;
             }
+
+            textDesc.text = moveDesc;
         }
 
         //MAGE
@@ -483,15 +541,30 @@ public class BattleScript : MonoBehaviour
             {
                 //MONSTER DAMAGE
 
+                //GOBLIN 
                 if (MonsterTrigger.isGoblin == true)
                 {
                     GoblinScript.goblinHP -= playerStats.playerBattack;
 
                     moveDesc = "You did " + playerStats.playerBattack + " To the Goblin";
                     textDesc.text = moveDesc;
+                }
 
-                    Debug.Log("YOU HIT THE MONSTER!\n");   
-                }   
+                //CORNEA
+
+                if (MonsterTrigger.isCornea == true)
+                {
+                    CorneaScript.corneaHP -= playerStats.playerBattack;
+                    moveDesc = "You did " + playerStats.playerBattack + " To the Cornea";  
+                }
+
+                //FACADE
+
+                if (MonsterTrigger.isFacade == true)
+                {
+                    FacadeScript.facadeHP -= playerStats.playerBattack;
+                    moveDesc = "You did " + playerStats.playerBattack + " To the Cornea";
+                } 
             }
 
             else if (hitChance <= 4)
@@ -501,8 +574,9 @@ public class BattleScript : MonoBehaviour
                 BattleEffect.isPlayerMiss = true;
 
                 moveDesc = "You Missed!";
-                textDesc.text = moveDesc;
             }
+
+            textDesc.text = moveDesc;
         }
 
         //BLACK SWORDSMAN
@@ -514,15 +588,30 @@ public class BattleScript : MonoBehaviour
             {
                 //MONSTER DAMAGE
 
+                //GOBLIN 
                 if (MonsterTrigger.isGoblin == true)
                 {
                     GoblinScript.goblinHP -= playerStats.playerBattack;
 
                     moveDesc = "You did " + playerStats.playerBattack + " To the Goblin";
                     textDesc.text = moveDesc;
+                }
 
-                    Debug.Log("YOU HIT THE MONSTER!\n");   
-                }   
+                //CORNEA
+
+                if (MonsterTrigger.isCornea == true)
+                {
+                    CorneaScript.corneaHP -= playerStats.playerBattack;
+                    moveDesc = "You did " + playerStats.playerBattack + " To the Cornea";  
+                }
+
+                //FACADE
+
+                if (MonsterTrigger.isFacade == true)
+                {
+                    FacadeScript.facadeHP -= playerStats.playerBattack;
+                    moveDesc = "You did " + playerStats.playerBattack + " To the Cornea";
+                } 
             }
 
             else if (hitChance <= 4)
@@ -532,13 +621,15 @@ public class BattleScript : MonoBehaviour
                 BattleEffect.isPlayerMiss = true;
 
                 moveDesc = "You Missed!";
-                textDesc.text = moveDesc;
             }
+
+            textDesc.text = moveDesc;
         }
     }
 
     public void playerSpecialAttack1()
     {
+        moveName = "You used " + sAttack1Name;
 
         int hitChance = Random.Range(1,10);
 
@@ -548,35 +639,27 @@ public class BattleScript : MonoBehaviour
 
             if (characterName == "Paladin") //Applies DeBuff
             {
+
                 BattleEffect.isPaladinSAttack1 = true;
 
                 playerStats.playerMP -= 65;
 
                 if (hitChance >= 4)
                 {
-                    if (playerStats.playerMP >= 65 )
-                    {
-                        GoblinScript.goblinHP -= playerStats.playerSattack1; //MONSTER
-                        playerStats.isPlayerDeBuffEffect = true;
+                    GoblinScript.goblinHP -= playerStats.playerSattack1; //MONSTER
+                    playerStats.isPlayerDeBuffEffect = true;
 
-                        moveName = "You used " + sAttack1Name;
-                        moveDesc = "You did " + playerStats.playerSattack1 + " To the Goblin";
-                        textDesc.text = moveDesc;
-                        textMove.text = moveName;
-
-                    }
+                    moveDesc = "You did " + playerStats.playerSattack1 + " To the Goblin";
                 }
 
                 else if (hitChance <= 3)
                 {
                     BattleEffect.isPlayerMiss = true;
-
-                    moveName = "You used " + sAttack2Name;
                     moveDesc = "You Missed!";
-
-                    textDesc.text = moveDesc;
-                    textMove.text = moveName;
                 }
+
+                textDesc.text = moveDesc;
+                textMove.text = moveName;
             }
 
             //Mage Special Attack 1
@@ -589,27 +672,20 @@ public class BattleScript : MonoBehaviour
 
                 if(hitChance >= 5)
                 {
-                    if (playerStats.playerMP > 80 )
-                    {
-                        GoblinScript.goblinHP -= playerStats.playerSattack1; //MONSTER
+                    GoblinScript.goblinHP -= playerStats.playerSattack1; //MONSTER
 
-                        moveName = "You used " + sAttack1Name;
-                        moveDesc = "You did " + playerStats.playerSattack1 + " To the Goblin";
-                        textDesc.text = moveDesc;
-                        textMove.text = moveName;
-                    }
+                    moveDesc = "You did " + playerStats.playerSattack1 + " To the Goblin";
+
                 }
 
                 else if (hitChance <= 4)
                 {
                     BattleEffect.isPlayerMiss = true;
-
-                    moveName = "You used " + sAttack2Name;
                     moveDesc = "You Missed!";
-
-                    textDesc.text = moveDesc;
-                    textMove.text = moveName;
                 }
+
+                textDesc.text = moveDesc;
+                textMove.text = moveName;
             }
 
             //Black Swordsman Special Attack 1
@@ -622,30 +698,22 @@ public class BattleScript : MonoBehaviour
 
                 if (hitChance >= 5)
                 {
-                    if (playerStats.playerMP >= 50 )
-                    {
-                        GoblinScript.goblinHP -= playerStats.playerSattack1; //MONSTER
+                    GoblinScript.goblinHP -= playerStats.playerSattack1; //MONSTER
 
-                        moveName = "You used " + sAttack1Name;
-                        moveDesc = "You did " + playerStats.playerSattack1 + " To the Goblin";
-                        textDesc.text = moveDesc;
-                        textMove.text = moveName;
+                    moveDesc = "You did " + playerStats.playerSattack1 + " To the Goblin";
 
-                    }
                 }
                 else if (hitChance <= 4)
                 {
                     BattleEffect.isPlayerMiss = true;
-
-                    moveName = "You used " + sAttack2Name;
                     moveDesc = "You Missed!";
-
-                    textDesc.text = moveDesc;
-                    textMove.text = moveName;
                 }
+
+                textDesc.text = moveDesc;
+                textMove.text = moveName;
                 
             }
-        } //GOBLIN
+        }
         
         //----------------- CORNEA ----------------------
 
@@ -664,26 +732,20 @@ public class BattleScript : MonoBehaviour
                     if (playerStats.playerMP >= 65 )
                     {
                         CorneaScript.corneaHP -= playerStats.playerSattack1; //MONSTER
-                        playerStats.isPlayerDeBuffEffect = true;
+                        playerStats.isPlayerDeBuffEffect = true; 
 
-                        moveName = "You used " + sAttack1Name;
                         moveDesc = "You did " + playerStats.playerSattack1 + " To the Cornea";
-                        textDesc.text = moveDesc;
-                        textMove.text = moveName;
-
                     }
                 }
 
                 else if (hitChance <= 3)
                 {
                     BattleEffect.isPlayerMiss = true;
-
-                    moveName = "You used " + sAttack2Name;
                     moveDesc = "You Missed!";
-
-                    textDesc.text = moveDesc;
-                    textMove.text = moveName;
                 }
+
+                textDesc.text = moveDesc;
+                textMove.text = moveName;
             }
 
             //Mage Special Attack 1
@@ -691,54 +753,38 @@ public class BattleScript : MonoBehaviour
             if (characterName == "Mage")
             {
                 BattleEffect.isMageSAttack1 = true;
-
+                
                 playerStats.playerMP -= 80;
 
                 if(hitChance >= 5)
                 {
-                    if (playerStats.playerMP > 80 )
-                    {
-                        CorneaScript.corneaHP -= playerStats.playerSattack1; //MONSTER
+                    CorneaScript.corneaHP -= playerStats.playerSattack1; //MONSTER
 
-                        moveName = "You used " + sAttack1Name;
-                        moveDesc = "You did " + playerStats.playerSattack1 + " To the Cornea";
-                        textDesc.text = moveDesc;
-                        textMove.text = moveName;
-                    }
+                    moveDesc = "You did " + playerStats.playerSattack1 + " To the Cornea";
                 }
 
                 else if (hitChance <= 4)
                 {
                     BattleEffect.isPlayerMiss = true;
 
-                    moveName = "You used " + sAttack2Name;
                     moveDesc = "You Missed!";
-
-                    textDesc.text = moveDesc;
-                    textMove.text = moveName;
                 }
+
+                textDesc.text = moveDesc;
+                textMove.text = moveName;
             }
 
             //Black Swordsman Special Attack 1
 
             if (characterName == "Swordsman")
             {
-                BattleEffect.isSwordsmanSAttack1 = true;
-
                 playerStats.playerMP -= 50;
 
                 if (hitChance >= 5)
                 {
-                    if (playerStats.playerMP >= 50 )
-                    {
-                        CorneaScript.corneaHP -= playerStats.playerSattack1; //MONSTER
+                    CorneaScript.corneaHP -= playerStats.playerSattack1; //MONSTER
 
-                        moveName = "You used " + sAttack1Name;
-                        moveDesc = "You did " + playerStats.playerSattack1 + " To the Cornea";
-                        textDesc.text = moveDesc;
-                        textMove.text = moveName;
-
-                    }
+                    moveDesc = "You did " + playerStats.playerSattack1 + " To the Cornea";
                 }
                 else if (hitChance <= 4)
                 {
@@ -746,13 +792,12 @@ public class BattleScript : MonoBehaviour
 
                     moveName = "You used " + sAttack2Name;
                     moveDesc = "You Missed!";
-
-                    textDesc.text = moveDesc;
-                    textMove.text = moveName;
                 }
-                
+
+                textDesc.text = moveDesc;
+                textMove.text = moveName;
             }
-        } //CORNEA
+        }
         
         //----------------- FACADE ----------------------
 
@@ -768,35 +813,29 @@ public class BattleScript : MonoBehaviour
 
                 if (hitChance >= 4)
                 {
-                    if (playerStats.playerMP >= 65 )
-                    {
-                        FacadeScript.facadeHP -= playerStats.playerSattack1; //MONSTER
-                        playerStats.isPlayerDeBuffEffect = true;
+                    FacadeScript.facadeHP -= playerStats.playerSattack1; //MONSTER
+                    playerStats.isPlayerDeBuffEffect = true;
 
-                        moveName = "You used " + sAttack1Name;
-                        moveDesc = "You did " + playerStats.playerSattack1 + " To the Facade";
-                        textDesc.text = moveDesc;
-                        textMove.text = moveName;
-
-                    }
+                    moveDesc = "You did " + playerStats.playerSattack1 + " To the Facade";
                 }
 
                 else if (hitChance <= 3)
                 {
                     BattleEffect.isPlayerMiss = true;
 
-                    moveName = "You used " + sAttack2Name;
                     moveDesc = "You Missed!";
-
-                    textDesc.text = moveDesc;
-                    textMove.text = moveName;
                 }
+
+                textDesc.text = moveDesc;
+                textMove.text = moveName;
             }
 
             //Mage Special Attack 1
  
             if (characterName == "Mage")
             {
+                moveName = "You used " + sAttack1Name;
+
                 BattleEffect.isMageSAttack1 = true;             
 
                 playerStats.playerMP -= 80;
@@ -807,23 +846,18 @@ public class BattleScript : MonoBehaviour
                     {
                         FacadeScript.facadeHP -= playerStats.playerSattack1; //MONSTER
 
-                        moveName = "You used " + sAttack1Name;
                         moveDesc = "You did " + playerStats.playerSattack1 + " To the Facade";
-                        textDesc.text = moveDesc;
-                        textMove.text = moveName;
                     }
                 }
 
                 else if (hitChance <= 4)
                 {
                     BattleEffect.isPlayerMiss = true;
-
-                    moveName = "You used " + sAttack2Name;
                     moveDesc = "You Missed!";
-
-                    textDesc.text = moveDesc;
-                    textMove.text = moveName;
                 }
+
+                textDesc.text = moveDesc;
+                textMove.text = moveName;
             }
 
             //Black Swordsman Special Attack 1
@@ -859,12 +893,14 @@ public class BattleScript : MonoBehaviour
                 }
                 
             }
-        } //FACADE
+        }
     }
 
 
     public void playerSpecialAttack2()
     {   
+        moveName = "You used " + sAttack2Name;
+
         int hitChance = Random.Range(1,10);
 
         //THIS COMBAT IS CALCULATION IS FOR GOBLIN
@@ -880,28 +916,20 @@ public class BattleScript : MonoBehaviour
 
                 if (hitChance >= 4)
                 {
-                    if (playerStats.playerMP >= 110 )
-                    {
-                        GoblinScript.goblinHP -= playerStats.playerSattack2; //MONSTER
+                    GoblinScript.goblinHP -= playerStats.playerSattack2; //MONSTER
 
-                        moveName = "You used " + sAttack2Name;
-                        moveDesc = "You did " + playerStats.playerSattack2 + " To the Goblin";
-
-                        textDesc.text = moveDesc;
-                        textMove.text = moveName;
-
-                    }
+                    moveDesc = "You did " + playerStats.playerSattack2 + " To the Goblin";
                 }
+
                 else if (hitChance <= 3)
                 {
                     BattleEffect.isPlayerMiss = true;
 
-                    moveName = "You used " + sAttack2Name;
                     moveDesc = "You Missed!";
-
-                    textDesc.text = moveDesc;
-                    textMove.text = moveName;
                 }
+
+                textDesc.text = moveDesc;
+                textMove.text = moveName;
             }
 
             //Mage Special Attack 2
@@ -911,31 +939,20 @@ public class BattleScript : MonoBehaviour
                 BattleEffect.isMageSAttack2 = true;
 
                 playerStats.playerMP -= 150;
-
                 if (hitChance >= 4)
                 {
-                    if (playerStats.playerMP >= 150 )
-                    {
-                        GoblinScript.goblinHP -= playerStats.playerSattack2; //MONSTER
+                    GoblinScript.goblinHP -= playerStats.playerSattack2; //MONSTER
 
-                        moveName = "You used " + sAttack2Name;
-                        moveDesc = "You did " + playerStats.playerSattack2 + " To the Goblin";
-
-                        textDesc.text = moveDesc;
-                        textMove.text = moveName;
-
-                    }
+                    moveDesc = "You did " + playerStats.playerSattack2 + " To the Goblin";
                 }
                 else if (hitChance <= 3)
                 {
                     BattleEffect.isPlayerMiss = true;
-
-                    moveName = "You used " + sAttack2Name;
                     moveDesc = "You Missed!";
-
-                    textDesc.text = moveDesc;
-                    textMove.text = moveName;
                 } 
+
+                textDesc.text = moveDesc;
+                textMove.text = moveName;
             }
 
             //Black Swordsman Special Attack 2
@@ -948,33 +965,25 @@ public class BattleScript : MonoBehaviour
 
                 if (hitChance >= 5)
                 {
-                    if (playerStats.playerMP >= 100 )
-                    {
-                        GoblinScript.goblinHP -= playerStats.playerSattack2; //MONSTER
+                    GoblinScript.goblinHP -= playerStats.playerSattack2; //MONSTER
 
-                        isPlayerApplyBleedEffect = true;
+                    isPlayerApplyBleedEffect = true;
 
-                        moveName = "You used " + sAttack2Name;
-                        moveDesc = "You did " + playerStats.playerSattack2 + " To the Goblin";
-                        textDesc.text = moveDesc;
-                        textMove.text = moveName;
-                    }
+                    moveDesc = "You did " + playerStats.playerSattack2 + " To the Goblin";
                 }
                 else if (hitChance <= 4)
                 {
                     BattleEffect.isPlayerMiss = true;
-
-                    moveName = "You used " + sAttack2Name;
                     moveDesc = "You Missed!";
-
-                    textDesc.text = moveDesc;
-                    textMove.text = moveName;
                 } 
+
+                textDesc.text = moveDesc;
+                textMove.text = moveName;
             }
         }
 
         //THIS COMBAT IS CALCULATION IS FOR CORNEA
-        if (MonsterTrigger.isCornea == true)
+        else if (MonsterTrigger.isCornea == true)
         {
             //Paladin Special Attack 2
 
@@ -986,60 +995,43 @@ public class BattleScript : MonoBehaviour
 
                 if (hitChance >= 4)
                 {
-                    if (playerStats.playerMP >= 110 )
-                    {
-                        CorneaScript.corneaHP -= playerStats.playerSattack2; //MONSTER
-
-                        moveName = "You used " + sAttack2Name;
-                        moveDesc = "You did " + playerStats.playerSattack2 + " To the Cornea";
-                        textDesc.text = moveDesc;
-                        textMove.text = moveName;
-
-                    }
+                    CorneaScript.corneaHP -= playerStats.playerSattack2; //MONSTER
+                    moveDesc = "You did " + playerStats.playerSattack2 + " To the Cornea";
                 }
                 else if (hitChance <= 3)
                 {
                     BattleEffect.isPlayerMiss = true;
-
-                    moveName = "You used " + sAttack2Name;
                     moveDesc = "You Missed!";
-
-                    textDesc.text = moveDesc;
-                    textMove.text = moveName;
                 }
+
+                textDesc.text = moveDesc;
+                textMove.text = moveName;
             }
 
             //Mage Special Attack 2
  
             if (characterName == "Mage")
             {
+                moveName = "You used " + sAttack2Name;
+
                 BattleEffect.isMageSAttack2 = true;
 
                 playerStats.playerMP -= 150;
 
                 if (hitChance >= 5)
                 {
-                    if (playerStats.playerMP >= 150 )
-                    {
-                        CorneaScript.corneaHP -= playerStats.playerSattack2; //MONSTER
+                    CorneaScript.corneaHP -= playerStats.playerSattack2; //MONSTER
 
-                        moveName = "You used " + sAttack2Name + "\n";
-                        moveDesc = "You did " + playerStats.playerSattack2 + " To the Cornea";
-                        textDesc.text = moveDesc;
-                        textMove.text = moveName;
-
-                    }
+                    moveDesc = "You did " + playerStats.playerSattack2 + " To the Cornea";
                 }
                 else if (hitChance <= 4)
                 {
                     BattleEffect.isPlayerMiss = true;
-
-                    moveName = "You used " + sAttack2Name;
                     moveDesc = "You Missed!";
-
-                    textDesc.text = moveDesc;
-                    textMove.text = moveName;
                 } 
+
+                textDesc.text = moveDesc;
+                textMove.text = moveName;
             }
 
             //Black Swordsman Special Attack 2
@@ -1052,28 +1044,22 @@ public class BattleScript : MonoBehaviour
 
                 if (hitChance >= 5)
                 {
-                    if (playerStats.playerMP >= 100 )
-                    {
-                        CorneaScript.corneaHP -= playerStats.playerSattack2; //MONSTER
+                    CorneaScript.corneaHP -= playerStats.playerSattack2; //MONSTER
 
-                        isPlayerApplyBleedEffect = true;
+                    isPlayerApplyBleedEffect = true;
 
-                        moveName = "You used " + sAttack2Name;
-                        moveDesc = "You did " + playerStats.playerSattack2 + " To the Cornea";
-                        textDesc.text = moveDesc;
-                        textMove.text = moveName;
-                    }
+                    moveDesc = "You did " + playerStats.playerSattack2 + " To the Cornea";
+
                 }
+
                 else if (hitChance <= 4)
                 {
                     BattleEffect.isPlayerMiss = true;
-
-                    moveName = "You used " + sAttack2Name;
                     moveDesc = "You Missed!";
-
-                    textDesc.text = moveDesc;
-                    textMove.text = moveName;
                 } 
+
+                textDesc.text = moveDesc;
+                textMove.text = moveName;
             }
         }
 
@@ -1090,27 +1076,20 @@ public class BattleScript : MonoBehaviour
 
                 if (hitChance >= 4)
                 {
-                    if (playerStats.playerMP >= 110 )
-                    {
                         FacadeScript.facadeHP -= playerStats.playerSattack2; //MONSTER
 
                         moveName = "You used " + sAttack2Name;
                         moveDesc = "You did " + playerStats.playerSattack2 + " To the Facade";
-                        textDesc.text = moveDesc;
-                        textMove.text = moveName;
-
-                    }
                 }
+                
                 else if (hitChance <= 3)
                 {
                     BattleEffect.isPlayerMiss = true;
-
-                    moveName = "You used " + sAttack2Name;
                     moveDesc = "You Missed!";
-
-                    textDesc.text = moveDesc;
-                    textMove.text = moveName;
                 }
+
+                textDesc.text = moveDesc;
+                textMove.text = moveName;
             }
 
             //Mage Special Attack 2
@@ -1123,27 +1102,18 @@ public class BattleScript : MonoBehaviour
 
                 if (hitChance >= 5)
                 {
-                    if (playerStats.playerMP >= 150 )
-                    {
-                        FacadeScript.facadeHP -= playerStats.playerSattack2; //MONSTER
-
-                        moveName = "You used " + sAttack2Name + "\n";
-                        moveDesc = "You did " + playerStats.playerSattack2 + " To the Facade";
-                        textDesc.text = moveDesc;
-                        textMove.text = moveName;
-
-                    }
+                    FacadeScript.facadeHP -= playerStats.playerSattack2; //MONSTER
+            
+                    moveDesc = "You did " + playerStats.playerSattack2 + " To the Facade";
                 }
                 else if (hitChance <= 4)
                 {
                     BattleEffect.isPlayerMiss = true;
-                    
-                    moveName = "You used " + sAttack2Name;
                     moveDesc = "You Missed!";
-
-                    textDesc.text = moveDesc;
-                    textMove.text = moveName;
                 } 
+
+                textDesc.text = moveDesc;
+                textMove.text = moveName;
             }
 
             //Black Swordsman Special Attack 2
@@ -1156,28 +1126,21 @@ public class BattleScript : MonoBehaviour
 
                 if (hitChance >= 5)
                 {
-                    if (playerStats.playerMP >= 100 )
-                    {
-                        FacadeScript.facadeHP -= playerStats.playerSattack2; //MONSTER
+                    FacadeScript.facadeHP -= playerStats.playerSattack2; //MONSTER
 
-                        isPlayerApplyBleedEffect = true;
+                    isPlayerApplyBleedEffect = true;
 
-                        moveName = "You used " + sAttack2Name;
-                        moveDesc = "You did " + playerStats.playerSattack2 + " To the Facade";
-                        textDesc.text = moveDesc;
-                        textMove.text = moveName;
-                    }
+                    moveDesc = "You did " + playerStats.playerSattack2 + " To the Facade";
                 }
+
                 else if (hitChance <= 4)
                 {
                     BattleEffect.isPlayerMiss = true;
-
-                    moveName = "You used " + sAttack2Name;
                     moveDesc = "You Missed!";
-
-                    textDesc.text = moveDesc;
-                    textMove.text = moveName;
                 } 
+
+                textDesc.text = moveDesc;
+                textMove.text = moveName;
             }
         }
     }

@@ -66,11 +66,6 @@ public class MonsterTrigger : MonoBehaviour
 
     }
 
-    void GoblinDeath()
-    {
-        GoblinFightScene.SetActive(false);
-    }
-
     void CorneaFightPanel()
     {
         CorneaFightScene.SetActive(true);

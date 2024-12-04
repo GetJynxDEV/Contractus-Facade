@@ -81,7 +81,7 @@ public class EndTurn : MonoBehaviour
 
         else if (MonsterTrigger.isGoblin == false)
         {
-            EndTurnButton.SetActive(false);
+            Destroy(EndTurnButton);
         }
 
         if (MonsterTrigger.isCornea == true)
@@ -89,9 +89,9 @@ public class EndTurn : MonoBehaviour
             EndTurnButtonCornea.SetActive(true);
         }
 
-        else if (MonsterTrigger.isCornea == false)
+        else if (MonsterTrigger.isCornea == false && MonsterNPC.isCorneaDead == true)
         {
-            EndTurnButtonCornea.SetActive(false);
+            Destroy(EndTurnButtonCornea);
         }
 
         if (MonsterTrigger.isFacade == true)
@@ -146,6 +146,8 @@ public class EndTurn : MonoBehaviour
 
                 MonsterNPC.isCorneaDead = true;
 
+                MonsterTrigger.isCornea = false;
+
                 Debug.Log("Cornea Killed\n");
 
                 FadeIn.SetActive(true);
@@ -176,6 +178,7 @@ public class EndTurn : MonoBehaviour
     {
         
         playerStats.playerHP = playerStats.adminHP;
+        playerStats.playerMP = playerStats.adminMP;
 
         SceneManager.LoadSceneAsync("scn TOWN"); 
     }
