@@ -31,6 +31,8 @@ public class EndTurn : MonoBehaviour
 
     public void Start ()
     {
+        MonsterKilled();
+
         basicAtkBtn.GetComponent<Button>().interactable = true;
         SAttackIdleBtn.GetComponent<Button>().interactable = true;
         SAttackHoverBtn.GetComponent<Button>().interactable = true;
@@ -42,7 +44,7 @@ public class EndTurn : MonoBehaviour
 
         Round();
 
-        MonsterKilled();
+        
 
         if (playerStats.isSTRPotion == true)
         {
@@ -74,8 +76,6 @@ public class EndTurn : MonoBehaviour
     {
         if (MonsterTrigger.isGoblin == true)
         {
-            
-
             EndTurnButton.SetActive(true);
         }
 
@@ -138,7 +138,7 @@ public class EndTurn : MonoBehaviour
             }
         }
 
-        if (MonsterTrigger.isCornea == true)
+        else if (MonsterTrigger.isCornea == true)
         {
             if (CorneaScript.corneaHP <= 0)
             {
@@ -154,7 +154,7 @@ public class EndTurn : MonoBehaviour
             }
         }
 
-        if (MonsterTrigger.isFacade == true)
+        else if (MonsterTrigger.isFacade == true)
         {
             if (FacadeScript.facadeHP <= 0)
             {

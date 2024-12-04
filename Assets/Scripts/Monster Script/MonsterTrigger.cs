@@ -22,14 +22,15 @@ public class MonsterTrigger : MonoBehaviour
 #endregion
 
 #region Start and Update
-    void Update()
+
+    void Start()
     {
         if (isGoblin == true)
         {
             GoblinFightPanel();
         }
 
-        else if (isGoblin == false)
+        else if (isGoblin == false && MonsterNPC.isGoblinDead == true)
         {
             GoblinFightScene.SetActive(false);
         }
@@ -39,7 +40,7 @@ public class MonsterTrigger : MonoBehaviour
             CorneaFightPanel();
         }
 
-        else if (isCornea == false)
+        else if (isCornea == false && MonsterNPC.isCorneaDead == true)
         {
             CorneaFightScene.SetActive(false);
         }
@@ -49,7 +50,7 @@ public class MonsterTrigger : MonoBehaviour
             FacadeFightPanel();
         }
 
-        else if (isFacade == false)
+        else if (isFacade == false && MonsterNPC.isFacadeDead == true)
         {
             FacadeFightScene.SetActive(false);
         }
@@ -61,7 +62,7 @@ public class MonsterTrigger : MonoBehaviour
 #region Monster Fight Scene
     void GoblinFightPanel()
     {
-            GoblinFightScene.SetActive(true);
+        GoblinFightScene.SetActive(true);
 
     }
 
@@ -72,13 +73,13 @@ public class MonsterTrigger : MonoBehaviour
 
     void CorneaFightPanel()
     {
-            GoblinFightScene.SetActive(true);
+        CorneaFightScene.SetActive(true);
 
     }
 
     void FacadeFightPanel()
     {
-            GoblinFightScene.SetActive(true);
+        FacadeFightScene.SetActive(true);
 
     }
 #endregion

@@ -59,6 +59,9 @@ public class sceneChanger : MonoBehaviour
     public void playBtn()
     {
         fadeINTransition.SetActive(true);
+
+        PlayerPrefs.DeleteAll();
+
         Invoke("gameScene", 2);
     }
 
@@ -99,14 +102,6 @@ public class sceneChanger : MonoBehaviour
         ScreenUI.SetActive(false);
 
         HomeUI.SetActive(true);
-    }
-
-    void Update()
-    {
-        if(Input.GetKeyDown("`"))
-        {
-            PlayerPrefs.DeleteAll();
-        }
     }
 #endregion
 }

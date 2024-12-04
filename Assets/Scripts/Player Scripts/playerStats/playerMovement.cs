@@ -9,7 +9,7 @@ public class playerMovement : MonoBehaviour
     #region Field and Properties
 
     //PLAYER MOVEMENT
-    public static float movementSpeed = 5;
+    public static float movementSpeed = 3;
 
     Rigidbody2D rb; //PLAYER RIGID BODY
 

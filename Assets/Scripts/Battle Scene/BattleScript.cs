@@ -571,8 +571,11 @@ public class BattleScript : MonoBehaviour
                 {
                     BattleEffect.isPlayerMiss = true;
 
+                    moveName = "You used " + sAttack2Name;
                     moveDesc = "You Missed!";
+
                     textDesc.text = moveDesc;
+                    textMove.text = moveName;
                 }
             }
 
@@ -601,8 +604,11 @@ public class BattleScript : MonoBehaviour
                 {
                     BattleEffect.isPlayerMiss = true;
 
-                    moveDesc = "You Missed!\n";
+                    moveName = "You used " + sAttack2Name;
+                    moveDesc = "You Missed!";
+
                     textDesc.text = moveDesc;
+                    textMove.text = moveName;
                 }
             }
 
@@ -631,8 +637,11 @@ public class BattleScript : MonoBehaviour
                 {
                     BattleEffect.isPlayerMiss = true;
 
-                    moveDesc = "You Missed!\n";
+                    moveName = "You used " + sAttack2Name;
+                    moveDesc = "You Missed!";
+
                     textDesc.text = moveDesc;
+                    textMove.text = moveName;
                 }
                 
             }
@@ -669,8 +678,11 @@ public class BattleScript : MonoBehaviour
                 {
                     BattleEffect.isPlayerMiss = true;
 
+                    moveName = "You used " + sAttack2Name;
                     moveDesc = "You Missed!";
+
                     textDesc.text = moveDesc;
+                    textMove.text = moveName;
                 }
             }
 
@@ -699,8 +711,11 @@ public class BattleScript : MonoBehaviour
                 {
                     BattleEffect.isPlayerMiss = true;
 
-                    moveDesc = "You Missed!\n";
+                    moveName = "You used " + sAttack2Name;
+                    moveDesc = "You Missed!";
+
                     textDesc.text = moveDesc;
+                    textMove.text = moveName;
                 }
             }
 
@@ -729,8 +744,11 @@ public class BattleScript : MonoBehaviour
                 {
                     BattleEffect.isPlayerMiss = true;
 
-                    moveDesc = "You Missed!\n";
+                    moveName = "You used " + sAttack2Name;
+                    moveDesc = "You Missed!";
+
                     textDesc.text = moveDesc;
+                    textMove.text = moveName;
                 }
                 
             }
@@ -767,8 +785,11 @@ public class BattleScript : MonoBehaviour
                 {
                     BattleEffect.isPlayerMiss = true;
 
+                    moveName = "You used " + sAttack2Name;
                     moveDesc = "You Missed!";
+
                     textDesc.text = moveDesc;
+                    textMove.text = moveName;
                 }
             }
 
@@ -797,8 +818,11 @@ public class BattleScript : MonoBehaviour
                 {
                     BattleEffect.isPlayerMiss = true;
 
-                    moveDesc = "You Missed!\n";
+                    moveName = "You used " + sAttack2Name;
+                    moveDesc = "You Missed!";
+
                     textDesc.text = moveDesc;
+                    textMove.text = moveName;
                 }
             }
 
@@ -827,8 +851,11 @@ public class BattleScript : MonoBehaviour
                 {
                     BattleEffect.isPlayerMiss = true;
 
-                    moveDesc = "You Missed!\n";
+                    moveName = "You used " + sAttack2Name;
+                    moveDesc = "You Missed!";
+
                     textDesc.text = moveDesc;
+                    textMove.text = moveName;
                 }
                 
             }
@@ -859,6 +886,7 @@ public class BattleScript : MonoBehaviour
 
                         moveName = "You used " + sAttack2Name;
                         moveDesc = "You did " + playerStats.playerSattack2 + " To the Goblin";
+
                         textDesc.text = moveDesc;
                         textMove.text = moveName;
 
@@ -868,8 +896,11 @@ public class BattleScript : MonoBehaviour
                 {
                     BattleEffect.isPlayerMiss = true;
 
-                    moveDesc = "You Missed!\n";
+                    moveName = "You used " + sAttack2Name;
+                    moveDesc = "You Missed!";
+
                     textDesc.text = moveDesc;
+                    textMove.text = moveName;
                 }
             }
 
@@ -889,6 +920,7 @@ public class BattleScript : MonoBehaviour
 
                         moveName = "You used " + sAttack2Name;
                         moveDesc = "You did " + playerStats.playerSattack2 + " To the Goblin";
+
                         textDesc.text = moveDesc;
                         textMove.text = moveName;
 
@@ -898,8 +930,11 @@ public class BattleScript : MonoBehaviour
                 {
                     BattleEffect.isPlayerMiss = true;
 
+                    moveName = "You used " + sAttack2Name;
                     moveDesc = "You Missed!";
+
                     textDesc.text = moveDesc;
+                    textMove.text = moveName;
                 } 
             }
 
@@ -929,8 +964,11 @@ public class BattleScript : MonoBehaviour
                 {
                     BattleEffect.isPlayerMiss = true;
 
-                    moveDesc = "You Missed!\n";
+                    moveName = "You used " + sAttack2Name;
+                    moveDesc = "You Missed!";
+
                     textDesc.text = moveDesc;
+                    textMove.text = moveName;
                 } 
             }
         }
@@ -963,8 +1001,11 @@ public class BattleScript : MonoBehaviour
                 {
                     BattleEffect.isPlayerMiss = true;
 
-                    moveDesc = "You Missed!\n";
+                    moveName = "You used " + sAttack2Name;
+                    moveDesc = "You Missed!";
+
                     textDesc.text = moveDesc;
+                    textMove.text = moveName;
                 }
             }
 
@@ -993,8 +1034,11 @@ public class BattleScript : MonoBehaviour
                 {
                     BattleEffect.isPlayerMiss = true;
 
-                    moveDesc = "You Missed!\n";
+                    moveName = "You used " + sAttack2Name;
+                    moveDesc = "You Missed!";
+
                     textDesc.text = moveDesc;
+                    textMove.text = moveName;
                 } 
             }
 
@@ -1024,8 +1068,11 @@ public class BattleScript : MonoBehaviour
                 {
                     BattleEffect.isPlayerMiss = true;
 
-                    moveDesc = "You Missed!\n";
+                    moveName = "You used " + sAttack2Name;
+                    moveDesc = "You Missed!";
+
                     textDesc.text = moveDesc;
+                    textMove.text = moveName;
                 } 
             }
         }
@@ -1058,8 +1105,11 @@ public class BattleScript : MonoBehaviour
                 {
                     BattleEffect.isPlayerMiss = true;
 
-                    moveDesc = "You Missed!\n";
+                    moveName = "You used " + sAttack2Name;
+                    moveDesc = "You Missed!";
+
                     textDesc.text = moveDesc;
+                    textMove.text = moveName;
                 }
             }
 
@@ -1088,8 +1138,11 @@ public class BattleScript : MonoBehaviour
                 {
                     BattleEffect.isPlayerMiss = true;
                     
-                    moveDesc = "You Missed!\n";
+                    moveName = "You used " + sAttack2Name;
+                    moveDesc = "You Missed!";
+
                     textDesc.text = moveDesc;
+                    textMove.text = moveName;
                 } 
             }
 
@@ -1119,8 +1172,11 @@ public class BattleScript : MonoBehaviour
                 {
                     BattleEffect.isPlayerMiss = true;
 
-                    moveDesc = "You Missed!\n";
+                    moveName = "You used " + sAttack2Name;
+                    moveDesc = "You Missed!";
+
                     textDesc.text = moveDesc;
+                    textMove.text = moveName;
                 } 
             }
         }
