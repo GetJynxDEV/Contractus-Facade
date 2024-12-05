@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class playerStats : MonoBehaviour
@@ -11,8 +12,6 @@ public class playerStats : MonoBehaviour
 
     public static float maxHP = playerHP;
     public static float currentHP;
-
-
     public static float playerSTR;
     public static float playerAGI;
     public static float playerINT;
@@ -48,6 +47,12 @@ public class playerStats : MonoBehaviour
     public static bool isSTRPotion = false;
     public static bool isMGUPPotion = false;
 
+    public static int playerGold = 100;
+    public int currentGold;
+
+    [SerializeField] public TextMeshProUGUI currentGoldText;
+    string currentGoldValue;
+
     #endregion
 
     #region Computation
@@ -72,6 +77,12 @@ public class playerStats : MonoBehaviour
         Debug.Log("PLAYER SPECIAL ATTACK " + playerSattackName2 + ": " + playerSattack2 + "\n");
     }
 
+    void Update()
+    {
+        currentGold = playerGold;
+        currentGoldValue = currentGold.ToString();
+        currentGoldText.text = currentGoldValue;
+    }
     void ComputationUpdate()
     {
         //--------------------------- COMPUTATION ------------------------

@@ -12,6 +12,7 @@ public class audioTownManager : MonoBehaviour
     [Header("Audio Clip for START Scene")]
 
     public AudioClip townBG;
+    public AudioClip BuyItem;
 
     //AUDIO STARTS HERE
 
@@ -24,5 +25,11 @@ public class audioTownManager : MonoBehaviour
     {
         musicSource.clip = townBG;
         musicSource.Play();
+    }
+
+    public void Buy()
+    {
+        SFXSource.clip = BuyItem;
+        SFXSource.Play();
     }
 }
