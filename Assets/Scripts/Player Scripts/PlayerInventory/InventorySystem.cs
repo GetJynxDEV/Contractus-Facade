@@ -52,9 +52,22 @@ public class InventorySystem : MonoBehaviour
     public static bool isTown = false;
     public static bool isBattle = false;
 
+    //POTION BOOLEAN
+
+    bool isSTR = false;
+    bool isMGU = false;
+    bool isHP = false;
+    bool isMP = false;
+    bool isKey = false;
+
+    void Start()
+    {
+        Name.text = "";
+        Desc.text = "";
+    }
+
     void Update()
     {
-
         //STR POTION
 
         if (STRAmount >= 1)
@@ -117,139 +130,123 @@ public class InventorySystem : MonoBehaviour
 
     }
 
+    public void confirmBtn()
+    {
+        if (isSTR == true)
+        {
+            if (isTown == true)
+            {
+                Name.text = "";
+                Desc.text = "IT'S NOT THE RIGHT TIME TO USE THAT HERE!";
+                playerStats.isSTRPotion = false;
+            }
+
+            if (isBattle == true)
+            {
+                playerStats.isSTRPotion = true;
+            }
+        }
+
+        if (isMGU == true)
+        {
+            if (isTown == true)
+            {
+                Name.text = "";
+                Desc.text = "IT'S NOT THE RIGHT TIME TO USE THAT HERE!";
+                playerStats.isMGUPPotion = false;
+            }
+
+            if (isBattle == true)
+            {
+                playerStats.isMGUPPotion = true;
+            }
+        }
+
+        if (isHP == true)
+        {
+            if (isTown == true)
+            {
+                Name.text = "";
+                Desc.text = "IT'S NOT THE RIGHT TIME TO USE THAT HERE!";
+            }
+
+            if (isBattle == true)
+            {
+                playerStats.playerHP += 30;
+            }
+        }
+
+        if (isMP == true)
+        {
+            if (isTown == true)
+            {
+                Name.text = "";
+                Desc.text = "IT'S NOT THE RIGHT TIME TO USE THAT HERE!";
+            }
+
+            if (isBattle == true)
+            {
+                playerStats.playerMP += 30;
+            }
+        }
+
+        if (isKey == true)
+        {
+            if (isTown == true)
+            {
+                Name.text = "";
+                Desc.text = "IT'S NOT THE RIGHT TIME TO USE THAT HERE!";
+            }
+
+            if (isBattle == true)
+            {
+                Name.text = "";
+                Desc.text = "IT'S NOT THE RIGHT TIME TO USE THAT HERE!";
+            }
+        }
+        
+    }
+
+    public void clearBtn()
+    {
+        isSTR = false;
+        isMGU = false;
+        isHP = false;
+        isMP = false;
+        isKey = false;
+    }
+
+//POTIONS
+
     public void strBtn()
     {
         Name.text = STRName;
         Desc.text = STRDesc;
-
-        STRBtn.SetActive(true);
-        MagicUpBtn.SetActive(false);
-        HealthBtn.SetActive(false);
-        ManaBtn.SetActive(false);
-        KeyBtn.SetActive(false);
-    }
-
-    public void strConfirmBtn()
-    {
-        if (isTown == true)
-        {
-            Name.text = "";
-            Desc.text = "IT'S NOT THE RIGHT TIME TO USE THAT HERE!";
-            playerStats.isSTRPotion = false;
-        }
-
-        if (isBattle == true)
-        {
-            playerStats.isSTRPotion = true;
-        }
     }
 
     public void mgupBtn()
     {
         Name.text = MGUPName;
         Desc.text = MGUPDesc;
-
-        STRBtn.SetActive(false);
-        MagicUpBtn.SetActive(true);
-        HealthBtn.SetActive(false);
-        ManaBtn.SetActive(false);
-        KeyBtn.SetActive(false);
-    }
-
-    public void mgupConfirmBtn()
-    {
-        if (isTown == true)
-        {
-            Name.text = "";
-            Desc.text = "IT'S NOT THE RIGHT TIME TO USE THAT HERE!";
-            playerStats.isMGUPPotion = false;
-
-            
-        }
-
-        if (isBattle == true)
-        {
-            playerStats.isMGUPPotion = true;
-        }
     }
 
     public void hpBtn()
     {
         Name.text = HPName;
         Desc.text = HPDesc;
-        STRBtn.SetActive(false);
-        MagicUpBtn.SetActive(false);
-        HealthBtn.SetActive(true);
-        ManaBtn.SetActive(false);
-        KeyBtn.SetActive(false);
     }
 
-    public void hpConfirmButton()
-    {
-        if (isTown == true)
-        {
-            Name.text = "";
-            Desc.text = "IT'S NOT THE RIGHT TIME TO USE THAT HERE!";
-        }
-
-        if (isBattle == true)
-        {
-            playerStats.playerHP += 30;
-        }
-    }
 
     public void mpBtn()
     {
         Name.text = MPName;
         Desc.text = MPDesc;
-
-        STRBtn.SetActive(false);
-        MagicUpBtn.SetActive(false);
-        HealthBtn.SetActive(false);
-        ManaBtn.SetActive(true);
-        KeyBtn.SetActive(false);
-    }
-
-    public void mpConfirmButton()
-    {
-        if (isTown == true)
-        {
-            Name.text = "";
-            Desc.text = "IT'S NOT THE RIGHT TIME TO USE THAT HERE!";
-        }
-
-        if (isBattle == true)
-        {
-            playerStats.playerMP += 30;
-        }
     }
 
     public void keyBtn()
     {
         Name.text = KeyName;
         Desc.text = KeyDesc;
-
-        STRBtn.SetActive(false);
-        MagicUpBtn.SetActive(false);
-        HealthBtn.SetActive(false);
-        ManaBtn.SetActive(false);
-        KeyBtn.SetActive(true);
     }
-
-    public void keyConfirmBtn()
-    {
-        if (isTown == true)
-        {
-            Name.text = "";
-            Desc.text = "IT'S NOT THE RIGHT TIME TO USE THAT HERE!";
-        }
-
-        if (isBattle == true)
-        {
-            Name.text = "";
-            Desc.text = "IT'S NOT THE RIGHT TIME TO USE THAT HERE!";
-        }
-    }
-
     
 }

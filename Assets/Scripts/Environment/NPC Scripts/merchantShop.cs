@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
-using Unity.VisualScripting.ReorderableList.Element_Adder_Menu;
+using TMPro;    
 using UnityEngine.UI;
 
 public class merchantShop : MonoBehaviour
