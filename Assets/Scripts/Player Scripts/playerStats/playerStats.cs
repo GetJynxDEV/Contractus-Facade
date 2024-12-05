@@ -51,7 +51,7 @@ public class playerStats : MonoBehaviour
     public int currentGold;
 
     [SerializeField] public TextMeshProUGUI currentGoldText;
-    string currentGoldValue;
+    public static string currentGoldValue;
 
     #endregion
 

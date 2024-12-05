@@ -69,7 +69,7 @@ public class EndTurn : MonoBehaviour
 
     public void EndTurnAnim()
     {
-        Invoke("EndTurnBtn", 3);
+        Invoke("EndTurnBtn", 4);
     }
 
     void EndTurnBtn()

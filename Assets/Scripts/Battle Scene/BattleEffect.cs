@@ -21,7 +21,6 @@ public class BattleEffect : MonoBehaviour
 
     [SerializeField] public GameObject MageBasic;
     [SerializeField] public GameObject MageSAttack1;
-    [SerializeField] public GameObject MageSAttack2;
     [SerializeField] public GameObject MageSAttack2strike;
 
     [Space(10)]
@@ -99,6 +98,7 @@ public class BattleEffect : MonoBehaviour
             isPaladinBasic = false;
             PaladinBasic.SetActive(true);
 
+            PaladinEffect.isMove = true; //BATTLE EFFECT
             Invoke("PaladinBasicAnim", 2);
 
         }
@@ -108,7 +108,9 @@ public class BattleEffect : MonoBehaviour
             isPaladinSAttack1 = false;
             PaladinSAttack1.SetActive(true);
 
-            Invoke("isPaladinSAttack1Anim,", 2);
+            PaladinEffect.isMove = true; //BATTLE EFFECT
+
+            Invoke("PaladinSAttack1Anim,", 2);
 
         }
 
@@ -118,7 +120,9 @@ public class BattleEffect : MonoBehaviour
             PaladinSAttack2.SetActive(true);
             PaladinSAttackField.SetActive(true);
 
-            Invoke("isPaladinSAttack2Anim", 2);
+            PaladinEffect.isMove2 = true; //BATTLE EFFECT
+
+            Invoke("PaladinSAttack2Anim", 2);
 
         }
 
@@ -138,6 +142,8 @@ public class BattleEffect : MonoBehaviour
             isMageSAttack1 = false;
             MageSAttack1.SetActive(true);
 
+            MageEffect.isMove = true; //battle animation
+
             Invoke("MageSAttack1Anim", 2);
 
         }
@@ -145,8 +151,9 @@ public class BattleEffect : MonoBehaviour
         if (isMageSAttack2 == true)
         {
             isMageSAttack2 = false;
-            MageSAttack2.SetActive(true);
             MageSAttack2strike.SetActive(true);
+
+            MageEffect.isMove2 = true;
 
             Invoke("MageSAttack2Anim", 2);
 
@@ -255,7 +262,6 @@ public class BattleEffect : MonoBehaviour
 
     void MageSAttack2Anim()
     {
-        MageSAttack2.SetActive(false);
         MageSAttack2strike.SetActive(false);
     }
 
