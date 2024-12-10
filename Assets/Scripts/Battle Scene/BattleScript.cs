@@ -489,7 +489,7 @@ public class BattleScript : MonoBehaviour
         {
             BattleEffect.isPaladinBasic = true;
 
-            if (hitChance >= 4)
+            if (hitChance <= 7)
             {
                 Debug.Log("YOU HIT THE MONSTER!");
 
@@ -520,7 +520,7 @@ public class BattleScript : MonoBehaviour
 
             }
 
-            else if (hitChance <= 3)
+            else if (hitChance >= 8)
             {
                 Debug.Log("PLAYER MISSED");
 
@@ -536,7 +536,7 @@ public class BattleScript : MonoBehaviour
         {
             BattleEffect.isMageBasic = true;
 
-            if (hitChance >= 5)
+            if (hitChance <= 8)
             {
                 //MONSTER DAMAGE
 
@@ -566,7 +566,7 @@ public class BattleScript : MonoBehaviour
                 } 
             }
 
-            else if (hitChance <= 4)
+            else if (hitChance >= 9)
             {
                 Debug.Log("YOU MISSED!\n");   
                 
@@ -583,7 +583,7 @@ public class BattleScript : MonoBehaviour
         {
             BattleEffect.isSwordsmanBasic = true;
 
-            if (hitChance >= 5)
+            if (hitChance >= 6)
             {
                 //MONSTER DAMAGE
 
@@ -613,7 +613,7 @@ public class BattleScript : MonoBehaviour
                 } 
             }
 
-            else if (hitChance <= 4)
+            else if (hitChance >= 7)
             {
                 Debug.Log("YOU MISSED!\n");   
                 
@@ -643,7 +643,7 @@ public class BattleScript : MonoBehaviour
 
                 playerStats.playerMP -= 65;
 
-                if (hitChance >= 4)
+                if (hitChance >= 7)
                 {
                     GoblinScript.goblinHP -= playerStats.playerSattack1; //MONSTER
                     playerStats.isPlayerDeBuffEffect = true;
@@ -651,7 +651,7 @@ public class BattleScript : MonoBehaviour
                     moveDesc = "You did " + playerStats.playerSattack1 + " To the Goblin";
                 }
 
-                else if (hitChance <= 3)
+                else if (hitChance <= 8)
                 {
                     BattleEffect.isPlayerMiss = true;
                     moveDesc = "You Missed!";
@@ -669,7 +669,7 @@ public class BattleScript : MonoBehaviour
 
                 playerStats.playerMP -= 80;
 
-                if(hitChance >= 5)
+                if(hitChance <= 8)
                 {
                     GoblinScript.goblinHP -= playerStats.playerSattack1; //MONSTER
 
@@ -677,7 +677,7 @@ public class BattleScript : MonoBehaviour
 
                 }
 
-                else if (hitChance <= 4)
+                else if (hitChance >= 9)
                 {
                     BattleEffect.isPlayerMiss = true;
                     moveDesc = "You Missed!";
@@ -695,14 +695,14 @@ public class BattleScript : MonoBehaviour
 
                 playerStats.playerMP -= 50;
 
-                if (hitChance >= 5)
+                if (hitChance <= 6)
                 {
                     GoblinScript.goblinHP -= playerStats.playerSattack1; //MONSTER
 
                     moveDesc = "You did " + playerStats.playerSattack1 + " To the Goblin";
 
                 }
-                else if (hitChance <= 4)
+                else if (hitChance >= 7)
                 {
                     BattleEffect.isPlayerMiss = true;
                     moveDesc = "You Missed!";
@@ -726,7 +726,7 @@ public class BattleScript : MonoBehaviour
 
                 playerStats.playerMP -= 65;
 
-                if (hitChance >= 4)
+                if (hitChance <= 7)
                 {
                     if (playerStats.playerMP >= 65 )
                     {
@@ -737,7 +737,7 @@ public class BattleScript : MonoBehaviour
                     }
                 }
 
-                else if (hitChance <= 3)
+                else if (hitChance >= 8)
                 {
                     BattleEffect.isPlayerMiss = true;
                     moveDesc = "You Missed!";
@@ -755,14 +755,14 @@ public class BattleScript : MonoBehaviour
                 
                 playerStats.playerMP -= 80;
 
-                if(hitChance >= 5)
+                if(hitChance <= 8)
                 {
                     CorneaScript.corneaHP -= playerStats.playerSattack1; //MONSTER
 
                     moveDesc = "You did " + playerStats.playerSattack1 + " To the Cornea";
                 }
 
-                else if (hitChance <= 4)
+                else if (hitChance >= 9)
                 {
                     BattleEffect.isPlayerMiss = true;
 
@@ -779,13 +779,13 @@ public class BattleScript : MonoBehaviour
             {
                 playerStats.playerMP -= 50;
 
-                if (hitChance >= 5)
+                if (hitChance <= 6)
                 {
                     CorneaScript.corneaHP -= playerStats.playerSattack1; //MONSTER
 
                     moveDesc = "You did " + playerStats.playerSattack1 + " To the Cornea";
                 }
-                else if (hitChance <= 4)
+                else if (hitChance >= 7)
                 {
                     BattleEffect.isPlayerMiss = true;
 
@@ -810,7 +810,7 @@ public class BattleScript : MonoBehaviour
 
                 playerStats.playerMP -= 65;
 
-                if (hitChance >= 4)
+                if (hitChance <= 7)
                 {
                     FacadeScript.facadeHP -= playerStats.playerSattack1; //MONSTER
                     playerStats.isPlayerDeBuffEffect = true;
@@ -818,7 +818,7 @@ public class BattleScript : MonoBehaviour
                     moveDesc = "You did " + playerStats.playerSattack1 + " To the Facade";
                 }
 
-                else if (hitChance <= 3)
+                else if (hitChance >= 8)
                 {
                     BattleEffect.isPlayerMiss = true;
 
@@ -839,7 +839,7 @@ public class BattleScript : MonoBehaviour
 
                 playerStats.playerMP -= 80;
 
-                if(hitChance >= 5)
+                if(hitChance <= 8)
                 {
                     if (playerStats.playerMP > 80 )
                     {
@@ -849,7 +849,7 @@ public class BattleScript : MonoBehaviour
                     }
                 }
 
-                else if (hitChance <= 4)
+                else if (hitChance >= 9)
                 {
                     BattleEffect.isPlayerMiss = true;
                     moveDesc = "You Missed!";
@@ -867,7 +867,7 @@ public class BattleScript : MonoBehaviour
 
                 playerStats.playerMP -= 50;
 
-                if (hitChance >= 5)
+                if (hitChance <= 6)
                 {
                     if (playerStats.playerMP >= 50 )
                     {
@@ -880,7 +880,7 @@ public class BattleScript : MonoBehaviour
 
                     }
                 }
-                else if (hitChance <= 4)
+                else if (hitChance >= 7)
                 {
                     BattleEffect.isPlayerMiss = true;
 
@@ -913,14 +913,14 @@ public class BattleScript : MonoBehaviour
 
                 playerStats.playerMP -= 110;
 
-                if (hitChance >= 4)
+                if (hitChance <= 7)
                 {
                     GoblinScript.goblinHP -= playerStats.playerSattack2; //MONSTER
 
                     moveDesc = "You did " + playerStats.playerSattack2 + " To the Goblin";
                 }
 
-                else if (hitChance <= 3)
+                else if (hitChance >= 8)
                 {
                     BattleEffect.isPlayerMiss = true;
 
@@ -938,13 +938,13 @@ public class BattleScript : MonoBehaviour
                 BattleEffect.isMageSAttack2 = true;
 
                 playerStats.playerMP -= 150;
-                if (hitChance >= 4)
+                if (hitChance <= 8)
                 {
                     GoblinScript.goblinHP -= playerStats.playerSattack2; //MONSTER
 
                     moveDesc = "You did " + playerStats.playerSattack2 + " To the Goblin";
                 }
-                else if (hitChance <= 3)
+                else if (hitChance >= 9)
                 {
                     BattleEffect.isPlayerMiss = true;
                     moveDesc = "You Missed!";
@@ -962,7 +962,7 @@ public class BattleScript : MonoBehaviour
 
                 playerStats.playerMP -= 100;
 
-                if (hitChance >= 5)
+                if (hitChance <= 6)
                 {
                     GoblinScript.goblinHP -= playerStats.playerSattack2; //MONSTER
 
@@ -970,7 +970,7 @@ public class BattleScript : MonoBehaviour
 
                     moveDesc = "You did " + playerStats.playerSattack2 + " To the Goblin";
                 }
-                else if (hitChance <= 4)
+                else if (hitChance >= 7)
                 {
                     BattleEffect.isPlayerMiss = true;
                     moveDesc = "You Missed!";
@@ -992,12 +992,12 @@ public class BattleScript : MonoBehaviour
 
                 playerStats.playerMP -= 110;
 
-                if (hitChance >= 4)
+                if (hitChance <= 7)
                 {
                     CorneaScript.corneaHP -= playerStats.playerSattack2; //MONSTER
                     moveDesc = "You did " + playerStats.playerSattack2 + " To the Cornea";
                 }
-                else if (hitChance <= 3)
+                else if (hitChance >= 8)
                 {
                     BattleEffect.isPlayerMiss = true;
                     moveDesc = "You Missed!";
@@ -1017,13 +1017,13 @@ public class BattleScript : MonoBehaviour
 
                 playerStats.playerMP -= 150;
 
-                if (hitChance >= 5)
+                if (hitChance <= 8)
                 {
                     CorneaScript.corneaHP -= playerStats.playerSattack2; //MONSTER
 
                     moveDesc = "You did " + playerStats.playerSattack2 + " To the Cornea";
                 }
-                else if (hitChance <= 4)
+                else if (hitChance >= 9)
                 {
                     BattleEffect.isPlayerMiss = true;
                     moveDesc = "You Missed!";
@@ -1041,7 +1041,7 @@ public class BattleScript : MonoBehaviour
 
                 playerStats.playerMP -= 100;
 
-                if (hitChance >= 5)
+                if (hitChance <= 6)
                 {
                     CorneaScript.corneaHP -= playerStats.playerSattack2; //MONSTER
 
@@ -1051,7 +1051,7 @@ public class BattleScript : MonoBehaviour
 
                 }
 
-                else if (hitChance <= 4)
+                else if (hitChance >= 7)
                 {
                     BattleEffect.isPlayerMiss = true;
                     moveDesc = "You Missed!";
@@ -1073,7 +1073,7 @@ public class BattleScript : MonoBehaviour
 
                 playerStats.playerMP -= 110;
 
-                if (hitChance >= 4)
+                if (hitChance <= 7)
                 {
                         FacadeScript.facadeHP -= playerStats.playerSattack2; //MONSTER
 
@@ -1081,7 +1081,7 @@ public class BattleScript : MonoBehaviour
                         moveDesc = "You did " + playerStats.playerSattack2 + " To the Facade";
                 }
                 
-                else if (hitChance <= 3)
+                else if (hitChance >= 8)
                 {
                     BattleEffect.isPlayerMiss = true;
                     moveDesc = "You Missed!";
@@ -1099,13 +1099,13 @@ public class BattleScript : MonoBehaviour
 
                 playerStats.playerMP -= 150;
 
-                if (hitChance >= 5)
+                if (hitChance <= 8)
                 {
                     FacadeScript.facadeHP -= playerStats.playerSattack2; //MONSTER
             
                     moveDesc = "You did " + playerStats.playerSattack2 + " To the Facade";
                 }
-                else if (hitChance <= 4)
+                else if (hitChance >= 9)
                 {
                     BattleEffect.isPlayerMiss = true;
                     moveDesc = "You Missed!";
@@ -1123,7 +1123,7 @@ public class BattleScript : MonoBehaviour
 
                 playerStats.playerMP -= 100;
 
-                if (hitChance >= 5)
+                if (hitChance <= 6)
                 {
                     FacadeScript.facadeHP -= playerStats.playerSattack2; //MONSTER
 
@@ -1132,7 +1132,7 @@ public class BattleScript : MonoBehaviour
                     moveDesc = "You did " + playerStats.playerSattack2 + " To the Facade";
                 }
 
-                else if (hitChance <= 4)
+                else if (hitChance >= 7)
                 {
                     BattleEffect.isPlayerMiss = true;
                     moveDesc = "You Missed!";

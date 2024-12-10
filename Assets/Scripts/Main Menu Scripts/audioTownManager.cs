@@ -13,12 +13,23 @@ public class audioTownManager : MonoBehaviour
 
     public AudioClip townBG;
     public AudioClip BuyItem;
+    public AudioClip cryingChild;
+    public AudioClip facadeScream;
+
+    public static bool isCry = false;
+    public static bool isFacade = false;
 
     //AUDIO STARTS HERE
 
     void Start()
     {
         TownMusic();
+    }
+
+    void Update()
+    {
+        Cry();
+        FacadeShout();
     }
 
     public void TownMusic()
@@ -31,5 +42,39 @@ public class audioTownManager : MonoBehaviour
     {
         SFXSource.clip = BuyItem;
         SFXSource.Play();
+    }
+
+    void Cry()
+    {
+        if (isCry == true)
+        {   
+            Debug.Log("CRYING CHILD SOUND PLAYED");
+            SFXSource.clip = cryingChild;
+            SFXSource.Play();
+        }
+
+        else if (isCry == false)
+        {
+            SFXSource.clip = cryingChild;
+            SFXSource.Stop();
+        }
+
+        
+    }
+
+    void FacadeShout()
+    {
+        if (isFacade == true)
+        {
+            SFXSource.clip = facadeScream;
+            SFXSource.Play();
+        }
+
+        else if (isFacade == false)
+        {
+            SFXSource.clip = facadeScream;
+            SFXSource.Stop();
+        }
+        
     }
 }
