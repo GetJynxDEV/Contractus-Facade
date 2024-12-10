@@ -110,7 +110,7 @@ public class BattleEffect : MonoBehaviour
 
             PaladinEffect.isMove = true; //BATTLE EFFECT
 
-            Invoke("PaladinSAttack1Anim,", 2);
+            Invoke("PaladinSAttack1Anim", 2);
 
         }
 
@@ -187,6 +187,8 @@ public class BattleEffect : MonoBehaviour
 
         if (isSwordsmanSAttack2 == true)
         {
+            SwordsmanEffect.isMove2 = true;
+
             isSwordsmanSAttack2 = false;
             SwordsmanSAttack2.SetActive(true);
 

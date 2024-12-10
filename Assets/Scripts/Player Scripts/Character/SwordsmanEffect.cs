@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class SwordsmanEffect : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    [SerializeField] public GameObject Char;
+    [SerializeField] public Animator anim;
+    
+    public static bool isMove2 = false;
+    
     void Update()
     {
-        
+        if (isMove2 == true)
+        {
+            isMove2 = false;
+
+            anim.SetTrigger("sAtk2");
+        }
     }
 }

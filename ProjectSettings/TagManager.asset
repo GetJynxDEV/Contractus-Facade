@@ -60,3 +60,6 @@ TagManager:
   - name: Decor
     uniqueID: 2563413617
     locked: 0
+  - name: NPC
+    uniqueID: 2048458783
+    locked: 0
