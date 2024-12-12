@@ -38,11 +38,11 @@ public class wifeNPC : MonoBehaviour
             isNear = true;
             wifeNotif.SetActive(true);
         }
+    }
 
-        else
-        {
-            isNear = false;
-            wifeNotif.SetActive(false);
-        }
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        isNear = false;
+        wifeNotif.SetActive(false);
     }
 }

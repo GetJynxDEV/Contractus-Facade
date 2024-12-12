@@ -8,7 +8,7 @@ public class PlayerCameraShake : MonoBehaviour
 {
     private CinemachineVirtualCamera CVC;
     private float ShakeIntensity = 1f;
-    private float shakeTime = 0.2f;
+    private float shakeTime = 0.3f;
 
     private float timer;
     private CinemachineBasicMultiChannelPerlin CMBMP;
@@ -44,21 +44,28 @@ public class PlayerCameraShake : MonoBehaviour
 
     void Update()
     {
-        if (isFacade == true)
-        {
-            ShakeCamera();
-
-            Invoke("StopShake", 1);
-        }
-
         if (timer > 0)
         {
+
             timer -= Time.deltaTime;
+
+            Debug.Log(timer);
 
             if (timer <=0)
             {
                 StopShake();
             }
         }
+
+        if (isFacade == true)
+        {
+            ShakeCamera();
+
+            isFacade = false;
+
+            Invoke("StopShake", 4);
+        }
+
+        
     }
 }

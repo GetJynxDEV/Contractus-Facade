@@ -43,11 +43,11 @@ public class leaderNPC : MonoBehaviour
             isNear = true;
             notif.SetActive(true);
         }
+    }
 
-        else
-        {
-            isNear = false;
-            notif.SetActive(false);
-        }
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        isNear = false;
+        notif.SetActive(false);
     }
 }

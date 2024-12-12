@@ -53,6 +53,11 @@ public class playerCollision : MonoBehaviour
 
             SceneManager.LoadSceneAsync("scn BATTLE");
         }
+
+        if (collision.gameObject.name == "SoundCollider")
+        {
+            audioTownManager.isCry = true;
+        }
     }
 
 #endregion

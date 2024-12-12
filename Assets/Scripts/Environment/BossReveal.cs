@@ -11,43 +11,29 @@ public class BossReveal : MonoBehaviour
     [SerializeField] public GameObject Kid;
     bool isKid = true;
 
-    bool isCollide = false;
-
     // Update is called once per frame
     void Update()
     {
-        if (isCollide == true)
+        if (isKid == true)
         {
-            if (isKid == true)
-            {
-                Video.SetActive(false);
-                VideoPlayer.SetActive(false);
+            Video.SetActive(false);
+            VideoPlayer.SetActive(false);
 
-                Boss.SetActive(false);
-                Kid.SetActive(true);
-            }
-
-            if (isKid == false)
-            {
-
-                playerMovement.movementSpeed = 0;
-                Video.SetActive(true);
-                VideoPlayer.SetActive(true);
-
-                Destroy(Kid);
-
-                Boss.SetActive(true);
-                Kid.SetActive(false);
-
-                Invoke("VideoPlay", 16);
-            }
-
-            isCollide = false;
+            Boss.SetActive(false);
+            Kid.SetActive(true);
         }
 
-        else if (isCollide == false)
+        else if (isKid == false)
         {
-            
+
+            playerMovement.movementSpeed = 0;
+            Video.SetActive(true);
+            VideoPlayer.SetActive(true);
+
+            Boss.SetActive(true);
+            Kid.SetActive(false);
+
+            Invoke("VideoPlay", 14);
         }
 
         
@@ -57,11 +43,7 @@ public class BossReveal : MonoBehaviour
     {
         if (collision.gameObject.name == "Player")
         {
-            isCollide = true;
-
             isKid = false;
-
-            Destroy(ColliderObject);
         }
     }
 
@@ -69,6 +51,9 @@ public class BossReveal : MonoBehaviour
     {
         Video.SetActive(false);
         VideoPlayer.SetActive(false);
+
+        Destroy(Kid);
+        Destroy(ColliderObject);
 
         playerMovement.movementSpeed = 3;
         CameraShake();

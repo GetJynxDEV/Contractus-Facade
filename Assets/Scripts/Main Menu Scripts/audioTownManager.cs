@@ -28,7 +28,14 @@ public class audioTownManager : MonoBehaviour
 
     void Update()
     {
-        Cry();
+        if (isCry == true)
+        {   
+            SFXSource.clip = cryingChild;
+            SFXSource.Play();
+
+            Invoke("StopCry", 2);
+        }
+        
         FacadeShout();
     }
 
@@ -42,17 +49,6 @@ public class audioTownManager : MonoBehaviour
     {
         SFXSource.clip = BuyItem;
         SFXSource.Play();
-    }
-
-    void Cry()
-    {
-        if (isCry == true)
-        {   
-            SFXSource.clip = cryingChild;
-            SFXSource.Play();
-
-            Invoke("StopCry", 2);
-        }  
     }
 
     void StopCry()

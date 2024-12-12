@@ -21,9 +21,7 @@ public class knightsNPC : MonoBehaviour
         if (isNear == true)
         {
             if (Input.GetKeyDown(KeyCode.E))
-            {
-                Debug.Log("HELLO");
-                
+            {               
                 closeDialogue.isTalking = true;
                 closeDialogue.isKnight = true;
             }
@@ -38,11 +36,11 @@ public class knightsNPC : MonoBehaviour
             isNear = true;
             notif.SetActive(true);
         }
+    }
 
-        else
-        {
-            isNear = false;
-            notif.SetActive(false);
-        }
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        isNear = false;
+        notif.SetActive(false);
     }
 }
