@@ -59,6 +59,12 @@ public class npcMerchant : MonoBehaviour
         }
     }
 
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        shopIcon.SetActive(false);
+        shopOpen = false;
+    }
+
     #endregion
 
 }

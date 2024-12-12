@@ -47,6 +47,8 @@ public class PlayerCameraShake : MonoBehaviour
         if (isFacade == true)
         {
             ShakeCamera();
+
+            Invoke("StopShake", 1);
         }
 
         if (timer > 0)

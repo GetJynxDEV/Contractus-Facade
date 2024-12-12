@@ -11,45 +11,65 @@ public class BossReveal : MonoBehaviour
     [SerializeField] public GameObject Kid;
     bool isKid = true;
 
+    bool isCollide = false;
+
     // Update is called once per frame
     void Update()
     {
-        if (isKid == true)
+        if (isCollide == true)
+        {
+            if (isKid == true)
+            {
+                Video.SetActive(false);
+                VideoPlayer.SetActive(false);
+
+                Boss.SetActive(false);
+                Kid.SetActive(true);
+            }
+
+            if (isKid == false)
+            {
+
+                playerMovement.movementSpeed = 0;
+                Video.SetActive(true);
+                VideoPlayer.SetActive(true);
+
+                Destroy(Kid);
+
+                Boss.SetActive(true);
+                Kid.SetActive(false);
+
+                Invoke("VideoPlay", 16);
+            }
+
+            isCollide = false;
+        }
+
+        else if (isCollide == false)
         {
             
-
-            Video.SetActive(false);
-            VideoPlayer.SetActive(false);
-
-            Boss.SetActive(false);
-            Kid.SetActive(true);
         }
 
-        if (isKid == false)
-        {
-            Debug.Log("BOSS REVEAL");
-
-            playerMovement.movementSpeed = 0;
-            Video.SetActive(true);
-            VideoPlayer.SetActive(true);
-
-            Boss.SetActive(true);
-            Kid.SetActive(false);
-
-            Invoke("VideoPlay", 16);
-        }
+        
     }
 
     void OnTriggerEnter2D (Collider2D collision)
     {
         if (collision.gameObject.name == "Player")
         {
+            isCollide = true;
+
             isKid = false;
+
+            Destroy(ColliderObject);
         }
     }
 
     void VideoPlay()
     {
+        Video.SetActive(false);
+        VideoPlayer.SetActive(false);
+
         playerMovement.movementSpeed = 3;
         CameraShake();
     }

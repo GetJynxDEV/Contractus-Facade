@@ -48,18 +48,18 @@ public class audioTownManager : MonoBehaviour
     {
         if (isCry == true)
         {   
-            Debug.Log("CRYING CHILD SOUND PLAYED");
             SFXSource.clip = cryingChild;
             SFXSource.Play();
-        }
 
-        else if (isCry == false)
-        {
-            SFXSource.clip = cryingChild;
-            SFXSource.Stop();
-        }
+            Invoke("StopCry", 2);
+        }  
+    }
 
-        
+    void StopCry()
+    {
+        SFXSource.clip = cryingChild;
+        SFXSource.Stop();
+
     }
 
     void FacadeShout()
